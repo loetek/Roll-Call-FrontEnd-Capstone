@@ -1,6 +1,6 @@
 export default {
 
-	getData(fetchObject) {
+	DataManager(fetchObject) {
 
 	// "http://localhost:5002/users?_embed=friend"
 

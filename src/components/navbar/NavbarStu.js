@@ -17,26 +17,40 @@ import { Link } from "react-router-dom"
 import "bootstrap/dist/css/bootstrap.min.css"
 
 
-export default class NavBar extends Component
+export default class NavBarStu extends Component
 {
+    constructor(props) {
+        super(props);
+
+        this.toggleNavbar = this.toggleNavbar.bind(this);
+        this.state = {
+          collapsed: true
+        };
+      }
+
+      toggleNavbar() {
+        this.setState({
+          collapsed: !this.state.collapsed
+        });
+      }
 render(){
-return(
-<div>
-    <Navbar color="inverse" light expand="md">
-        <NavbarBrand href="/">reactstrap</NavbarBrand>
-            <NavbarToggler onClick={this.toggle} />
-                    <Collapse isOpen={this.state.isOpen} navbar>
-                        <Nav className="ml-auto" navbar>
-                            <NavItem>
-                                <NavLink href="/components/">Components</NavLink>
-                                </NavItem>
-                        <NavItem>
-                    <NavLink href="https://github.com/reactstrap/reactstrap">Github</NavLink>
+    return (
+        <div>
+          <Navbar color="faded" light>
+            <NavbarBrand href="/" className="mr-auto">Show of Hands</NavbarBrand>
+            <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
+            <Collapse isOpen={!this.state.collapsed} navbar>
+              <Nav navbar>
+                <NavItem>
+                  <NavLink href="/components/">Access Common Links</NavLink>
                 </NavItem>
-            </Nav>
-        </Collapse>
-    </Navbar>
-    </div>
-)
+                <NavItem>
+                  <NavLink href="https://github.com/reactstrap/reactstrap">Dashboard</NavLink>
+                </NavItem>
+              </Nav>
+            </Collapse>
+          </Navbar>
+        </div>
+      );
 }
 }
