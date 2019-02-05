@@ -1,0 +1,157 @@
+{
+    "users": [
+      {
+        "id":1,
+        "cohortID":29,
+        "firstName": "Millie",
+        "lastName": "BoBillie",
+        "status": false,
+        "userName": "MiBillie",
+        "password": "password"
+      },
+      {
+        "id":2,
+        "cohortID":30,
+        "firstName": "Jimmy",
+        "lastName": "TwoTones",
+        "status": false,
+        "userName": "2Tones",
+        "password": "password"
+      },
+      {
+        "id":3,
+        "cohortID":31,
+        "firstName": "Frida",
+        "lastName": "Calloe",
+        "status": false,
+        "userName": "frito",
+        "password": "password"
+      },
+      {
+        "id":4,
+        "cohortID":31,
+        "firstName": "Ima",
+        "lastName": "Teahya",
+        "status": true,
+        "userName": "teach",
+        "password": "password"
+      },
+      {
+        "id":5,
+        "cohortID":29,
+        "firstName": "Mossy",
+        "lastName": "DaBossy",
+        "status": true,
+        "userName": "Moss",
+        "password": "password"
+      }
+    ],
+
+"agendas":[
+    {
+      "id": 1,
+      "userId": 1,
+      "topic": "Arrays and other Goodies",
+      "difficulty":"6",
+      "exercise": "Create an array and loop through it.",
+      "chapter": 10,
+      "dateTime": "2019-01-30T16:34:02.739Z",
+      "announcements": " Demo day for Front End capstones will will be on Feb 15th.",
+      "QR": "",
+      "cohortID": 31
+    },
+    {
+        "id": 2,
+        "userId": 2,
+        "topic": "State of annoyance",
+        "difficulty":"8",
+        "exercise": "Set state on the kennel project",
+        "chapter": 19,
+        "dateTime": "2019-02-05T16:34:02.739Z",
+        "announcements": " CAPSTONES ARE COMING!!",
+        "QR": "",
+        "cohortID": 29
+      },
+      {
+        "id":3,
+        "userId": 3,
+        "topic": "WTF is Crud",
+        "difficulty":"6",
+        "exercise": "Write a brief description of what you think a CRUD app is and why do we care?",
+        "chapter": 10,
+        "dateTime": "2019-02-09T16:34:02.739Z",
+        "announcements": " Demo day for Front End capstones will will be on Feb 15th.",
+        "QR": "",
+        "cohortID": 30
+      }
+    ],
+    "links":[
+        {
+            "id":1,
+            "dateAdded":"02-01-2019",
+            "title": "BEM Formatting",
+            "description":"blah blahblahblahblahblahblahblahblahblah",
+            "url":"www.bem.com",
+            "userID": 4,
+            "cohortID":29
+
+        },
+        {
+            "id":2,
+            "dateAdded":"02-01-2019",
+            "title": "Arrayzing",
+            "description":"blah blahblahblahblahblahblahblahblahblah",
+            "url":"www.mdn.com",
+            "userID": 5,
+            "cohortID":31
+
+        }
+    ],
+    "cohorts":[
+        {
+        "id":1,
+        "cohortID":29,
+        "description":"Full Stack with Front End JS React and BackEnd with C#",
+        "userID":5
+        },
+        {
+        "id":2,
+        "cohortID":30,
+        "description":"Full Stack with Front End JS React and BackEnd with C#",
+        "userID":2
+        },
+        {
+        "id":3,
+        "cohortID":31,
+        "description":"Full Stack with Front End JS React and BackEnd with C#",
+        "userID":3
+        }
+
+    ],
+
+    "tempCheck":[
+        {
+            "id":1,
+            "dateTime":"2019-02-05T16:34:02.739Z",
+            "feels": 8,
+            "userID": 1,
+            "cohortID":31
+        },
+        {
+            "id":2,
+            "dateTime":"2019-02-05T16:34:02.739Z",
+            "feels": 3,
+            "userID": 3,
+            "cohortID":29
+        },
+        {
+            "id":3,
+            "dateTime":"2019-02-05T16:34:02.739Z",
+            "feels": 4,
+            "userID": 2,
+            "cohortID":30
+        }
+    ]
+
+
+}

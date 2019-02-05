@@ -1,0 +1,37 @@
+//!! This is the main landing page for the instructors. It will load the most current agenda item. It will access AgendaList
+//TODO I have the primary structure with the button.
+
+
+import React, { Component } from "react"
+import AgendaList from "../agendas/AgendaList"
+
+
+
+
+export default class LandingPageInst extends Component {
+
+        render() {
+          return (
+            <React.Fragment>
+              <h2> Current Agendas </h2>
+            <section className="LandingPageAgenda">
+                {this.props.agendas.map(agenda => (
+                  <AgendaList key={agenda.id} agenda={agenda} {...this.props} />
+                ))}
+              </section>
+              <div className="newAgendaButton">
+                <button
+                  type="button"
+                  className="btn btn-success"
+                  onClick={() => {
+                    this.props.history.push("/agenda/new");
+                  }}
+                >
+                  Create New Agenda
+                </button>
+              </div>
+
+            </React.Fragment>
+          );
+        }
+      }
