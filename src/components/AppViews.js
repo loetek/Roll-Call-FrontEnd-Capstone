@@ -9,10 +9,15 @@ import {
 } from 'reactstrap';
 import LandingPageInst from "./landingPage/LandingPageInst"
 import LandingPageStu from "./landingPage/LandingPageStu"
-import DataManager from "../modules/DataManager"
-import LoginManager from "../modules/LoginManager";
+import AgendaList from "./agendas/AgendaList"
+import AgendaDetail from "./agendas/AgendaDetail"
+import AgendaFormInst from "./agendas/AgendaFormInst"
 import Login from './logins/LoginList';
 import Registration from "./logins/Registration"
+
+import DataManager from "../modules/DataManager"
+import LoginManager from "../modules/LoginManager";
+import AgendaManager from "../modules/AgendaManager";
 
 
 export default class AppViews extends Component {
@@ -24,7 +29,7 @@ export default class AppViews extends Component {
         userId: sessionStorage.getItem("user")
     }
 
-    //!! ADD schtuff area !!//
+    //!! ADD and remove schtuff area !!//
     addUser = newUser =>
     LoginManager.post(newUser)
       .then(() => LoginManager.getAll())
@@ -33,9 +38,36 @@ export default class AppViews extends Component {
           users: user
         })
       );
+    deleteAgenda = id => {
+        return fetch(`http://localhost:5002/agendas/${id}`, {
+          method: "DELETE"
+        })
+          .then(response => response.json())
+          .then(() => fetch(`http://localhost:5002/agendas`))
+          .then(response => response.json())
+          .then(agendas =>
+            this.setState({
+              agendas: agendas
+            })
+          );
+      };
 
-    //!! Data Fetch Calls !!///////
+      addAgendas = newAgenda =>
+    AgendaManager.post(newAgenda)
+      .then(() => AgendaManager.getAll())
+      .then(agendas =>
+        this.setState({
+          agendas: agendas
+        })
+      );
 
+      verifyUser = (username, password) => {
+        LoginManager.getUsernameAndPassword(username, password)
+          .then(allUsers => this.setState({
+            users: allUsers
+          })
+          )
+      }
 
 
     //!! Component Did Mount !!////
@@ -72,14 +104,6 @@ componentDidMount() {
 
     }
 
-    verifyUser = (username, password) => {
-        LoginManager.getUsernameAndPassword(username, password)
-          .then(allUsers => this.setState({
-            users: allUsers
-          })
-          )
-      }
-
     render() {
         return (
           <React.Fragment>
@@ -93,25 +117,51 @@ componentDidMount() {
             />
             <Route
              exact path="/login/new" render={(props) => {
-            return <Registration {...props}
-            users={this.state.users}
-            addUser={this.addUser}
-            userId={this.state.userId} />
+              return <Registration {...props}
+              users={this.state.users}
+              addUser={this.addUser}
+              userId={this.state.userId} />
         }} />
             <Route
-              exact path="/LPInst" render={props => {
-              return (
-                <LandingPageInst {...props} LandingPageAgenda={this.state.agendas} />
-                     );
+            exact path="/LPInst" render={props => {
+              return <LandingPageInst {...props}
+              LandingPageInst={this.state.agendas}
+              agendas={this.state.agendas} />
               }}
             />
             <Route
               exact path="/LPStu" render={props => {
-
-                return( <LandingPageStu {...props} LandingPageStu={this.state.agendas} />
-                );
+                return <LandingPageStu {...props}
+                LandingPageStu={this.state.agendas}
+                agendas={this.state.agendas} />
                 }}
             />
+            <Route
+            exact path="/agendas" render={props => {
+                return <AgendaList {...props}
+                deleteAgenda={this.deleteAgenda}
+                agendas={this.state.agendas} />
+                }}
+             />
+
+        {/* this is the detail for individual agenda item */}
+            <Route
+            path="/agendas/:agendaId(\d+)" render={props => {
+                return <AgendaDetail {...props}
+                deleteAgenda={this.deleteAgenda}
+                agendas={this.state.agendas}
+              />
+          }}
+        />
+
+        {/* this is the agendas add form */}
+            <Route
+            path="/agendas/new" render={props => {
+                return <AgendaFormInst {...props}
+                addAgendas={this.addAgendasd}
+              />
+          }}
+        />
           </React.Fragment>
         );
       }

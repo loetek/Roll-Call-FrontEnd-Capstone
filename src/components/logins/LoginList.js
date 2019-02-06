@@ -31,13 +31,16 @@ console.log(this.props)
             alert("You will need to Register first")
         } else {
             this.props.users.forEach(user => {
+                console.log(user.status)
                 let loggedIn= false;
                 if (this.state.username === user.userName && this.state.password === user.password) {
                         loggedIn= true;
                     }
                 if (loggedIn === true){
                     sessionStorage.setItem("user", user.id);
-                  if(this.props.users.status){
+                    //TODO the problem right now is that is not checking against the entered user just agains the database all 5 users.
+                    //Todo Need to extract the result of the comparison above. Compare username and password return status of that user.
+                  if(user.status === true){
                     this.props.history.push("/LPInst")
                   }else{
                     this.props.history.push("/LPStu")
