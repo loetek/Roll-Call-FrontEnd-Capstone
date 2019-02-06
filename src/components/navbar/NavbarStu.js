@@ -42,7 +42,7 @@ render(){
             <Collapse isOpen={!this.state.collapsed} navbar>
               <Nav navbar>
                 <NavItem>
-                  <NavLink href="/components/">Access Common Links</NavLink>
+                  <NavLink href="/linkslist">Access Common Links</NavLink>
                 </NavItem>
                 <NavItem>
                   <NavLink href="https://github.com/reactstrap/reactstrap">Dashboard</NavLink>
