@@ -6,7 +6,7 @@ import { Container, Row, Col,Button } from 'reactstrap';
 export default class AgendaCard extends Component {
   render() {
 
-    console.log(this.props.agenda.id)
+    console.log(this.props.agenda)
     return (
     <React.Fragment>
       <Container>

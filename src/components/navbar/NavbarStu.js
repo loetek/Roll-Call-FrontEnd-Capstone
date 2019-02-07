@@ -45,7 +45,7 @@ render(){
                   <NavLink href="/linkslist">Access Common Links</NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink href="https://github.com/reactstrap/reactstrap">Dashboard</NavLink>
+                  <NavLink href="">Dashboard</NavLink>
                 </NavItem>
               </Nav>
             </Collapse>

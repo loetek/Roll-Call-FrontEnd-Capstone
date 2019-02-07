@@ -45,7 +45,6 @@
       "userName": "Moss@me.com",
       "password": "password"
     }
-
   ],
   "agendas": [
     {
@@ -55,7 +54,7 @@
       "difficulty": "6",
       "exercise": "Create an array and loop through it.",
       "chapter": 10,
-      "dateTime": "2019-01-30T16:34:02.739Z",
+      "date": "01-30-2019",
       "announcements": " Demo day for Front End capstones will will be on Feb 15th.",
       "QR": "",
       "cohortID": 31
@@ -67,7 +66,7 @@
       "difficulty": "8",
       "exercise": "Set state on the kennel project",
       "chapter": 19,
-      "dateTime": "2019-02-05T16:34:02.739Z",
+      "date": "02-05-2019",
       "announcements": " CAPSTONES ARE COMING!!",
       "QR": "",
       "cohortID": 29
@@ -79,7 +78,7 @@
       "difficulty": "6",
       "exercise": "Write a brief description of what you think a CRUD app is and why do we care?",
       "chapter": 10,
-      "dateTime": "2019-02-09T16:34:02.739Z",
+      "date": "02-09-2019",
       "announcements": " Demo day for Front End capstones will will be on Feb 15th.",
       "QR": "",
       "cohortID": 30
