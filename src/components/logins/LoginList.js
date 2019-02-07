@@ -25,8 +25,8 @@ this.setState(stateToChange)
 handleLogin = (evt) => {
 evt.preventDefault();
 this.props.verifyUser(this.state.username, this.state.password)
-console.log(this.state)
-console.log(this.props)
+// console.log(this.state)
+// console.log(this.props)
         if(this.props.users.length < 1) {
             alert("You will need to Register first")
         } else {
@@ -38,8 +38,6 @@ console.log(this.props)
                     }
                 if (loggedIn === true){
                     sessionStorage.setItem("user", user.id);
-                    //TODO the problem right now is that is not checking against the entered user just agains the database all 5 users.
-                    //Todo Need to extract the result of the comparison above. Compare username and password return status of that user.
                   if(user.status === true){
                     this.props.history.push("/LPInst")
                   }else{

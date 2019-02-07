@@ -15,6 +15,7 @@ import {
   } from 'reactstrap';
 import { Link } from "react-router-dom"
 import "bootstrap/dist/css/bootstrap.min.css"
+import AgendaFormInst from "../agendas/AgendaFormInst"
 
 
 export default class NavBarInst extends Component
@@ -42,10 +43,10 @@ render(){
             <Collapse isOpen={!this.state.collapsed} navbar>
               <Nav navbar>
                 <NavItem>
-                  <NavLink href="/components/">Create Agenda</NavLink>
+                   <AgendaFormInst {...this.props} addAgendas={this.props.addAgendas}/>
                 </NavItem>
                 <NavItem>
-                  <NavLink href="https://github.com/reactstrap/reactstrap">Dashboard</NavLink>
+                  <NavLink href="/dashboardInst">Dashboard</NavLink>
                 </NavItem>
               </Nav>
             </Collapse>

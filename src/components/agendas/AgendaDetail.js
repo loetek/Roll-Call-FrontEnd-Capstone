@@ -14,6 +14,7 @@ export default class AgendaDetail extends Component {
       ) || {};
 
     return (
+    <React.Fragment>
       <section className="agenda">
         <div key={agenda.id} className="card">
           <div className="card-body">
@@ -36,6 +37,7 @@ export default class AgendaDetail extends Component {
           </div>
         </div>
       </section>
+    </React.Fragment>
     );
   }
 }

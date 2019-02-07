@@ -13,27 +13,16 @@ export default class LandingPageInst extends Component {
         render() {
           console.log(this.props)
           return (
+
             <React.Fragment>
-              <NavBarInst />
+              <NavBarInst {...this.props} addAgendas={this.props.addAgendas}/>
               <h2> Current Agendas </h2>
             <section className="LandingPageInst">
               {this.props.agendas.map(agenda => (
-                  <AgendaList key={agenda.id} agenda={agenda} {...this.props} />
+                  <AgendaList key={agenda.id} addAgendas={this.props.addAgendas}deleteAgenda={this.props.deleteAgenda} agenda={agenda} {...this.props} />
                 ))}
               </section>
               <Calendar />
-              {/* <div className="newAgendaButton">
-                <button
-                  type="button"
-                  className="btn btn-success"
-                  onClick={() => {
-                    this.props.history.push("/agendas/new");
-                  }}
-                >
-                  Create New Agenda
-                </button>
-              </div> */}
-
             </React.Fragment>
           );
         }

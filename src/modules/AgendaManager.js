@@ -2,13 +2,13 @@ const remoteURL = "http://localhost:5002";
 
 export default {
   get(id) {
-    return fetch(`${remoteURL}/users/${id}`).then(e => e.json());
+    return fetch(`${remoteURL}/agendas/${id}`).then(e => e.json());
   },
   getAll() {
-    return fetch(`${remoteURL}/users`).then(e => e.json());
+    return fetch(`${remoteURL}/agendas`).then(e => e.json());
   },
   post(newAgenda) {
-    return fetch(`${remoteURL}/users`, {
+    return fetch(`${remoteURL}/agendas`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
