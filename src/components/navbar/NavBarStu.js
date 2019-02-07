@@ -42,7 +42,7 @@ render(){
             <Collapse isOpen={!this.state.collapsed} navbar>
               <Nav navbar>
                 <NavItem>
-                  <NavLink href="/linkslist">Access Common Links</NavLink>
+                  <NavLink href="/linkslist"><a href="#" onClick = {this.sortLinks}> Gud Links</a></NavLink>
                 </NavItem>
                 <NavItem>
                   <NavLink href="">Dashboard</NavLink>

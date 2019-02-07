@@ -47,6 +47,12 @@ this.props.verifyUser(this.state.username, this.state.password)
             })
         }
     }
+    componentDidMount(){
+
+      if (sessionStorage.getItem("user") !== null){
+        sessionStorage.removeItem("user")
+      }
+    }
 
 
  render() {

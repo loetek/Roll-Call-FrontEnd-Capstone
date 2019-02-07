@@ -39,8 +39,8 @@ export default class AppViews extends Component {
           users: user
         })
       );
-    deleteAgenda = id => {
 
+    deleteAgenda = id => {
         return fetch(`http://localhost:5002/agendas/${id}`, {
           method: "DELETE"
         })
@@ -70,6 +70,37 @@ export default class AppViews extends Component {
           })
           )
       }
+
+      // itemToSort database objects example links, agendas. Condition = what do you want the sort to be based on. ex = date, id...
+      sortLinks = () => {
+        return fetch(`http://localhost:5002/links?_sort=date&_order=desc`, {
+          method: "GET"
+        })
+          .then(response => response.json())
+          .then(() => fetch(`http://localhost:5002/links`))
+          .then(response => response.json())
+          .then(links =>
+            this.setState({
+              links:links
+            })
+          );
+      };
+
+      // sortAgenda = (itemToSort) => {
+      //   return fetch(`http://localhost:5002/${itemToSort}?_sort=id&_order=desc`, {
+      //     method: "GET"
+      //   })
+      //     .then(response => response.json())
+      //     .then(() => fetch(`http://localhost:5002/links`))
+      //     .then(response => response.json())
+      //     .then(links =>
+      //       this.setState({
+      //         links: links
+      //       })
+      //     );
+      // };
+
+
 
 
     //!! Component Did Mount !!////
@@ -126,60 +157,82 @@ componentDidMount() {
         }} />
             <Route
             exact path="/LPInst" render={props => {
+              if (this.isAuthenticated()){
               return <LandingPageInst {...props}
               LandingPageInst={this.state.agendas}
               deleteAgenda={this.deleteAgenda}
               addAgendas={this.addAgendas}
               agendas={this.state.agendas}
               users={this.state.users}/>
+              }else {
+              return <Redirect to="/" />;
+            }
+
               }}
             />
             <Route
               exact path="/LPStu" render={props => {
+                if(this.isAuthenticated()){
                 return <LandingPageStu {...props}
                 LandingPageStu={this.state.agendas}
                 agendas={this.state.agendas}
-                sortAgenda={this.state.agendas}
+                sortLinks={this.state.links}
                 links={this.state.links}
                 users={this.state.users}/>
-                }}
+                }
+              else {
+              return <Redirect to="/" />;
+            }
+            }}
             />
             <Route
             exact path="/agendas" render={props => {
+              if(this.isAuthenticated()){
                 return <AgendaList {...props}
                 deleteAgenda={this.deleteAgenda}
                 agendas={this.state.agendas}
                 users={this.state.users}/>
-
-                }}
-             />
+              }else {
+              return <Redirect to="/" />;
+            }
+            }}
+            />
 
         {/* this is the detail for individual agenda item */}
             <Route
             path="/agendas/:agendaId(\d+)" render={props => {
+              if(this.isAuthenticated()){
                 return <AgendaDetail {...props}
                 deleteAgenda={this.deleteAgenda}
                 agendas={this.state.agendas}
-                users={this.state.users}
-              />
-          }}
+                users={this.state.users}/>
+              }
+              else {
+              return <Redirect to="/" />;
+            }
+            }}
         />
 
         {/* this is the agendas add form */}
-            <Route
+            {/* <Route
             path="/agendas/new" render={props => {
                 return <AgendaFormInst {...props}
                 addAgendas={this.addAgendasd}
               />
           }}
-        />
+        /> */}
         <Route
             path="/linkslist" render={props => {
+               if (this.isAuthenticated()){
                 return <LinksList {...props}
+                sortLinks={this.state.sortLinks}
                 links={this.state.links}
-                users={this.state.users}
-              />
-          }}
+                users={this.state.users}/>
+              }
+              else {
+              return <Redirect to="/" />;
+            }
+            }}
         />
           </React.Fragment>
         );

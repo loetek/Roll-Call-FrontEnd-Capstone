@@ -6,6 +6,7 @@ import { Container, Row, Col } from 'reactstrap';
 
 export default class LinksCard extends Component {
   render() {
+    console.log(this.props.link)
     return (
     <React.Fragment>
       <Container>
@@ -14,10 +15,9 @@ export default class LinksCard extends Component {
       <div key={this.props.links.id} className="card">
         <div className="card-body">
           <h5 className="card-title">
-           {this.props.links.title}
+           Title {this.props.links.title}
           </h5>
-          <p> Chapter: {this.props.links.description}</p>
-          <p> Click here to see more deets! </p>
+          <p> desc {this.props.links.description}</p>
         </div>
       </div>
       </Col>
