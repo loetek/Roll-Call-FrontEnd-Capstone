@@ -12,12 +12,13 @@ export default class LinksCard extends Component {
       <Container>
       <Row>
       <Col xs="6">
-      <div key={this.props.links.id} className="card">
+      <div key={this.props.link.id} className="card">
         <div className="card-body">
           <h5 className="card-title">
-           Title {this.props.links.title}
+           Title {this.props.link.title}
           </h5>
-          <p> desc {this.props.links.description}</p>
+          <p> desc {this.props.link.description}</p>
+          <a href={this.props.link.url}> </a>
         </div>
       </div>
       </Col>
