@@ -99,7 +99,7 @@ export default class AgendaFormInst extends Component {
                 return (
                     <React.Fragment>
                   <div>
-                    <Button color="primary" onClick={this.toggle}>{this.props.buttonLabel}</Button>{''}
+                    <Button color="danger" onClick={this.toggle}>{this.props.buttonLabel}</Button>{''}
                     <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
                       <ModalHeader toggle={this.toggle}>Let's make an agenda...</ModalHeader>
                       <ModalBody>
@@ -122,7 +122,7 @@ export default class AgendaFormInst extends Component {
                                placeholder="Enter the corresponding chapter number" />
                     </div>
                     <div className="form-group">
-                        <label htmlFor="username">Difficulty</label>
+                        <label htmlFor="difficulty">Difficulty</label>
                         <input type="number" required
                                className="form-control"
                                onChange={this.handleFieldChange}
@@ -150,7 +150,7 @@ export default class AgendaFormInst extends Component {
                         <input type="text" required
                                className="form-control"
                                onChange={this.handleFieldChange}
-                               id="age"
+                               id="announcements"
                                placeholder="Please enter any outstanding announcements." />
                     </div>
                     {/* <div className="div">

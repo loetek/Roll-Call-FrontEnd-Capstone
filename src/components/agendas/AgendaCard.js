@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom"
 import { Container, Row, Col,Button } from 'reactstrap';
 
 
@@ -20,6 +21,7 @@ export default class AgendaCard extends Component {
           <p> Chapter: {this.props.agenda.chapter}</p>
           <p> Click here to see more deets! </p>
           <Button id={this.props.agenda.id} color="danger" onClick={()=> this.props.deleteAgenda(this.props.agenda.id)}>Delete</Button>
+          <Link className="nav-link" to={`/agendas/${this.props.agenda.id}/edit`}>Edit</Link>
         </div>
       </div>
       </Col>

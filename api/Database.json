@@ -25,7 +25,7 @@
       "lastName": "Calloe",
       "status": false,
       "userName": "frito@me.com",
-      "password": "password"
+      "password": "pass"
     },
     {
       "id": 4,
@@ -95,8 +95,35 @@
       "cohortID": 29
     },
     {
+      "id": 1,
+      "dateAdded": "02-10-2019",
+      "title": "BEM Formatting",
+      "description": "blah blahblahblahblahblahblahblahblahblah",
+      "url": "www.bem.com",
+      "userID": 4,
+      "cohortID": 29
+    },
+    {
+      "id": 5,
+      "dateAdded": "02-08-2019",
+      "title": "Sorting",
+      "description": "blah blahblahblahblahblahblahblahblahblah",
+      "url": "www.bem.com",
+      "userID": 4,
+      "cohortID": 29
+    },
+    {
+      "id": 3,
+      "dateAdded": "01-08-2019",
+      "title": "React",
+      "description": "blah blahblahblahblahblahblahblahblahblah",
+      "url": "www.bem.com",
+      "userID": 4,
+      "cohortID": 29
+    },
+    {
       "id": 2,
-      "dateAdded": "02-01-2019",
+      "dateAdded": "02-19-2019",
       "title": "Arrayzing",
       "description": "blah blahblahblahblahblahblahblahblahblah",
       "url": "www.mdn.com",

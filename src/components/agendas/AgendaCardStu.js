@@ -3,7 +3,7 @@ import { Container, Row, Col,Button } from 'reactstrap';
 
 
 
-export default class AgendaCard extends Component {
+export default class AgendaCardStu extends Component {
   render() {
 
     console.log(this.props.agenda)

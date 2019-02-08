@@ -16,58 +16,68 @@ import {
     DropdownMenu,
     DropdownItem
 } from 'reactstrap';
+import AgendaManager from "../../modules/AgendaManager"
 
+export default class AgendaEditInst extends Component {
 
-export default class AgendaFormInst extends Component {
-    // Set initial state
+  constructor(props) {
+    super(props);
+    this.state = {
+    "topic": this.props.agendas.topic,
+    "difficulty": null,
+    "exercise": [],
+    "chapter": null,
+    "date": [],
+    "announcements": [],
+    "QR": [],
+    "cohortID": null,
+    "completeObj":[],
+    modal: false,
+    nestedModal: false,
+    closeAll: false,
+    dropdownOpen: false
+    };
 
+    this.toggle = this.toggle.bind(this);
+    this.toggleNested = this.toggleNested.bind(this);
+    this.toggleAll = this.toggleAll.bind(this);
+  }
 
-    constructor(props) {
-        super(props);
-        this.state = {
-        "topic": [],
-        "difficulty": null,
-        "exercise": [],
-        "chapter": null,
-        "date": [],
-        "announcements": [],
-        "QR": [],
-        "cohortID": null,
-        modal: false,
-        nestedModal: false,
-        closeAll: false,
-        dropdownOpen: false
-        };
+  //This part takes the individual changes and set state based on input.
 
-        this.toggle = this.toggle.bind(this);
-        this.toggleNested = this.toggleNested.bind(this);
-        this.toggleAll = this.toggleAll.bind(this);
+  handleFieldChange = event => {
+      const stateToChange = {};
+      stateToChange[event.target.id] = event.target.value;
+      this.setState(stateToChange);
+  }
+  //This takes all of those little inputs them and passes them up to the app views.
+
+  createEditObject = evt => {
+      let completeObj = this.props.agendas.filter( agenda => {
+         if (agenda.id === this.props.match.params.agendaId)
+          {
+              return this.props.agendas.completeObj;
+          }
+      })
+      const editedAgenda = {
+        "topic": this.state.editAgendaTopic ,
+        "difficulty": this.state.editAgendaDifficulty,
+        "exercise": this.state.editAgendaExercise,
+        "chapter": this.state.editAgendaChapter,
+        "date": this.state.editAgendaDate,
+        "announcements": this.state.editAgendaAnnouncements,
+        "QR": this.state.editAgendaQR,
+        "cohortID": this.state.editAgendaCohortID,
+        "completeObj":this.state.completeObj
+      }
+      // console.log(editedTasks);
+      // console.log(this.state)
+      // console.log("props", this.props)
+      this.props
+      .updateAgenda(this.props.match.params.id, editedAgenda)
+      .then(() => this.props.history.push("/LPInst"))
       }
 
-    // Update state whenever an input field is edited
-    handleFieldChange = evt => {
-        const stateToChange = {}
-        stateToChange[evt.target.id] = evt.target.value
-        this.setState(stateToChange)
-    }
-
-    constructNewAgenda = e => {
-        e.preventDefault()
-            const agenda = {
-                topic: this.state.topic,
-                difficulty: this.state.difficulty,
-                exercise: this.state.exercise,
-                chapter: this.state.chapter,
-                date: this.state.date,
-                announcements: this.state.announcements,
-                QR: this.state.QR,
-                cohortID: this.state.cohortID
-            }
-            this.props.addAgendas(agenda)
-            .then(() => this.props.history.push("/LPInst"))
-
-        }
-    // Modal functions.
 
     toggle() {
         this.setState(prevState => ({
@@ -93,63 +103,84 @@ export default class AgendaFormInst extends Component {
         });
     }
 
-              render() {
-                return (
-                    <React.Fragment>
-                  <div>
+  componentDidMount() {
+      console.log(this.props)
+     AgendaManager.get(this.props.match.params.agendaId)
+      .then(agenda => {
+        this.setState({
+          "topic": agenda.editAgendaTopic ,
+          "difficulty": agenda.editAgendaDifficulty,
+          "exercise": agenda.editAgendaExercise,
+          "chapter": agenda.editAgendaChapter,
+          "date": agenda.editAgendaDate,
+          "announcements": agenda.editAgendaAnnouncements,
+          "QR": agenda.editAgendaQR,
+          "cohortID": agenda.editAgendaCohortID,
+          "complete":agenda.completeObj
+        });
+       // console.log(this.state)
+      });
+    }
+
+  render() {
+    console.log(this.props.agendas)
+          return (
+
+            <React.Fragment>
+            <div>
                     <Button color="primary" onClick={this.toggle}>{this.props.buttonLabel}</Button>{''}
                     <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-                      <ModalHeader toggle={this.toggle}>Let's make an agenda...</ModalHeader>
+                      <ModalHeader toggle={this.toggle}>A little change never hurt anyone</ModalHeader>
                       <ModalBody>
-                      <form className="NewAgenda">
-                    <h1>Start a New Agenda</h1>
+                      <form className="EditAgenda">
+                    <h1>Edit Below</h1>
                     <div className="form-group">
-                        <label htmlFor="topic">Topic</label>
+                        <label htmlFor="editAgendaTopic">Topic</label>
                         <input type="text" required
                                className="form-control"
                                onChange={this.handleFieldChange}
-                               id="topic"
-                               placeholder="Enter the topic of discussion" />
+                               id="editAgendaTopic"
+                               value={this.props.agendas.topic} />
                     </div>
                     <div className="form-group">
-                        <label htmlFor="chapter">Chapter</label>
+                        <label htmlFor="editAgendaChapter">Chapter</label>
                         <input type="number" required
                                className="form-control"
                                onChange={this.handleFieldChange}
-                               id="chapter"
-                               placeholder="Enter the corresponding chapter number" />
+                               id="editAgendaChapter"
+                               placeholder={this.state.chapter} />
                     </div>
                     <div className="form-group">
-                        <label htmlFor="username">Difficulty</label>
+                        <label htmlFor="editAgendaDifficulty">Difficulty</label>
                         <input type="number" required
                                className="form-control"
                                onChange={this.handleFieldChange}
-                               id="difficulty"
-                               placeholder="Enter the topic difficulty 1-10" />
+                               id="editAgendaDifficulty"
+                               placeholder={this.state.difficulty} />
                     </div>
                     <div className="form-group">
-                        <label htmlFor="exercise">Exercise</label>
+                        <label htmlFor="editAgendaExercise">Exercise</label>
                         <input type="text" required
                                className="form-control"
                                onChange={this.handleFieldChange}
-                               id="exercise"
-                               placeholder="Enter the exercise with details and links" />
+                               id="editAgendaExercise"
+                               placeholder={this.state.exercise}/>
                     </div>
                     <div className="form-group">
-                        <label htmlFor="date">Date</label>
+                        <label htmlFor="editAgendaDate">Date</label>
                         <input type="date" required
                                className="form-control"
                                onChange={this.handleFieldChange}
-                               id="date"
-                               placeholder="Enter today's date" />
+                               id="editAgendaDate"
+                               placeholder={this.state.date} />
                     </div>
                     <div className="form-group">
-                        <label htmlFor="announcements">Announcements</label>
+                        <label htmlFor="editAgendaAnnouncements">Announcements</label>
                         <input type="text" required
                                className="form-control"
                                onChange={this.handleFieldChange}
-                               id="age"
-                               placeholder="Please enter any outstanding announcements." />
+                               id="editAgendaAnnouncements"
+                               placeholder= {this.state.announcements} />
                     </div>
                     {/* <div className="div">
                     <Dropdown isOpen={this.state.dropdownOpen} toggleDropDown={this.toggleDropDown}>
@@ -181,14 +212,12 @@ export default class AgendaFormInst extends Component {
                         </Modal>
                       </ModalBody>
                       <ModalFooter>
-                      <Button type="submit" onClick={this.constructNewAgenda} className="btn btn-primary">Submit</Button>
-                        <Button color="secondary" onClick={this.toggle}>Cancel</Button>
+                      <Button type="submit" onClick={this.createEditObject} className="btn btn-primary">Submit</Button>{' '}
+                    <Button color="secondary" onClick={this.toggle}>Cancel</Button>
                       </ModalFooter>
                     </Modal>
                   </div>
-                  </React.Fragment>
-                );
-              }
-            }
-
-
+            </React.Fragment>
+          );
+        }
+      }

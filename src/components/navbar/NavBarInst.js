@@ -13,7 +13,7 @@ import {
     Jumbotron,
     Button
   } from 'reactstrap';
-import { Link } from "react-router-dom"
+import {Link}from "react-router-dom"
 import "bootstrap/dist/css/bootstrap.min.css"
 import AgendaFormInst from "../agendas/AgendaFormInst"
 

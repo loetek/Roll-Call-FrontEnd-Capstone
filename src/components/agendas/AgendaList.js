@@ -7,7 +7,7 @@ export default class AgendaList extends Component {
     return (
       <React.Fragment>
         <section className="agendas">
-            <AgendaCard key={this.props.agendas.id} addAgendas={this.props.addAgendas} deleteAgenda={this.props.deleteAgenda} agenda={this.props.agendas} {...this.props} />
+            <AgendaCard key={this.props.agendas.id} addAgendas={this.props.addAgendas} deleteAgenda={this.props.deleteAgenda} agendas={this.props.agendas} {...this.props} />
         </section>
       </React.Fragment>
     );

@@ -14,6 +14,8 @@ export default class Login extends Component {
   state = {
     username: "",
     password: "",
+    status:false,
+    cohortID: 20
 }
 
 handleFieldChange = (evt) => {
@@ -24,6 +26,7 @@ this.setState(stateToChange)
 
 handleLogin = (evt) => {
 evt.preventDefault();
+
 this.props.verifyUser(this.state.username, this.state.password)
 // console.log(this.state)
 // console.log(this.props)
@@ -31,26 +34,52 @@ this.props.verifyUser(this.state.username, this.state.password)
             alert("You will need to Register first")
         } else {
             this.props.users.forEach(user => {
-                console.log(user.status)
+                console.log(user)
                 let loggedIn= false;
                 if (this.state.username === user.userName && this.state.password === user.password) {
                         loggedIn= true;
                     }
-                if (loggedIn === true){
+                // if (loggedIn === true){
+                //     sessionStorage.setItem("user", user.id);
+                  if(loggedIn ===true && user.status === true){
                     sessionStorage.setItem("user", user.id);
-                  if(user.status === true){
+                    sessionStorage.setItem(
+                          "credentials",
+                          JSON.stringify({
+                              username: this.state.userName,
+                              password: this.state.password,
+                              status:true,
+                              cohortID: this.state.cohortID
+                          })
+                      )
                     this.props.history.push("/LPInst")
                   }else{
+                    sessionStorage.setItem("user", user.id);
+                    sessionStorage.setItem(
+                          "credentials",
+                          JSON.stringify({
+                              username: this.state.userName,
+                              password: this.state.password,
+                              status:false,
+                              cohortID: this.state.cohortID
+                          })
+                      )
                     this.props.history.push("/LPStu")
                   }
                 }
-            })
+            )
         }
+    }
+    componentDidMount(){
+
+      if (sessionStorage.getItem("user") !== null){
+        sessionStorage.removeItem("user")
+        sessionStorage.removeItem("credentials")
+      }
     }
 
 
  render() {
-   //console.log(this.props.user)
   return (
     <React.Fragment>
     <div>
