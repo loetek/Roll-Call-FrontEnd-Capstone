@@ -28,8 +28,8 @@ handleLogin = (evt) => {
 evt.preventDefault();
 
 this.props.verifyUser(this.state.username, this.state.password)
-// console.log(this.state)
-// console.log(this.props)
+console.log(this.state)
+console.log(this.props)
         if(this.props.users.length < 1) {
             alert("You will need to Register first")
         } else {
@@ -41,19 +41,21 @@ this.props.verifyUser(this.state.username, this.state.password)
                     }
                 // if (loggedIn === true){
                 //     sessionStorage.setItem("user", user.id);
-                  if(loggedIn ===true && user.status === true){
+                  if(loggedIn ===true ){
+
+                    if(user.status === true){
                     sessionStorage.setItem("user", user.id);
                     sessionStorage.setItem(
                           "credentials",
                           JSON.stringify({
-                              username: this.state.userName,
+                              username: this.state.username,
                               password: this.state.password,
                               status:true,
                               cohortID: this.state.cohortID
                           })
                       )
                     this.props.history.push("/LPInst")
-                  }else{
+                  } else{
                     sessionStorage.setItem("user", user.id);
                     sessionStorage.setItem(
                           "credentials",
@@ -65,8 +67,15 @@ this.props.verifyUser(this.state.username, this.state.password)
                           })
                       )
                     this.props.history.push("/LPStu")
+                    }
+                  }else{
+
+                    this.props.history.push("/")
+
                   }
-                }
+
+                  }
+
             )
         }
     }

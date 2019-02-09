@@ -11,7 +11,7 @@ import Calendar from 'react-calendar'
 export default class LandingPageInst extends Component {
 
         render() {
-          console.log(this.props)
+          //console.log(this.props)
           return (
 
             <React.Fragment>

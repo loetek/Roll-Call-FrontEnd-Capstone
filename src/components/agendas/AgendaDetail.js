@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 export default class AgendaDetail extends Component {
   render() {
-    console.log(this.props);
+    //console.log(this.props);
     /*
             Using the route parameter, find the animal that the
             user clicked on by looking at the `this.props.animals`

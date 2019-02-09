@@ -96,10 +96,12 @@ export default class AgendaFormInst extends Component {
     }
 
               render() {
+
                 return (
                     <React.Fragment>
                   <div>
-                    <Button color="danger" onClick={this.toggle}>{this.props.buttonLabel}</Button>{''}
+                    <Button color="" onClick={this.toggle}>Create New</Button>{''}
+
                     <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
                       <ModalHeader toggle={this.toggle}>Let's make an agenda...</ModalHeader>
                       <ModalBody>

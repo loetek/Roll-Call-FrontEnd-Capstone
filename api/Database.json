@@ -48,28 +48,13 @@
   ],
   "agendas": [
     {
-      "id": 1,
-      "userId": 1,
-      "topic": "Arrays and other Goodies",
-      "difficulty": "6",
-      "exercise": "Create an array and loop through it.",
-      "chapter": 10,
-      "date": "01-30-2019",
-      "announcements": " Demo day for Front End capstones will will be on Feb 15th.",
-      "QR": "",
-      "cohortID": 31
-    },
-    {
-      "id": 2,
-      "userId": 2,
-      "topic": "State of annoyance",
-      "difficulty": "8",
-      "exercise": "Set state on the kennel project",
-      "chapter": 19,
-      "date": "02-05-2019",
-      "announcements": " CAPSTONES ARE COMING!!",
-      "QR": "",
-      "cohortID": 29
+      "topic": "Tbis is an edit!!",
+      "difficulty": "3",
+      "exercise": "Test",
+      "chapter": "234",
+      "date": "2019-02-20",
+      "announcements": "ADSFADS",
+      "id": 2
     },
     {
       "id": 3,

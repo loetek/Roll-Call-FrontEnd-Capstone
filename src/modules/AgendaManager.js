@@ -15,5 +15,15 @@ export default {
       },
       body: JSON.stringify(newAgenda)
     }).then(data => data.json());
+  },
+  put (id, changes){
+    console.log(changes, id)
+    return fetch (`${remoteURL}/agendas/${id}`,{
+      method: "PUT",
+      headers: {
+          "Content-Type": "application/json"
+      },
+      body: JSON.stringify(changes)
+    })
   }
 };

@@ -6,7 +6,7 @@ import { Container, Row, Col,Button } from 'reactstrap';
 export default class AgendaCardStu extends Component {
   render() {
 
-    console.log(this.props.agenda)
+    //console.log(this.props.agenda)
     return (
     <React.Fragment>
       <Container>
@@ -18,8 +18,7 @@ export default class AgendaCardStu extends Component {
            Topic of Discussion : {this.props.agenda.topic}
           </h5>
           <p> Chapter: {this.props.agenda.chapter}</p>
-          <p> Click here to see more deets! </p>
-          <Button id={this.props.agenda.id} color="danger" onClick={()=> this.props.deleteAgenda(this.props.agenda.id)}>Delete</Button>
+          <p> Date: {this.props.agenda.date} </p>
         </div>
       </div>
       </Col>

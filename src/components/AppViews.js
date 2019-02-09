@@ -29,6 +29,7 @@ export default class AppViews extends Component {
         users:[],
         links:[],
         userId: sessionStorage.getItem("user")
+
     }
 
     //!! ADD and remove schtuff area !!//
@@ -86,9 +87,8 @@ export default class AppViews extends Component {
       };
 
       updateAgenda = (agendaId, editedObj) => {
-        debugger
-        console.log(agendaId, editedObj )
-        return AgendaManager.put(agendaId, editedObj)
+       // console.log(agendaId, editedObj )
+        AgendaManager.put(agendaId, editedObj)
         .then(() => AgendaManager.getAll())
         .then(agendas => {
           this.setState({
@@ -136,15 +136,6 @@ componentDidMount() {
             users: r
         })
     })
-    // DataManager.DataManager({
-    // "dataSet" : "links",
-    // "fetchType" : "GET"
-    // })
-    // .then(r => {
-    //     this.setState({
-    //         links: r
-    //     })
-    // })
 
     this.sortLinks();
 
@@ -152,7 +143,7 @@ componentDidMount() {
     }
 
     render() {
-      console.log(this.state.links)
+      //console.log(this.state.links)
         return (
           <React.Fragment>
             {/* Login page */}
@@ -180,6 +171,7 @@ componentDidMount() {
               return <LandingPageInst {...props}
               LandingPageInst={this.state.agendas}
               deleteAgenda={this.deleteAgenda}
+              updateAgenda={this.updateAgenda}
               addAgendas={this.addAgendas}
               agendas={this.state.agendas}
               users={this.state.users}/>
@@ -210,7 +202,8 @@ componentDidMount() {
                 return <AgendaList {...props}
                 deleteAgenda={this.deleteAgenda}
                 agendas={this.state.agendas}
-                users={this.state.users}/>
+                users={this.state.users}
+                updateAgenda={this.updateAgenda}/>
               }else {
               return <Redirect to="/" />;
             }
@@ -224,7 +217,7 @@ componentDidMount() {
                 return <AgendaDetail {...props}
                 deleteAgenda={this.deleteAgenda}
                 agendas={this.state.agendas}
-                updateAgenda={this.state.updateAgenda}
+                updateAgenda={this.updateAgenda}
                 users={this.state.users}/>
               }
               else {
@@ -237,7 +230,7 @@ componentDidMount() {
               if(this.isAuthenticated()){
                 return <AgendaEditInst {...props}
                 agendas={this.state.agendas}
-                updateAgenda={this.state.updateAgenda}
+                updateAgenda={this.updateAgenda}
                 users={this.state.users}/>
               }
               else {
