@@ -23,9 +23,7 @@ export default class AgendaDetail extends Component {
             </h4>
             <h6 className="card-title">{agenda.announcements}</h6>
 
-            <a
-              href="#"
-              onClick={() =>
+            <a href="#" onClick={() =>
                 this.props
                   .deleteAgenda(agenda.id)
                   .then(() => this.props.history.push("/agendas"))

@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom"
 import { Container, Row, Col,Button } from 'reactstrap';
-
+import { Card, CardImg, CardText, CardBody, CardLink,
+  CardTitle, CardSubtitle } from 'reactstrap';
+import './Agenda.css'
 
 
 export default class AgendaCard extends Component {
@@ -9,25 +11,29 @@ export default class AgendaCard extends Component {
 
     //console.log(this.props.agenda.id)
     return (
-    <React.Fragment>
-      <Container>
+
+        <div>
       <Row>
-      <Col xs="6">
-      <div key={this.props.agenda.id} className="card">
-        <div className="card-body">
-          <h5 className="card-title">
-           Topic: {this.props.agenda.topic}
-          </h5>
-          <p> Chapter: {this.props.agenda.chapter}</p>
-          <p> Click here to see more deets! </p>
-          <Button id={this.props.agenda.id} outline color="" onClick={()=> this.props.deleteAgenda(this.props.agenda.id)}>Delete</Button>
+      <Col sm="6">
+      <Card>
+        <CardBody className="cardBodyMain">
+          <h3>{this.props.agenda.topic}</h3>
+          <CardSubtitle>Chapter: {this.props.agenda.chapter}</CardSubtitle>
+
+          <CardText>Chapter Exercise</CardText>
+          <CardText>{this.props.agenda.exercise}</CardText>
+
+          <Button id={this.props.agenda.id} outline color="danger" onClick={()=> this.props.deleteAgenda(this.props.agenda.id)}>Delete</Button>
           <Link className="nav-link" to={`/agendas/${this.props.agenda.id}/edit`}>Edit</Link>
-        </div>
-      </div>
+        </CardBody>
+      </Card>
       </Col>
-      </Row>
-      </Container>
-    </React.Fragment>
+    </Row>
+    </div>
+
+
     );
   }
 }
+
+

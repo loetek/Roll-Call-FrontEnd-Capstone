@@ -15,11 +15,13 @@ import AgendaDetail from "./agendas/AgendaDetail"
 import Login from './logins/LoginList';
 import Registration from "./logins/Registration"
 import LinksList from "./links/LinksList"
+import AgendaEditInst from './agendas/AgendaEditInst';
+
 
 import DataManager from "../modules/DataManager"
 import LoginManager from "../modules/LoginManager";
 import AgendaManager from "../modules/AgendaManager";
-import AgendaEditInst from './agendas/AgendaEditInst';
+import UserManager from '../modules/UserManager';
 
 
 export default class AppViews extends Component {
@@ -28,6 +30,7 @@ export default class AppViews extends Component {
         agendas:[],
         users:[],
         links:[],
+        tempChecks:[],
         userId: sessionStorage.getItem("user")
 
     }
@@ -76,12 +79,23 @@ export default class AppViews extends Component {
         return fetch(`http://localhost:5002/links?_sort=dateAdded&_order=desc`, {
           method: "GET"
         })
-          // .then(response => response.json())
-          // .then(() => fetch(`http://localhost:5002/links`))
+
           .then(response => response.json())
           .then(links =>
             this.setState({
               links:links
+            })
+          );
+      };
+
+      sortAgendas = () => {
+        return fetch(`http://localhost:5002/agendas?_sort=dateAdded&_order=desc`, {
+          method: "GET"
+        })
+          .then(response => response.json())
+          .then(agendas =>
+            this.setState({
+              agendas:agendas
             })
           );
       };
@@ -97,22 +111,11 @@ export default class AppViews extends Component {
         });
       }
 
-      // sortAgenda = (itemToSort) => {
-      //   return fetch(`http://localhost:5002/${itemToSort}?_sort=id&_order=desc`, {
-      //     method: "GET"
-      //   })
-      //     .then(response => response.json())
-      //     .then(() => fetch(`http://localhost:5002/links`))
-      //     .then(response => response.json())
-      //     .then(links =>
-      //       this.setState({
-      //         links: links
-      //       })
-      //     );
-      // };
+      // setAttendance = () => {
+      //   UserManager.
 
 
-
+      // }
 
     //!! Component Did Mount !!////
 
@@ -136,8 +139,18 @@ componentDidMount() {
             users: r
         })
     })
+    DataManager.DataManager({
+      "dataSet" : "tempChecks",
+      "fetchType" : "GET"
+      })
+      .then(r => {
+          this.setState({
+              tempChecks: r
+          })
+      })
 
     this.sortLinks();
+    this.sortAgendas();
 
 
     }
@@ -174,11 +187,11 @@ componentDidMount() {
               updateAgenda={this.updateAgenda}
               addAgendas={this.addAgendas}
               agendas={this.state.agendas}
-              users={this.state.users}/>
+              users={this.state.users}
+              tempChecks={this.state.tempChecks}/>
               }else {
               return <Redirect to="/" />;
             }
-
               }}
             />
             <Route
@@ -189,7 +202,8 @@ componentDidMount() {
                 agendas={this.state.agendas}
                 sortLinks={this.state.links}
                 links={this.state.links}
-                users={this.state.users}/>
+                users={this.state.users}
+                tempChecks={this.state.tempChecks}/>
                 }
               else {
               return <Redirect to="/" />;

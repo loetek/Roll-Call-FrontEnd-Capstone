@@ -8,6 +8,7 @@ import {
   Label,
   Input,
 } from 'reactstrap';
+import UserManager from "../../modules/UserManager"
 
 export default class Login extends Component {
 
@@ -28,8 +29,8 @@ handleLogin = (evt) => {
 evt.preventDefault();
 
 this.props.verifyUser(this.state.username, this.state.password)
-console.log(this.state)
-console.log(this.props)
+// console.log(this.state)
+// console.log(this.props)
         if(this.props.users.length < 1) {
             alert("You will need to Register first")
         } else {
@@ -45,25 +46,25 @@ console.log(this.props)
 
                     if(user.status === true){
                     sessionStorage.setItem("user", user.id);
+                    sessionStorage.setItem("name", user.firstName)
                     sessionStorage.setItem(
                           "credentials",
                           JSON.stringify({
                               username: this.state.username,
                               password: this.state.password,
                               status:true,
-                              cohortID: this.state.cohortID
                           })
                       )
                     this.props.history.push("/LPInst")
                   } else{
                     sessionStorage.setItem("user", user.id);
+                    sessionStorage.setItem("name", user.firstName)
                     sessionStorage.setItem(
                           "credentials",
                           JSON.stringify({
                               username: this.state.userName,
                               password: this.state.password,
                               status:false,
-                              cohortID: this.state.cohortID
                           })
                       )
                     this.props.history.push("/LPStu")
@@ -79,6 +80,8 @@ console.log(this.props)
             )
         }
     }
+
+
     componentDidMount(){
 
       if (sessionStorage.getItem("user") !== null){
