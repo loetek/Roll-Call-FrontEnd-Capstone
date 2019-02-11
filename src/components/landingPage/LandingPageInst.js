@@ -25,7 +25,11 @@ export default class LandingPageInst extends Component {
               <h2> Hello, {this.state.user} ! </h2>
             <section className="LandingPageInst">
               {this.props.agendas.map(agenda => (
-                  <AgendaList key={agenda.id} addAgendas={this.props.addAgendas}deleteAgenda={this.props.deleteAgenda} agenda={agenda} {...this.props} />
+                  <AgendaList key={agenda.id}
+                  updateAgenda={this.props.updateAgenda}
+                   addAgendas={this.props.addAgendas}
+                   deleteAgenda={this.props.deleteAgenda}
+                   agenda={agenda} {...this.props} />
                 ))}
               </section>
               <Container>
