@@ -24,14 +24,14 @@ export default class AgendaEditInst extends Component {
     super(props);
     this.state = {
     "topic": this.props.agendas.topic,
-    "difficulty": null,
-    "exercise": [],
-    "chapter": null,
-    "date": [],
-    "announcements": [],
-    "QR": [],
-    "cohortID": null,
-    "completeObj":[],
+    "difficulty": this.props.agendas.difficulty,
+    "exercise": this.props.agendas.exercise,
+    "chapter": this.props.agendas.chapter,
+    "date": this.props.agendas.date,
+    "announcements": this.props.agendas.announcements,
+    "QR": this.props.agendas.QR,
+    "cohortID": this.props.agendas.cohortID,
+    // "completeObj":[],
     modal: false,
     nestedModal: false,
     closeAll: false,
@@ -43,6 +43,7 @@ export default class AgendaEditInst extends Component {
     this.toggleAll = this.toggleAll.bind(this);
   }
 
+  //Step 1//
   //This part takes the individual changes and set state based on input.
 
   handleFieldChange = event => {
@@ -50,32 +51,35 @@ export default class AgendaEditInst extends Component {
       stateToChange[event.target.id] = event.target.value;
       this.setState(stateToChange);
   }
+  //Step 2//
   //This takes all of those little inputs them and passes them up to the app views.
 
   createEditObject = evt => {
-      let completeObj = this.props.agendas.filter( agenda => {
-         if (agenda.id === this.props.match.params.agendaId)
-          {
-              return this.props.agendas.completeObj;
-          }
-      })
+    evt.preventDefault();
+      // let completeObj = this.props.agendas.filter( agenda => {
+      //    if (agenda.id === this.props.match.params.agendaId)
+      //     {
+      //         return this.props.agendas.completeObj;
+      //     }
+      // })
       const editedAgenda = {
-        "topic": this.state.editAgendaTopic ,
-        "difficulty": this.state.editAgendaDifficulty,
-        "exercise": this.state.editAgendaExercise,
-        "chapter": this.state.editAgendaChapter,
-        "date": this.state.editAgendaDate,
-        "announcements": this.state.editAgendaAnnouncements,
-        "QR": this.state.editAgendaQR,
-        "cohortID": this.state.editAgendaCohortID,
-        "completeObj":this.state.completeObj
+        "topic": this.state.topic ,
+        "difficulty": this.state.difficulty,
+        "exercise": this.state.exercise,
+        "chapter": this.state.chapter,
+        "date": this.state.date,
+        "announcements": this.state.announcements,
+        "QR": this.state.QR,
+        "cohortID": this.state.cohortID,
+        // "completeObj":this.state.completeObj
       }
-      // console.log(editedTasks);
-      // console.log(this.state)
+
+      // console.log("stat", this.state)
       // console.log("props", this.props)
-      this.props
-      .updateAgenda(this.props.match.params.id, editedAgenda)
-      .then(() => this.props.history.push("/LPInst"))
+      this.props.updateAgenda(this.props.match.params.agendaId, editedAgenda)
+      this.setState(prevState => ({
+        modal: !prevState.modal,
+        }));
       }
 
 
@@ -108,22 +112,22 @@ export default class AgendaEditInst extends Component {
      AgendaManager.get(this.props.match.params.agendaId)
       .then(agenda => {
         this.setState({
-          "topic": agenda.editAgendaTopic ,
-          "difficulty": agenda.editAgendaDifficulty,
-          "exercise": agenda.editAgendaExercise,
-          "chapter": agenda.editAgendaChapter,
-          "date": agenda.editAgendaDate,
-          "announcements": agenda.editAgendaAnnouncements,
-          "QR": agenda.editAgendaQR,
-          "cohortID": agenda.editAgendaCohortID,
-          "complete":agenda.completeObj
+          "topic": agenda.topic,
+          "difficulty": agenda.difficulty,
+          "exercise": agenda.exercise,
+          "chapter": agenda.chapter,
+          "date": agenda.date,
+          "announcements": agenda.announcements,
+          "QR": agenda.QR,
+          "cohortID": agenda.cohortID,
+          "complete":agenda.complete
         });
        // console.log(this.state)
       });
     }
 
   render() {
-    console.log(this.props.agendas)
+    //console.log(this.props.agendas)
           return (
 
             <React.Fragment>
@@ -135,51 +139,51 @@ export default class AgendaEditInst extends Component {
                       <form className="EditAgenda">
                     <h1>Edit Below</h1>
                     <div className="form-group">
-                        <label htmlFor="editAgendaTopic">Topic</label>
+                        <label htmlFor="topic">Topic</label>
                         <input type="text" required
                                className="form-control"
                                onChange={this.handleFieldChange}
-                               id="editAgendaTopic"
-                               value={this.props.agendas.topic} />
+                               id="topic"
+                               value={this.state.topic} />
                     </div>
                     <div className="form-group">
-                        <label htmlFor="editAgendaChapter">Chapter</label>
+                        <label htmlFor="chapter">Chapter</label>
                         <input type="number" required
                                className="form-control"
                                onChange={this.handleFieldChange}
-                               id="editAgendaChapter"
-                               placeholder={this.state.chapter} />
+                               id="chapter"
+                               value={this.state.chapter} />
                     </div>
                     <div className="form-group">
-                        <label htmlFor="editAgendaDifficulty">Difficulty</label>
+                        <label htmlFor="difficulty">Difficulty</label>
                         <input type="number" required
                                className="form-control"
                                onChange={this.handleFieldChange}
-                               id="editAgendaDifficulty"
+                               id="difficulty"
                                placeholder={this.state.difficulty} />
                     </div>
                     <div className="form-group">
-                        <label htmlFor="editAgendaExercise">Exercise</label>
+                        <label htmlFor="exercise">Exercise</label>
                         <input type="text" required
                                className="form-control"
                                onChange={this.handleFieldChange}
-                               id="editAgendaExercise"
+                               id="exercise"
                                placeholder={this.state.exercise}/>
                     </div>
                     <div className="form-group">
-                        <label htmlFor="editAgendaDate">Date</label>
+                        <label htmlFor="date">Date</label>
                         <input type="date" required
                                className="form-control"
                                onChange={this.handleFieldChange}
-                               id="editAgendaDate"
+                               id="date"
                                placeholder={this.state.date} />
                     </div>
                     <div className="form-group">
-                        <label htmlFor="editAgendaAnnouncements">Announcements</label>
+                        <label htmlFor="announcements">Announcements</label>
                         <input type="text" required
                                className="form-control"
                                onChange={this.handleFieldChange}
-                               id="editAgendaAnnouncements"
+                               id="announcements"
                                placeholder= {this.state.announcements} />
                     </div>
                     {/* <div className="div">

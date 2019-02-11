@@ -6,7 +6,7 @@ import { Container, Row, Col } from 'reactstrap';
 
 export default class LinksCard extends Component {
   render() {
-    console.log(this.props.link)
+    //console.log(this.props.link)
     return (
     <React.Fragment>
       <Container>

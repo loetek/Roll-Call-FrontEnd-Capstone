@@ -15,11 +15,13 @@ import AgendaDetail from "./agendas/AgendaDetail"
 import Login from './logins/LoginList';
 import Registration from "./logins/Registration"
 import LinksList from "./links/LinksList"
+import AgendaEditInst from './agendas/AgendaEditInst';
+
 
 import DataManager from "../modules/DataManager"
 import LoginManager from "../modules/LoginManager";
 import AgendaManager from "../modules/AgendaManager";
-import AgendaEditInst from './agendas/AgendaEditInst';
+import UserManager from '../modules/UserManager';
 
 
 export default class AppViews extends Component {
@@ -28,7 +30,9 @@ export default class AppViews extends Component {
         agendas:[],
         users:[],
         links:[],
+        tempChecks:[],
         userId: sessionStorage.getItem("user")
+
     }
 
     //!! ADD and remove schtuff area !!//
@@ -75,8 +79,7 @@ export default class AppViews extends Component {
         return fetch(`http://localhost:5002/links?_sort=dateAdded&_order=desc`, {
           method: "GET"
         })
-          // .then(response => response.json())
-          // .then(() => fetch(`http://localhost:5002/links`))
+
           .then(response => response.json())
           .then(links =>
             this.setState({
@@ -85,10 +88,21 @@ export default class AppViews extends Component {
           );
       };
 
+      sortAgendas = () => {
+        return fetch(`http://localhost:5002/agendas?_sort=dateAdded&_order=desc`, {
+          method: "GET"
+        })
+          .then(response => response.json())
+          .then(agendas =>
+            this.setState({
+              agendas:agendas
+            })
+          );
+      };
+
       updateAgenda = (agendaId, editedObj) => {
-        debugger
-        console.log(agendaId, editedObj )
-        return AgendaManager.put(agendaId, editedObj)
+       // console.log(agendaId, editedObj )
+        AgendaManager.put(agendaId, editedObj)
         .then(() => AgendaManager.getAll())
         .then(agendas => {
           this.setState({
@@ -97,22 +111,11 @@ export default class AppViews extends Component {
         });
       }
 
-      // sortAgenda = (itemToSort) => {
-      //   return fetch(`http://localhost:5002/${itemToSort}?_sort=id&_order=desc`, {
-      //     method: "GET"
-      //   })
-      //     .then(response => response.json())
-      //     .then(() => fetch(`http://localhost:5002/links`))
-      //     .then(response => response.json())
-      //     .then(links =>
-      //       this.setState({
-      //         links: links
-      //       })
-      //     );
-      // };
+      // setAttendance = () => {
+      //   UserManager.
 
 
-
+      // }
 
     //!! Component Did Mount !!////
 
@@ -136,23 +139,24 @@ componentDidMount() {
             users: r
         })
     })
-    // DataManager.DataManager({
-    // "dataSet" : "links",
-    // "fetchType" : "GET"
-    // })
-    // .then(r => {
-    //     this.setState({
-    //         links: r
-    //     })
-    // })
+    DataManager.DataManager({
+      "dataSet" : "tempChecks",
+      "fetchType" : "GET"
+      })
+      .then(r => {
+          this.setState({
+              tempChecks: r
+          })
+      })
 
     this.sortLinks();
+    this.sortAgendas();
 
 
     }
 
     render() {
-      console.log(this.state.links)
+      //console.log(this.state.links)
         return (
           <React.Fragment>
             {/* Login page */}
@@ -180,13 +184,14 @@ componentDidMount() {
               return <LandingPageInst {...props}
               LandingPageInst={this.state.agendas}
               deleteAgenda={this.deleteAgenda}
+              updateAgenda={this.updateAgenda}
               addAgendas={this.addAgendas}
               agendas={this.state.agendas}
-              users={this.state.users}/>
+              users={this.state.users}
+              tempChecks={this.state.tempChecks}/>
               }else {
               return <Redirect to="/" />;
             }
-
               }}
             />
             <Route
@@ -197,7 +202,8 @@ componentDidMount() {
                 agendas={this.state.agendas}
                 sortLinks={this.state.links}
                 links={this.state.links}
-                users={this.state.users}/>
+                users={this.state.users}
+                tempChecks={this.state.tempChecks}/>
                 }
               else {
               return <Redirect to="/" />;
@@ -210,7 +216,8 @@ componentDidMount() {
                 return <AgendaList {...props}
                 deleteAgenda={this.deleteAgenda}
                 agendas={this.state.agendas}
-                users={this.state.users}/>
+                users={this.state.users}
+                updateAgenda={this.updateAgenda}/>
               }else {
               return <Redirect to="/" />;
             }
@@ -224,7 +231,7 @@ componentDidMount() {
                 return <AgendaDetail {...props}
                 deleteAgenda={this.deleteAgenda}
                 agendas={this.state.agendas}
-                updateAgenda={this.state.updateAgenda}
+                updateAgenda={this.updateAgenda}
                 users={this.state.users}/>
               }
               else {
@@ -237,7 +244,7 @@ componentDidMount() {
               if(this.isAuthenticated()){
                 return <AgendaEditInst {...props}
                 agendas={this.state.agendas}
-                updateAgenda={this.state.updateAgenda}
+                updateAgenda={this.updateAgenda}
                 users={this.state.users}/>
               }
               else {

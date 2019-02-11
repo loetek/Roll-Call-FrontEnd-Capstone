@@ -8,6 +8,7 @@ import {
   Label,
   Input,
 } from 'reactstrap';
+import UserManager from "../../modules/UserManager"
 
 export default class Login extends Component {
 
@@ -41,35 +42,46 @@ this.props.verifyUser(this.state.username, this.state.password)
                     }
                 // if (loggedIn === true){
                 //     sessionStorage.setItem("user", user.id);
-                  if(loggedIn ===true && user.status === true){
+                  if(loggedIn ===true ){
+
+                    if(user.status === true){
                     sessionStorage.setItem("user", user.id);
+                    sessionStorage.setItem("name", user.firstName)
                     sessionStorage.setItem(
                           "credentials",
                           JSON.stringify({
-                              username: this.state.userName,
+                              username: this.state.username,
                               password: this.state.password,
                               status:true,
-                              cohortID: this.state.cohortID
                           })
                       )
                     this.props.history.push("/LPInst")
-                  }else{
+                  } else{
                     sessionStorage.setItem("user", user.id);
+                    sessionStorage.setItem("name", user.firstName)
                     sessionStorage.setItem(
                           "credentials",
                           JSON.stringify({
                               username: this.state.userName,
                               password: this.state.password,
                               status:false,
-                              cohortID: this.state.cohortID
                           })
                       )
                     this.props.history.push("/LPStu")
+                    }
+                  }else{
+
+                    this.props.history.push("/")
+
                   }
-                }
+
+                  }
+
             )
         }
     }
+
+
     componentDidMount(){
 
       if (sessionStorage.getItem("user") !== null){

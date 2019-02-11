@@ -22,18 +22,28 @@ export default class NavBarInst extends Component
 {
     constructor(props) {
         super(props);
-
+        this.state ={
+        modal: false
+        }
+        this.toggle = this.toggle.bind(this);
         this.toggleNavbar = this.toggleNavbar.bind(this);
         this.state = {
           collapsed: true
         };
       }
 
+      toggle() {
+        this.setState(prevState => ({
+        modal: !prevState.modal,
+        }));
+    }
+
       toggleNavbar() {
         this.setState({
           collapsed: !this.state.collapsed
         });
       }
+
 render(){
     return (
         <div>
@@ -43,10 +53,10 @@ render(){
             <Collapse isOpen={!this.state.collapsed} navbar>
               <Nav navbar>
                 <NavItem>
-                   <AgendaFormInst {...this.props} addAgendas={this.props.addAgendas}/>
+                <AgendaFormInst {...this.props} addAgendas={this.props.addAgendas}/>
                 </NavItem>
                 <NavItem>
-                  <NavLink href="/dashboardInst">Dashboard</NavLink>
+                <NavLink href="/dashboardInst">Dashboard</NavLink>
                 </NavItem>
               </Nav>
             </Collapse>

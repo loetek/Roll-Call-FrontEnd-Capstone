@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 export default class AgendaDetail extends Component {
   render() {
-    console.log(this.props);
+    //console.log(this.props);
     /*
             Using the route parameter, find the animal that the
             user clicked on by looking at the `this.props.animals`
@@ -23,9 +23,7 @@ export default class AgendaDetail extends Component {
             </h4>
             <h6 className="card-title">{agenda.announcements}</h6>
 
-            <a
-              href="#"
-              onClick={() =>
+            <a href="#" onClick={() =>
                 this.props
                   .deleteAgenda(agenda.id)
                   .then(() => this.props.history.push("/agendas"))

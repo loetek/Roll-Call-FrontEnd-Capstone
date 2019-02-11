@@ -21,4 +21,6 @@ export default {
       body: JSON.stringify(newUser)
     }).then(data => data.json());
   }
+
+
 };
