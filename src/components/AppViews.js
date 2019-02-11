@@ -203,7 +203,8 @@ componentDidMount() {
                 sortLinks={this.state.links}
                 links={this.state.links}
                 users={this.state.users}
-                tempChecks={this.state.tempChecks}/>
+                tempChecks={this.state.tempChecks}
+                />
                 }
               else {
               return <Redirect to="/" />;

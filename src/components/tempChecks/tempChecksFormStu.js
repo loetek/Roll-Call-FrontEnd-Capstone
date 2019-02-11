@@ -8,9 +8,17 @@ export default class Example extends React.Component {
     this.toggle = this.toggle.bind(this);
     this.state = {
       dropdownOpen: false,
-      tempChecks: []
+      tempChecks: [],
+
     };
   }
+
+  handleFieldChange = (evt) => {
+    const stateToChange = {}
+    stateToChange[evt.target.id] = evt.target.value
+    console.log(this.stateToChange)
+    this.setState(stateToChange)
+    }
 
   toggle() {
     this.setState(prevState => ({

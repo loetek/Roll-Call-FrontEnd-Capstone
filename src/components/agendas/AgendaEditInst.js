@@ -1,20 +1,10 @@
 import React, { Component } from "react"
 import {
-    Container,
-    Jumbotron,
     Button,
-    Form,
-    FormGroup,
-    Label,
-    Input,
     Modal,
     ModalHeader,
     ModalBody,
     ModalFooter,
-    Dropdown,
-    DropdownToggle,
-    DropdownMenu,
-    DropdownItem
 } from 'reactstrap';
 import AgendaManager from "../../modules/AgendaManager"
 
@@ -108,7 +98,7 @@ export default class AgendaEditInst extends Component {
     }
 
   componentDidMount() {
-      console.log(this.props)
+      console.log(this.props.match.params.agendaId)
      AgendaManager.get(this.props.match.params.agendaId)
       .then(agenda => {
         this.setState({
