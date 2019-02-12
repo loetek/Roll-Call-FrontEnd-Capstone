@@ -48,7 +48,8 @@ render(){
     return (
         <div>
           <Navbar color="faded" light>
-            <NavbarBrand href="/" className="mr-auto">Show of Hands</NavbarBrand>
+            <NavbarBrand href="/" className="mr-auto">Adios!</NavbarBrand>
+            <NavbarBrand href="/LPInst" className="mr-auto">Home</NavbarBrand>
             <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
             <Collapse isOpen={!this.state.collapsed} navbar>
               <Nav navbar>

@@ -47,18 +47,22 @@ this.props.verifyUser(this.state.username, this.state.password)
                     if(user.status === true){
                     sessionStorage.setItem("user", user.id);
                     sessionStorage.setItem("name", user.firstName)
+                    sessionStorage.setItem("cohort", user.cohortID)
+                    sessionStorage.setItem("username", user.userName)
                     sessionStorage.setItem(
-                          "credentials",
-                          JSON.stringify({
-                              username: this.state.username,
-                              password: this.state.password,
-                              status:true,
-                          })
+                      "credentials",
+                      JSON.stringify({
+                        username: this.state.username,
+                        password: this.state.password,
+                        status:true,
+                      })
                       )
-                    this.props.history.push("/LPInst")
-                  } else{
-                    sessionStorage.setItem("user", user.id);
-                    sessionStorage.setItem("name", user.firstName)
+                      this.props.history.push("/LPInst")
+                    } else{
+                      sessionStorage.setItem("user", user.id);
+                      sessionStorage.setItem("name", user.firstName)
+                      sessionStorage.setItem("cohort", user.cohortID)
+                      sessionStorage.setItem("username", user.userName)
                     sessionStorage.setItem(
                           "credentials",
                           JSON.stringify({
@@ -87,6 +91,8 @@ this.props.verifyUser(this.state.username, this.state.password)
       if (sessionStorage.getItem("user") !== null){
         sessionStorage.removeItem("user")
         sessionStorage.removeItem("credentials")
+        sessionStorage.removeItem("name")
+        sessionStorage.removeItem("cohort")
       }
     }
 

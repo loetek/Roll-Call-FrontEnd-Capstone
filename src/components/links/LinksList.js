@@ -1,6 +1,5 @@
 //This is the displaying of the form data.
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import LinksCard from "./LinksCard"
 import NavBarStu from "../navbar/NavBarStu"
 

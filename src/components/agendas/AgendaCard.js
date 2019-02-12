@@ -1,8 +1,6 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom"
 import { } from 'reactstrap';
 import {
-  Container,
   Row,
   Col,
   Button,
@@ -11,11 +9,8 @@ import {
   ModalBody,
   ModalFooter,
   Card,
-  CardImg,
   CardText,
   CardBody,
-  CardLink,
-  CardTitle,
   CardSubtitle } from 'reactstrap';
 import './Agenda.css'
 import AgendaManager from "../../modules/AgendaManager"
@@ -138,6 +133,13 @@ componentDidMount() {
 
           <CardText>Chapter Exercise</CardText>
           <CardText>{this.props.agenda.exercise}</CardText>
+
+          <CardText>Topic Difficulty: {this.props.agenda.exercise}</CardText>
+          <CardText> Date: {this.props.agenda.date}</CardText>
+
+          <CardText>Chapter Exercise</CardText>
+          <CardText>{this.props.agenda.exercise}</CardText>
+
 
           <Button id={this.props.agenda.id} outline color="danger" onClick={()=> this.props.deleteAgenda(this.props.agenda.id)}>Delete</Button>
           {/* <Link className="nav-link" to={`/agendas/${this.props.agenda.id}/edit`}>Edit</Link> */}
