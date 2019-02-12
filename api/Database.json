@@ -52,7 +52,7 @@
       "difficulty": "3",
       "exercise": "Test",
       "chapter": "234",
-      "date": "2019-02-20",
+      "date": "02-20-2019",
       "announcements": "ADSFADS",
       "id": 2
     },
@@ -67,53 +67,83 @@
       "announcements": " Demo day for Front End capstones will will be on Feb 15th.",
       "QR": "",
       "cohortID": 30
+    },
+    {
+      "topic": "New TEST",
+      "difficulty": null,
+      "exercise": [],
+      "chapter": null,
+      "date": "2019-02-28",
+      "announcements": [],
+      "QR": [],
+      "cohortID": null,
+      "id": 4
     }
   ],
   "links": [
     {
       "id": 1,
       "dateAdded": "02-01-2019",
-      "title": "BEM Formatting",
-      "description": "blah blahblahblahblahblahblahblahblahblah",
-      "url": "www.bem.com",
-      "userID": 4,
-      "cohortID": 29
-    },
-    {
-      "id": 1,
-      "dateAdded": "02-10-2019",
-      "title": "BEM Formatting",
-      "description": "blah blahblahblahblahblahblahblahblahblah",
-      "url": "www.bem.com",
-      "userID": 4,
-      "cohortID": 29
-    },
-    {
-      "id": 5,
-      "dateAdded": "02-08-2019",
-      "title": "Sorting",
-      "description": "blah blahblahblahblahblahblahblahblahblah",
-      "url": "www.bem.com",
-      "userID": 4,
-      "cohortID": 29
-    },
-    {
-      "id": 3,
-      "dateAdded": "01-08-2019",
-      "title": "React",
-      "description": "blah blahblahblahblahblahblahblahblahblah",
-      "url": "www.bem.com",
-      "userID": 4,
-      "cohortID": 29
+      "title": "MDN",
+      "description": "MDN Web Docs (previously know as MDN — the Mozilla Developer Network) is an evolving learning platform for Web technologies and the software that powers the Web, including:",
+      "url": "www.MDN.com",
+      "userID": 4
     },
     {
       "id": 2,
+      "dateAdded": "02-10-2019",
+      "title": "GitHub",
+      "description": "We’re supporting a community where more than 31 million* people learn, share, and work together to build software.",
+      "url": "www.github.com",
+      "userID": 4
+    },
+    {
+      "id": 3,
+      "dateAdded": "02-08-2019",
+      "title": "W3 Schools.com",
+      "description": "W3Schools is a web developers site, with tutorials and references on web development languages such as HTML, CSS, JavaScript, PHP, SQL, Python, jQuery, W3.CSS, and Bootstrap, covering most aspects of web programming.",
+      "url": "www.w3schools.com",
+      "userID": 4
+    },
+    {
+      "id": 4,
+      "dateAdded": "01-08-2019",
+      "title": "jQuery",
+      "description": "A one stop shop for all things jQuery.",
+      "url": "www.jquery.com/",
+      "userID": 4
+    },
+    {
+      "id": 5,
+      "dateAdded": "02-01-2019",
+      "title": "CSS-Tricks",
+      "description": "These days CSS-Tricks is really about building websites and all that entails, mostly from a front-end perspective. We have staff writers (see below) and loads of guest authors, so the content you find here will be as diverse as they are.",
+      "url": "https://css-tricks.com/",
+      "userID": 5
+    },
+    {
+      "id": 6,
+      "dateAdded": "02-09-2019",
+      "title": "React Cheat Sheet",
+      "description": "React Cheat Sheet is just what it says a great index for all things React. There is alos additional training.",
+      "url": "https://reactcheatsheet.com/",
+      "userID": 5
+    },
+    {
+      "id": 7,
+      "dateAdded": "02-02-2019",
+      "title": "HTML/CSS/JS Cheat Sheet",
+      "description": "These pages were created as a quick guide for those who already know how to work with these languages. ",
+      "url": "https://htmlcheatsheet.com",
+      "userID": 5
+    },
+    {
+      "id": 8,
       "dateAdded": "02-19-2019",
-      "title": "Arrayzing",
-      "description": "blah blahblahblahblahblahblahblahblahblah",
-      "url": "www.mdn.com",
-      "userID": 5,
-      "cohortID": 31
+      "title": "Team Treehouse",
+      "description": "Treehouse brings affordable technology education to people everywhere in order to help them achieve their dreams and change the world.",
+      "url": "https://teamtreehouse.com",
+      "userID": 5
     }
   ],
   "cohorts": [
@@ -138,25 +168,20 @@
   ],
   "tempChecks": [
     {
-      "id": 1,
-      "dateTime": "2019-02-05T16:34:02.739Z",
-      "feels": 8,
-      "userID": 1,
-      "cohortID": 31
-    },
-    {
-      "id": 2,
-      "dateTime": "2019-02-05T16:34:02.739Z",
-      "feels": 3,
+      "time": "4:05:43 PM",
+      "date": "2/12/2019",
+      "feels": 1,
       "userID": 3,
-      "cohortID": 29
+      "cohortID": 31,
+      "id": 11
     },
     {
-      "id": 3,
-      "dateTime": "2019-02-05T16:34:02.739Z",
-      "feels": 4,
-      "userID": 2,
-      "cohortID": 30
+      "time": "4:07:42 PM",
+      "date": "2/12/2019",
+      "feels": 5,
+      "userID": 3,
+      "cohortID": 31,
+      "id": 12
     }
   ]
 }

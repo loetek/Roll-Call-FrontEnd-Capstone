@@ -1,27 +1,24 @@
 import React, { Component } from 'react'
 import { Route, Redirect } from "react-router-dom"
-import {
-  Container,
-  Row,
-  Col,
-  Jumbotron,
-  Button
-} from 'reactstrap';
 import LandingPageInst from "./landingPage/LandingPageInst"
 import LandingPageStu from "./landingPage/LandingPageStu"
 import AgendaList from "./agendas/AgendaList"
 import AgendaDetail from "./agendas/AgendaDetail"
 //import AgendaFormInst from "./agendas/AgendaFormInst"
-import Login from './logins/LoginList';
+import Login from './logins/LoginList'
 import Registration from "./logins/Registration"
 import LinksList from "./links/LinksList"
-import AgendaEditInst from './agendas/AgendaEditInst';
+import AgendaEditInst from './agendas/AgendaEditInst'
+//import TempChecksFormStu from "./tempChecks/TempChecksFormStu"
+import Moment from 'react-moment';
+import 'moment-timezone';
 
 
 import DataManager from "../modules/DataManager"
-import LoginManager from "../modules/LoginManager";
-import AgendaManager from "../modules/AgendaManager";
-import UserManager from '../modules/UserManager';
+import LoginManager from "../modules/LoginManager"
+import AgendaManager from "../modules/AgendaManager"
+import UserManager from '../modules/UserManager'
+import TempCheckManager from '../modules/TempCheckManager'
 
 
 export default class AppViews extends Component {
@@ -34,7 +31,6 @@ export default class AppViews extends Component {
         userId: sessionStorage.getItem("user")
 
     }
-
     //!! ADD and remove schtuff area !!//
     addUser = newUser =>
     LoginManager.post(newUser)
@@ -68,6 +64,15 @@ export default class AppViews extends Component {
         })
       );
 
+    addTempChecks = newTempCheck =>
+      TempCheckManager.post(newTempCheck)
+        .then(() => TempCheckManager.getAll())
+        .then(tempCheck =>
+          this.setState({
+            tempChecks: tempCheck
+          })
+        );
+
       verifyUser = (username, password) => {
         LoginManager.getUsernameAndPassword(username, password)
           .then(allUsers => this.setState({
@@ -79,7 +84,6 @@ export default class AppViews extends Component {
         return fetch(`http://localhost:5002/links?_sort=dateAdded&_order=desc`, {
           method: "GET"
         })
-
           .then(response => response.json())
           .then(links =>
             this.setState({
@@ -89,13 +93,13 @@ export default class AppViews extends Component {
       };
 
       sortAgendas = () => {
-        return fetch(`http://localhost:5002/agendas?_sort=dateAdded&_order=desc`, {
+        return fetch(`http://localhost:5002/agendas?_sort=date&_order=desc`, {
           method: "GET"
         })
           .then(response => response.json())
           .then(agendas =>
             this.setState({
-              agendas:agendas
+              agendas: agendas
             })
           );
       };
@@ -120,16 +124,8 @@ export default class AppViews extends Component {
     //!! Component Did Mount !!////
 
 componentDidMount() {
+  this.sortAgendas();
 
-    DataManager.DataManager({
-    "dataSet" : "agendas",
-    "fetchType" : "GET"
-    })
-    .then(r => {
-        this.setState({
-            agendas: r
-        })
-    })
     DataManager.DataManager({
     "dataSet" : "users",
     "fetchType" : "GET"
@@ -150,13 +146,11 @@ componentDidMount() {
       })
 
     this.sortLinks();
-    this.sortAgendas();
-
 
     }
 
     render() {
-      //console.log(this.state.links)
+      // console.log(this.state.agendas)
         return (
           <React.Fragment>
             {/* Login page */}
@@ -177,12 +171,12 @@ componentDidMount() {
               userId={this.state.userId} />
             }}
             />
-            {/* Inst Landing Page */}
+            {/* Instructor Landing Page */}
             <Route
             exact path="/LPInst" render={props => {
               if (this.isAuthenticated()){
               return <LandingPageInst {...props}
-              LandingPageInst={this.state.agendas}
+              LandingPageInst={this.state.LandingPageInst}
               deleteAgenda={this.deleteAgenda}
               updateAgenda={this.updateAgenda}
               addAgendas={this.addAgendas}
@@ -194,16 +188,18 @@ componentDidMount() {
             }
               }}
             />
+            {/* Student Landing Page */}
             <Route
               exact path="/LPStu" render={props => {
                 if(this.isAuthenticated()){
                 return <LandingPageStu {...props}
-                LandingPageStu={this.state.agendas}
+                LandingPageStu={this.state.LandingPageStu }
                 agendas={this.state.agendas}
-                sortLinks={this.state.links}
+                sortLinks={this.state.sortLinks}
                 links={this.state.links}
                 users={this.state.users}
                 tempChecks={this.state.tempChecks}
+                addTempChecks={this.addTempChecks}
                 />
                 }
               else {

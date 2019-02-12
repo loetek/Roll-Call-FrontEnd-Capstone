@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import { Container, Row, Col } from 'reactstrap';
 
 
@@ -11,14 +10,14 @@ export default class LinksCard extends Component {
     <React.Fragment>
       <Container>
       <Row>
-      <Col xs="6">
+      <Col>
       <div key={this.props.link.id} className="card">
         <div className="card-body">
           <h5 className="card-title">
-           Title {this.props.link.title}
+            {this.props.link.title}
           </h5>
-          <p> desc {this.props.link.description}</p>
-          <a href={this.props.link.url}> </a>
+          <p>{this.props.link.description}</p>
+          <a href={this.props.link.url} target="_blank"> {this.props.link.url}</a>
         </div>
       </div>
       </Col>
