@@ -2,7 +2,9 @@
 import React, { Component } from "react";
 import AgendaCard from "./AgendaCard";
 
+
 export default class AgendaList extends Component {
+
   render() {
     return (
       <React.Fragment>
@@ -15,6 +17,7 @@ export default class AgendaList extends Component {
             users={this.props.users}
             {...this.props} />
         </section>
+
       </React.Fragment>
     );
   }

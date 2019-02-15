@@ -1,20 +1,10 @@
 import React, { Component } from "react"
 import {
-    Container,
-    Jumbotron,
     Button,
-    Form,
-    FormGroup,
-    Label,
-    Input,
     Modal,
     ModalHeader,
     ModalBody,
     ModalFooter,
-    Dropdown,
-    DropdownToggle,
-    DropdownMenu,
-    DropdownItem
 } from 'reactstrap';
 
 

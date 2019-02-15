@@ -6,14 +6,8 @@ import {
     NavbarBrand,
     Nav,
     NavItem,
-    NavLink,
-    Container,
-    Row,
-    Col,
-    Jumbotron,
-    Button
+    NavLink
   } from 'reactstrap';
-import { Link } from "react-router-dom"
 import "bootstrap/dist/css/bootstrap.min.css"
 
 
@@ -37,7 +31,7 @@ render(){
     return (
         <div>
           <Navbar color="faded" light>
-            <NavbarBrand href="/" className="mr-auto">Adios</NavbarBrand>
+            <NavbarBrand href="/" className="mr-auto">Adios!</NavbarBrand>
             <NavbarBrand href="/LPStu" className="mr-auto">Home</NavbarBrand>
             <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
             <Collapse isOpen={!this.state.collapsed} navbar>
@@ -46,7 +40,7 @@ render(){
                   <NavLink href="/linkslist">Gud links</NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink href="">Dashboard</NavLink>
+                  <NavLink href="/dashboardStu">Dashboard</NavLink>
                 </NavItem>
               </Nav>
             </Collapse>

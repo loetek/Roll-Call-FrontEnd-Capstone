@@ -11,7 +11,11 @@ import {
   Card,
   CardText,
   CardBody,
-  CardSubtitle } from 'reactstrap';
+  CardSubtitle,
+  Dropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem } from 'reactstrap';
 import './Agenda.css'
 import AgendaManager from "../../modules/AgendaManager"
 
@@ -33,7 +37,8 @@ constructor(props) {
   modal: false,
   nestedModal: false,
   closeAll: false,
-  dropdownOpen: false
+  dropdownOpen: false,
+  cohortDropDownOpen:false
   };
 
   this.toggle = this.toggle.bind(this);
@@ -56,7 +61,7 @@ createEditObject = evt => {
   evt.preventDefault();
 
     const editedAgenda = {
-      "topic": this.state.topic ,
+      "topic": this.state.topic,
       "difficulty": this.state.difficulty,
       "exercise": this.state.exercise,
       "chapter": this.state.chapter,
@@ -86,6 +91,11 @@ createEditObject = evt => {
         dropdownOpen: !prevState.dropdownOpen
       }));
     }
+  toggleCohortDropDown() {
+      this.setState(prevState => ({
+        cohortDropdownOpen: !prevState.cohortDropDownOpen
+      }));
+    }
 
   toggleNested() {
       this.setState({
@@ -113,7 +123,6 @@ componentDidMount() {
         "announcements": agenda.announcements,
         "QR": agenda.QR,
         "cohortID": agenda.cohortID,
-        "complete":agenda.complete
       });
      // console.log(this.state)
     });
@@ -143,13 +152,12 @@ componentDidMount() {
 
           <Button id={this.props.agenda.id} outline color="danger" onClick={()=> this.props.deleteAgenda(this.props.agenda.id)}>Delete</Button>
           {/* <Link className="nav-link" to={`/agendas/${this.props.agenda.id}/edit`}>Edit</Link> */}
-          <Button id={this.props.agenda.id} outline color="primary" onClick={this.toggle}>{this.props.agenda.id} Edit</Button>{''}
+          <Button id={this.props.agenda.id} outline color="primary" onClick={this.toggle}> Edit</Button>{''}
         </CardBody>
       </Card>
       </Col>
     </Row>
     </div>
-
     <div>
           <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
             <ModalHeader toggle={this.toggle}>A little change never hurt anyone</ModalHeader>
@@ -204,29 +212,28 @@ componentDidMount() {
                       id="announcements"
                       placeholder= {this.state.announcements} />
           </div>
-          {/* <div className="div">
-          <Dropdown isOpen={this.state.dropdownOpen} toggleDropDown={this.toggleDropDown}>
+          <div>
+          <Dropdown isOpen={this.state.cohortDropDownOpen} toggleDropDown={this.toggleCohortDropDown}>
               <DropdownToggle caret>
-              Dropdown
+              Cohort
               </DropdownToggle>
               <DropdownMenu>
-              <DropdownItem header>Header</DropdownItem>
-              <DropdownItem>Some Action</DropdownItem>
-              <DropdownItem disabled>Action (disabled)</DropdownItem>
+              <DropdownItem header>Cohort</DropdownItem>
               <DropdownItem divider />
-              <DropdownItem>Foo Action</DropdownItem>
-              <DropdownItem>Bar Action</DropdownItem>
-              <DropdownItem>Quo Action</DropdownItem>
+              <DropdownItem onClick={this.handleFieldChange} value="28">28</DropdownItem>
+              <DropdownItem onClick={this.handleFieldChange} value="29">29</DropdownItem>
+              <DropdownItem onClick={this.handleFieldChange} value="30">30</DropdownItem>
+              <DropdownItem onClick={this.handleFieldChange} value="31">31</DropdownItem>
+              <DropdownItem onClick={this.handleFieldChange} value="32">32</DropdownItem>
               </DropdownMenu>
           </Dropdown>
-
-          </div> */}
+          </div>
           </form>
               <br />
               <Button color="success" onClick={this.toggleNested}>Create QR Code</Button>
               <Modal isOpen={this.state.nestedModal} toggle={this.toggleNested} onClosed={this.state.closeAll ? this.toggle : undefined}>
                 <ModalHeader>QR CODE Title with Date</ModalHeader>
-                <ModalBody>Picture HERE</ModalBody>
+                <ModalBody>Fuck</ModalBody>
                 <ModalFooter>
                   <Button color="primary" onClick={this.toggleNested}>SAVE QR</Button>{' '}
                   <Button color="secondary" onClick={this.toggleAll}>DELETE</Button>
