@@ -6,16 +6,13 @@ import {
     NavbarBrand,
     Nav,
     NavItem,
-    NavLink,
-    Container,
-    Row,
-    Col,
-    Jumbotron,
-    Button
+    NavLink
   } from 'reactstrap';
-import {Link}from "react-router-dom"
 import "bootstrap/dist/css/bootstrap.min.css"
 import AgendaFormInst from "../agendas/AgendaFormInst"
+import auth0Client from "../../Auth";
+
+
 
 
 export default class NavBarInst extends Component
@@ -32,6 +29,12 @@ export default class NavBarInst extends Component
         };
       }
 
+      // signOut = () => {
+      //   auth0Client.signOut();
+      //   this.props.history.replace('/');
+      // };
+
+
       toggle() {
         this.setState(prevState => ({
         modal: !prevState.modal,
@@ -43,6 +46,7 @@ export default class NavBarInst extends Component
           collapsed: !this.state.collapsed
         });
       }
+
 
 render(){
     return (
@@ -57,8 +61,22 @@ render(){
                 <AgendaFormInst {...this.props} addAgendas={this.props.addAgendas}/>
                 </NavItem>
                 <NavItem>
-                <NavLink href="/dashboardInst">Dashboard</NavLink>
+                <NavLink href="/dashboardInst">Instructor Dashboard</NavLink>
                 </NavItem>
+
+{/* // oAuth  */}
+
+{/* {
+        !auth0Client.isAuthenticated() &&
+        <button className="btn btn-dark" onClick={auth0Client.signIn}>Sign In</button>
+      }
+      {
+        auth0Client.isAuthenticated() &&
+        <div>
+          <label className="mr-2 text-white">{auth0Client.getProfile().name}</label>
+          <button className="btn btn-dark" onClick={() => {this.signOut()}}>Sign Out</button>
+        </div>
+      } */}
               </Nav>
             </Collapse>
           </Navbar>

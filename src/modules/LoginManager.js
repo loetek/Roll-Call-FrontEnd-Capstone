@@ -8,7 +8,7 @@ export default {
     return fetch(`${remoteURL}/users`).then(e => e.json());
   },
   getUsernameAndPassword(username, password){
-    return fetch(`${remoteURL}/users?username=${username}&password=${password}`)
+    return fetch(`${remoteURL}/users?userName=${username}&password=${password}`)
     .then(response => response.json())
 },
 

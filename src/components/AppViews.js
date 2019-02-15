@@ -4,21 +4,19 @@ import LandingPageInst from "./landingPage/LandingPageInst"
 import LandingPageStu from "./landingPage/LandingPageStu"
 import AgendaList from "./agendas/AgendaList"
 import AgendaDetail from "./agendas/AgendaDetail"
-//import AgendaFormInst from "./agendas/AgendaFormInst"
 import Login from './logins/LoginList'
 import Registration from "./logins/Registration"
 import LinksList from "./links/LinksList"
-import AgendaEditInst from './agendas/AgendaEditInst'
-//import TempChecksFormStu from "./tempChecks/TempChecksFormStu"
-import Moment from 'react-moment';
+import AgendaEditInst from './agendas/AgendaCard'
 import 'moment-timezone';
 
 
 import DataManager from "../modules/DataManager"
 import LoginManager from "../modules/LoginManager"
 import AgendaManager from "../modules/AgendaManager"
-import UserManager from '../modules/UserManager'
 import TempCheckManager from '../modules/TempCheckManager'
+import AttendanceManager from "../modules/AttendanceManager"
+import Callback from "../Callback"
 
 
 export default class AppViews extends Component {
@@ -28,10 +26,11 @@ export default class AppViews extends Component {
         users:[],
         links:[],
         tempChecks:[],
+        attendance:[],
         userId: sessionStorage.getItem("user")
 
     }
-    //!! ADD and remove schtuff area !!//
+    //!! ADD method area !!//
     addUser = newUser =>
     LoginManager.post(newUser)
       .then(() => LoginManager.getAll())
@@ -41,6 +40,37 @@ export default class AppViews extends Component {
         })
       );
 
+    addAttendance = newTime =>
+    AttendanceManager.post(newTime)
+      .then(() => LoginManager.getAll())
+      .then(attendance =>
+        this.setState({
+          attendance: attendance
+        })
+      );
+
+    addAgendas = newAgenda =>
+    AgendaManager.post(newAgenda)
+      .then(() => AgendaManager.getAll())
+      .then(agendas =>
+        this.setState({
+          agendas: agendas
+        })
+      )
+      .then(r => this.sortAgendas());
+
+    addTempChecks = newTempCheck =>
+      TempCheckManager.post(newTempCheck)
+        .then(() => TempCheckManager.getAll())
+        .then(tempCheck =>
+          this.setState({
+            tempChecks: tempCheck
+          })
+
+        );
+
+
+           //!! DELETE method area !!//
     deleteAgenda = id => {
         return fetch(`http://localhost:5002/agendas/${id}`, {
           method: "DELETE"
@@ -52,57 +82,57 @@ export default class AppViews extends Component {
             this.setState({
               agendas: agendas
             })
-          );
+            )
+            .then(r => this.sortAgendas());
+          };
+
+
+          //!! SORT method area !!//
+    sortLinks = () => {
+      return fetch(`http://localhost:5002/links?_sort=dateAdded&_order=desc`, {
+        method: "GET"
+      })
+      .then(response => response.json())
+      .then(links =>
+        this.setState({
+          links:links
+        })
+        );
       };
 
-    addAgendas = newAgenda =>
-    AgendaManager.post(newAgenda)
-      .then(() => AgendaManager.getAll())
+    sortAgendas = () => {
+      return fetch(`http://localhost:5002/agendas?_sort=date&_order=desc`, {
+        method: "GET"
+      })
+      .then(response => response.json())
       .then(agendas =>
         this.setState({
           agendas: agendas
         })
-      );
-
-    addTempChecks = newTempCheck =>
-      TempCheckManager.post(newTempCheck)
-        .then(() => TempCheckManager.getAll())
-        .then(tempCheck =>
-          this.setState({
-            tempChecks: tempCheck
-          })
         );
+      };
 
+    sortAttendance = () => {
+      return fetch(`http://localhost:5002/attendance?_sort=date&_order=desc`, {
+        method: "GET"
+      })
+      .then(response => response.json())
+      .then(clockin =>
+        this.setState({
+          attendance: clockin
+        })
+        );
+      };
+
+
+        //!! MISC method area !!//
       verifyUser = (username, password) => {
-        LoginManager.getUsernameAndPassword(username, password)
-          .then(allUsers => this.setState({
-            users: allUsers
+        return LoginManager.getUsernameAndPassword(username, password)
+          .then(verifiedUser => this.setState({
+            users: verifiedUser
           })
           )
       }
-      sortLinks = () => {
-        return fetch(`http://localhost:5002/links?_sort=dateAdded&_order=desc`, {
-          method: "GET"
-        })
-          .then(response => response.json())
-          .then(links =>
-            this.setState({
-              links:links
-            })
-          );
-      };
-
-      sortAgendas = () => {
-        return fetch(`http://localhost:5002/agendas?_sort=date&_order=desc`, {
-          method: "GET"
-        })
-          .then(response => response.json())
-          .then(agendas =>
-            this.setState({
-              agendas: agendas
-            })
-          );
-      };
 
       updateAgenda = (agendaId, editedObj) => {
        // console.log(agendaId, editedObj )
@@ -112,42 +142,39 @@ export default class AppViews extends Component {
           this.setState({
             agendas: agendas
           })
+
         });
+        this.sortAgendas();
       }
-
-      // setAttendance = () => {
-      //   UserManager.
-
-
-      // }
 
     //!! Component Did Mount !!////
 
 componentDidMount() {
-  this.sortAgendas();
 
-    DataManager.DataManager({
-    "dataSet" : "users",
+  this.sortAgendas();
+  this.sortLinks();
+  this.sortAttendance();
+
+  DataManager.DataManager({
+  "dataSet" : "users",
+  "fetchType" : "GET"
+  })
+  .then(r => {
+      this.setState({
+          users: r
+      })
+  })
+  DataManager.DataManager({
+    "dataSet" : "tempChecks",
     "fetchType" : "GET"
     })
     .then(r => {
         this.setState({
-            users: r
+            tempChecks: r
         })
     })
-    DataManager.DataManager({
-      "dataSet" : "tempChecks",
-      "fetchType" : "GET"
-      })
-      .then(r => {
-          this.setState({
-              tempChecks: r
-          })
-      })
 
-    this.sortLinks();
-
-    }
+  }
 
     render() {
       // console.log(this.state.agendas)
@@ -159,7 +186,8 @@ componentDidMount() {
                 return <Login {...props}
                 handleLogin={this.handleLogin}
                 verifyUser={this.verifyUser}
-                users={this.state.users} />
+                users={this.state.users}
+                />
               }}
             />
             {/* Registration page */}
@@ -176,7 +204,6 @@ componentDidMount() {
             exact path="/LPInst" render={props => {
               if (this.isAuthenticated()){
               return <LandingPageInst {...props}
-              LandingPageInst={this.state.LandingPageInst}
               deleteAgenda={this.deleteAgenda}
               updateAgenda={this.updateAgenda}
               addAgendas={this.addAgendas}
@@ -193,13 +220,15 @@ componentDidMount() {
               exact path="/LPStu" render={props => {
                 if(this.isAuthenticated()){
                 return <LandingPageStu {...props}
-                LandingPageStu={this.state.LandingPageStu }
+                LandingPageStu={this.LandingPageStu}
                 agendas={this.state.agendas}
-                sortLinks={this.state.sortLinks}
+                sortLinks={this.sortLinks}
                 links={this.state.links}
                 users={this.state.users}
                 tempChecks={this.state.tempChecks}
                 addTempChecks={this.addTempChecks}
+                addAttendance={this.addAttendance}
+                attendance={this.state.attendance}
                 />
                 }
               else {
@@ -262,6 +291,11 @@ componentDidMount() {
             }
             }}
         />
+        <div>
+        {/* <!-- ... NavBar and the other two Routes ... --> */}
+        <Route exact path='/callback' component={Callback}/>
+      </div>
+
           </React.Fragment>
         );
       }

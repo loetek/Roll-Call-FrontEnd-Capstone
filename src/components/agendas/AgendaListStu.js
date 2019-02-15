@@ -1,6 +1,5 @@
 //This is the displaying of the form data.
 import React, { Component } from "react";
-import AgendaCard from "./AgendaCardStu";
 import AgendaCardStu from "./AgendaCardStu";
 
 export default class AgendaListStu extends Component {

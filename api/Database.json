@@ -7,7 +7,7 @@
       "lastName": "BoBillie",
       "status": false,
       "userName": "MiBillie@me.com",
-      "password": "password"
+      "password": "pass"
     },
     {
       "id": 2,
@@ -16,7 +16,7 @@
       "lastName": "TwoTones",
       "status": false,
       "userName": "2Tones@me.com",
-      "password": "password"
+      "password": "pass"
     },
     {
       "id": 3,
@@ -34,7 +34,7 @@
       "lastName": "Teahya",
       "status": true,
       "userName": "teach@me.com",
-      "password": "password"
+      "password": "pass"
     },
     {
       "id": 5,
@@ -43,18 +43,51 @@
       "lastName": "DaBossy",
       "status": true,
       "userName": "Moss@me.com",
-      "password": "password"
+      "password": "pass"
+    },
+    {
+      "firstName": "Leah",
+      "lastName": "Hoefling",
+      "userName": "leah@leah.com",
+      "password": "pass",
+      "status": true,
+      "cohortID": 30,
+      "id": 13
+    },
+    {
+      "firstName": "Lauren",
+      "lastName": "Wheeler",
+      "userName": "lauren@gmail.com",
+      "password": "pass",
+      "status": false,
+      "cohortID": 28,
+      "id": 16
     }
   ],
   "agendas": [
     {
-      "topic": "New Shit",
-      "difficulty": "3",
-      "exercise": "Test",
-      "chapter": "234",
-      "date": "02-20-2019",
-      "announcements": "ADSFADS",
-      "id": 2
+      "id": 3,
+      "userId": 3,
+      "topic": "WTF is Crud",
+      "difficulty": "6",
+      "exercise": "Write a brief description of what you think a CRUD app is and why do we care?",
+      "chapter": 10,
+      "date": "02-09-2019",
+      "announcements": " Demo day for Front End capstones will will be on Feb 15th.",
+      "QR": [],
+      "cohortID": 30
+    },
+    {
+      "id": 3,
+      "userId": 3,
+      "topic": "WTF",
+      "difficulty": "6",
+      "exercise": "Write a brief description of what you think a CRUD app is and why do we care?",
+      "chapter": 10,
+      "date": "02-09-2019",
+      "announcements": " Demo day for Front End capstones will will be on Feb 15th.",
+      "QR": [],
+      "cohortID": 28
     },
     {
       "id": 3,
@@ -65,19 +98,44 @@
       "chapter": 10,
       "date": "02-09-2019",
       "announcements": " Demo day for Front End capstones will will be on Feb 15th.",
-      "QR": "",
-      "cohortID": 30
+      "QR": [],
+      "cohortID": 29
     },
     {
-      "topic": "New TEST",
-      "difficulty": null,
-      "exercise": [],
-      "chapter": null,
-      "date": "2019-02-28",
-      "announcements": [],
+      "id": 3,
+      "userId": 3,
+      "topic": "Crud",
+      "difficulty": "6",
+      "exercise": "Write a brief description of what you think a CRUD app is and why do we care?",
+      "chapter": 10,
+      "date": "02-09-2019",
+      "announcements": " Demo day for Front End capstones will will be on Feb 15th.",
       "QR": [],
-      "cohortID": null,
-      "id": 4
+      "cohortID": 29
+    },
+    {
+      "id": 3,
+      "userId": 3,
+      "topic": "WTF is Crud",
+      "difficulty": "6",
+      "exercise": "Write a brief description of what you think a CRUD app is and why do we care?",
+      "chapter": 10,
+      "date": "02-09-2019",
+      "announcements": " Demo day for Front End capstones will will be on Feb 15th.",
+      "QR": [],
+      "cohortID": 31
+    },
+    {
+      "topic": "React",
+      "difficulty": "7",
+      "exercise": "Kennel Delete Animals",
+      "chapter": "4",
+      "date": "2019-02-16",
+      "announcements": "jd is weird",
+      "QR": [],
+      "cohortID": 32,
+      "id": 4,
+      "userId": 5
     }
   ],
   "links": [
@@ -182,6 +240,96 @@
       "userID": 3,
       "cohortID": 31,
       "id": 12
+    },
+    {
+      "time": "9:13:02 AM",
+      "date": "2/13/2019",
+      "feels": 1,
+      "userID": 3,
+      "cohortID": 31,
+      "id": 13
+    },
+    {
+      "time": "1:46:22 PM",
+      "date": "2/13/2019",
+      "feels": 1,
+      "userID": 3,
+      "cohortID": 31,
+      "id": 14
+    },
+    {
+      "time": "1:49:28 PM",
+      "date": "2/13/2019",
+      "feels": 6,
+      "userID": 13,
+      "cohortID": null,
+      "id": 15
+    },
+    {
+      "time": "2:41:23 PM",
+      "date": "2/14/2019",
+      "feels": 1,
+      "userID": 3,
+      "cohortID": 31,
+      "id": 18
+    }
+  ],
+  "attendance": [
+    {
+      "time": "4:07:42 PM",
+      "date": "2/12/2019",
+      "userID": 3,
+      "cohortID": 31,
+      "id": 12
+    },
+    {
+      "time": "10:40:11 AM",
+      "date": "2/13/2019",
+      "userID": 3,
+      "cohortID": 31,
+      "id": 13
+    },
+    {
+      "time": "11:05:47 AM",
+      "date": "2/13/2019",
+      "userID": 3,
+      "cohortID": 31,
+      "id": 16
+    },
+    {
+      "time": "11:50:30 AM",
+      "date": "2/13/2019",
+      "userID": 3,
+      "cohortID": 31,
+      "id": 17
+    },
+    {
+      "time": "1:46:25 PM",
+      "date": "2/13/2019",
+      "userID": 3,
+      "cohortID": 31,
+      "id": 18
+    },
+    {
+      "time": "1:48:49 PM",
+      "date": "2/13/2019",
+      "userID": 13,
+      "cohortID": null,
+      "id": 19
+    },
+    {
+      "time": "1:45:50 PM",
+      "date": "2/14/2019",
+      "userID": 3,
+      "cohortID": 31,
+      "id": 20
+    },
+    {
+      "time": "11:07:10 PM",
+      "date": "2/14/2019",
+      "userID": 3,
+      "cohortID": 31,
+      "id": 33
     }
   ]
 }

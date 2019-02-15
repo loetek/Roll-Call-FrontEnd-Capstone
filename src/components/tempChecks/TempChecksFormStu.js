@@ -37,9 +37,9 @@ export default class TempChecksFormStu extends React.Component {
     }
     console.log(tempCheck)
     this.props.addTempChecks(tempCheck)
-    // this.setState(prevState => ({
-    //     modal: !prevState.modal,
-    //     }));
+    alert("Congatulations you are very self aware!!")
+
+
       }
   toggle() {
     this.setState(prevState => ({
@@ -50,6 +50,7 @@ export default class TempChecksFormStu extends React.Component {
   render() {
    //console.log (this.props.tempChecks)
     return (
+      <React.Fragment>
       <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
         <DropdownToggle caret>
           What's your Feels?
@@ -68,9 +69,9 @@ export default class TempChecksFormStu extends React.Component {
           <DropdownItem onClick={this.handleFieldChange} value="8">8</DropdownItem>
           <DropdownItem onClick={this.handleFieldChange} value="9">9</DropdownItem>
           <DropdownItem onClick={this.handleFieldChange} value="10">10 - I am on cloud 9, doing great!!</DropdownItem>
-
         </DropdownMenu>
       </Dropdown>
+      </React.Fragment>
     );
   }
 }

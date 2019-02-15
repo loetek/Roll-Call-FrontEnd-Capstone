@@ -8,7 +8,7 @@ import {
   Label,
   Input,
 } from 'reactstrap';
-import UserManager from "../../modules/UserManager"
+import auth0Client from "../../Auth";
 
 export default class Login extends Component {
 
@@ -25,65 +25,65 @@ stateToChange[evt.target.id] = evt.target.value
 this.setState(stateToChange)
 }
 
-handleLogin = (evt) => {
-evt.preventDefault();
+  handleLogin = (evt) => {
+  evt.preventDefault();
 
-this.props.verifyUser(this.state.username, this.state.password)
-// console.log(this.state)
-// console.log(this.props)
-        if(this.props.users.length < 1) {
-            alert("You will need to Register first")
-        } else {
-            this.props.users.forEach(user => {
-                console.log(user)
-                let loggedIn= false;
-                if (this.state.username === user.userName && this.state.password === user.password) {
-                        loggedIn= true;
-                    }
-                // if (loggedIn === true){
-                //     sessionStorage.setItem("user", user.id);
-                  if(loggedIn ===true ){
+  this.props.verifyUser(this.state.username, this.state.password)
+  // console.log(this.state)
+  // console.log(this.props)
+          if(this.props.users.length < 1) {
+              alert("You will need to Register first")
+          } else {
+              this.props.users.forEach(user => {
+                  console.log(user)
+                  let loggedIn= false;
+                  if (this.state.username === user.userName && this.state.password === user.password) {
+                          loggedIn= true;
+                      }
+                  // if (loggedIn === true){
+                  //     sessionStorage.setItem("user", user.id);
+                    if(loggedIn ===true ){
 
-                    if(user.status === true){
-                    sessionStorage.setItem("user", user.id);
-                    sessionStorage.setItem("name", user.firstName)
-                    sessionStorage.setItem("cohort", user.cohortID)
-                    sessionStorage.setItem("username", user.userName)
-                    sessionStorage.setItem(
-                      "credentials",
-                      JSON.stringify({
-                        username: this.state.username,
-                        password: this.state.password,
-                        status:true,
-                      })
-                      )
-                      this.props.history.push("/LPInst")
-                    } else{
+                      if(user.status === true){
                       sessionStorage.setItem("user", user.id);
                       sessionStorage.setItem("name", user.firstName)
                       sessionStorage.setItem("cohort", user.cohortID)
                       sessionStorage.setItem("username", user.userName)
-                    sessionStorage.setItem(
-                          "credentials",
-                          JSON.stringify({
-                              username: this.state.userName,
-                              password: this.state.password,
-                              status:false,
-                          })
-                      )
-                    this.props.history.push("/LPStu")
+                      sessionStorage.setItem(
+                        "credentials",
+                        JSON.stringify({
+                          username: this.state.username,
+                          password: this.state.password,
+                          status:true,
+                        })
+                        )
+                        this.props.history.push("/LPInst")
+                      } else{
+                        sessionStorage.setItem("user", user.id);
+                        sessionStorage.setItem("name", user.firstName)
+                        sessionStorage.setItem("cohort", user.cohortID)
+                        sessionStorage.setItem("username", user.userName)
+                      sessionStorage.setItem(
+                            "credentials",
+                            JSON.stringify({
+                                username: this.state.userName,
+                                password: this.state.password,
+                                status:false,
+                            })
+                        )
+                      this.props.history.push("/LPStu")
+                      }
+                    }else{
+
+                      this.props.history.push("/")
+
                     }
-                  }else{
 
-                    this.props.history.push("/")
+                    }
 
-                  }
-
-                  }
-
-            )
-        }
-    }
+              )
+          }
+      }
 
 
     componentDidMount(){
@@ -93,6 +93,7 @@ this.props.verifyUser(this.state.username, this.state.password)
         sessionStorage.removeItem("credentials")
         sessionStorage.removeItem("name")
         sessionStorage.removeItem("cohort")
+        sessionStorage.removeItem("username")
       }
     }
 
@@ -107,6 +108,18 @@ this.props.verifyUser(this.state.username, this.state.password)
           <p className="lead">It's your time, waste it how you want!</p>
         </Container>
       </Jumbotron>
+      {/* {
+      !auth0Client.isAuthenticated() &&
+        <button className="btn btn-dark" onClick={auth0Client.signIn}>Sign In</button>
+      }
+      {
+        auth0Client.isAuthenticated() &&
+        <div>
+          <label className="mr-2 text-white">{auth0Client.getProfile().name}</label>
+          <button className="btn btn-dark" onClick={() => {this.signOut()}}>Sign Out</button>
+        </div>
+      }
+        </div> */}
     </div>
     <Form onSubmit = {this.handleLogin} className="loginForm">
     <FormGroup>
