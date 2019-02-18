@@ -20,19 +20,37 @@ export default class Registration extends Component {
             status: false,
             cohortID: null,
 
-            dropdownOpen:false
+            dropdownOpen:false,
+            statusDropdownOpen:false
         }
     this.toggle = this.toggle.bind(this);
+    this.statusToggle = this.statusToggle.bind(this);
 
     }
 
+    stringToBool = () => {
+        console.log(this.state.status)
+        if (this.state.status === "true")
+        {
+            this.setState({
+                status:true
+            })
+        }else{
+            this.setState({
+                status:false
+            })
+        }
+        console.log(this.state.status)
+
+    }
 
     // Update state whenever an input field is edited
     handleFieldChange = evt => {
         const stateToChange = {}
         stateToChange[evt.target.id] = evt.target.value
         console.log(stateToChange)
-        this.setState(stateToChange)
+        this.setState(stateToChange, () => this.stringToBool())
+        console.log(this.state)
     }
 
     constructNewUser = evt => {
@@ -57,6 +75,12 @@ export default class Registration extends Component {
     toggle() {
         this.setState(prevState => ({
             dropdownOpen: !prevState.dropdownOpen
+        }));
+        }
+
+    statusToggle() {
+        this.setState(prevState => ({
+            statusDropdownOpen: !prevState.statusDropdownOpen
         }));
         }
 
@@ -97,14 +121,20 @@ export default class Registration extends Component {
                                id="password"
                                placeholder="Password" />
                     </div>
-                    <div className="form-group">
-                        <label htmlFor="status">Status</label>
-                        <input type="text" required
-                               className="form-control"
-                               onChange={this.handleFieldChange}
-                               id="status"
-                               placeholder="Are you a teacher or student" />
+                    <div>
+                    <Dropdown isOpen={this.state.statusDropdownOpen} toggle={this.statusToggle}>
+                        <DropdownToggle caret>
+                        Are you an instructor?
+                        </DropdownToggle>
+                        <DropdownMenu onSubmit={this.handleFieldChange} value={this.state.status}>
+                        <DropdownItem divider />
+                        <DropdownItem id="status" onClick={this.handleFieldChange} value="true">True</DropdownItem>
+                        <DropdownItem id="status" onClick={this.handleFieldChange} value= "false">False</DropdownItem>
+                        </DropdownMenu>
+                    </Dropdown>
                     </div>
+                    <br/>
+                    <br/>
                     <div>
                     <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
                         <DropdownToggle caret>

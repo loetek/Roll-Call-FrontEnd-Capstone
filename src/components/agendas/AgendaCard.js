@@ -1,3 +1,5 @@
+//!! Displays the individual items plus the ability to edit.
+
 import React, { Component } from "react";
 import { } from 'reactstrap';
 import {

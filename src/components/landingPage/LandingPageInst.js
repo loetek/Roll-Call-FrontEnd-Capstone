@@ -10,6 +10,10 @@ import {
   ModalHeader,
   ModalBody,
   ModalFooter,
+  Dropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem
 } from 'reactstrap';
 
 
@@ -30,12 +34,14 @@ export default class LandingPageInst extends Component {
     nestedModal: false,
     closeAll: false,
     dropdownOpen: false,
-    user: sessionStorage.getItem("name")
+    user: sessionStorage.getItem("name"),
+    cohortDropDownOpen:false
     };
 
     this.toggle = this.toggle.bind(this);
     this.toggleNested = this.toggleNested.bind(this);
     this.toggleAll = this.toggleAll.bind(this);
+    this.toggleCohortDropDown = this.toggleCohortDropDown.bind(this);
   }
 
 
@@ -56,7 +62,7 @@ constructNewAgenda = e => {
           date: this.state.date,
           announcements: this.state.announcements,
           QR: this.state.QR,
-          cohortID: this.state.cohortID
+          cohortID: Number(this.state.cohortID)
       }
       this.props.addAgendas(agenda)
       this.setState(prevState => ({
@@ -66,6 +72,11 @@ constructNewAgenda = e => {
   }
 // Modal functions.
 
+toggleCohortDropDown() {
+  this.setState(prevState => ({
+    cohortDropDownOpen: !prevState.cohortDropDownOpen
+  }));
+}
 toggle() {
   this.setState(prevState => ({
   modal: !prevState.modal,
@@ -98,6 +109,7 @@ toggleAll() {
             <React.Fragment>
               <NavBarInst {...this.props} addAgendas={this.props.addAgendas}/>
               <h2> Hello, {this.state.user} ! </h2>
+
               {this.props.agendas.map(agenda => (
             agenda.cohortID ===Number(sessionStorage.getItem("cohort")) ? <section className="LandingPageInst">
                   <AgendaList key={agenda.id}
@@ -109,7 +121,7 @@ toggleAll() {
                 ))}
 
                 <div>
-                    <Button color="" onClick={this.toggle}>Create New</Button>{''}
+                    {/* <Button color="" onClick={this.toggle}>Create New</Button>{''} */}
 
                     <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
                       <ModalHeader toggle={this.toggle}>Let's make an agenda...</ModalHeader>
@@ -163,6 +175,22 @@ toggleAll() {
                                onChange={this.handleFieldChange}
                                id="announcements"
                                placeholder="Please enter any outstanding announcements." />
+                    </div>
+                     <div>
+                    <Dropdown isOpen={this.state.cohortDropDownOpen} toggle={this.toggleCohortDropDown}>
+                        <DropdownToggle caret>
+                        Cohort
+                        </DropdownToggle>
+                        <DropdownMenu onSubmit={this.handleFieldChange} value={this.state.cohortID}>
+                        <DropdownItem header>Cohort</DropdownItem>
+                        <DropdownItem divider />
+                        <DropdownItem id="cohortID" onClick={this.handleFieldChange} value="28">28</DropdownItem>
+                        <DropdownItem id="cohortID" onClick={this.handleFieldChange} value="29">29</DropdownItem>
+                        <DropdownItem id="cohortID" onClick={this.handleFieldChange} value="30">30</DropdownItem>
+                        <DropdownItem id="cohortID" onClick={this.handleFieldChange} value="31">31</DropdownItem>
+                        <DropdownItem id="cohortID" onClick={this.handleFieldChange} value="32">32</DropdownItem>
+                        </DropdownMenu>
+                    </Dropdown>
                     </div>
                     </form>
                         <br />

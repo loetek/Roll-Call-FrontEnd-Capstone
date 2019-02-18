@@ -90,7 +90,7 @@ export default class AgendaFormInst extends Component {
                 return (
                     <React.Fragment>
                   <div>
-                    <Button color="" onClick={this.toggle}>Create New</Button>{''}
+                    {/* <Button color="" onClick={this.toggle}>Create New</Button>{''} */}
 
                     <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
                       <ModalHeader toggle={this.toggle}>Let's make an agenda...</ModalHeader>
@@ -164,7 +164,7 @@ export default class AgendaFormInst extends Component {
                     </div> */}
                     </form>
                         <br />
-                        <Button color="success" onClick={this.toggleNested}>Create QR Code</Button>
+                        <Button color="success" onClick={this.toggleNested}> QR Code</Button>
                         <Modal isOpen={this.state.nestedModal} toggle={this.toggleNested} onClosed={this.state.closeAll ? this.toggle : undefined}>
                           <ModalHeader>QR CODE Title with Date</ModalHeader>
                           <ModalBody>Picture HERE</ModalBody>

@@ -40,7 +40,7 @@ render(){
                   <NavLink href="/linkslist">Gud links</NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink href="/dashboardStu">Dashboard</NavLink>
+                  <NavLink href="/dashboardListStu">Dashboard</NavLink>
                 </NavItem>
               </Nav>
             </Collapse>

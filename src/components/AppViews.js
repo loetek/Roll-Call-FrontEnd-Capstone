@@ -8,6 +8,8 @@ import Login from './logins/LoginList'
 import Registration from "./logins/Registration"
 import LinksList from "./links/LinksList"
 import AgendaEditInst from './agendas/AgendaCard'
+import DashboardListInst from "./dashboard/DashboardListInst"
+import DashboardListStu from "./dashboard/DashboardListStu"
 import 'moment-timezone';
 
 
@@ -285,6 +287,37 @@ componentDidMount() {
                 sortLinks={this.state.sortLinks}
                 links={this.state.links}
                 users={this.state.users}/>
+              }
+              else {
+              return <Redirect to="/" />;
+            }
+            }}
+        />
+        <Route
+            path="/dashboardListInst" render={props => {
+               if (this.isAuthenticated()){
+                return <DashboardListInst {...props}
+                agendas={this.state.agendas}
+                links={this.state.links}
+                users={this.state.users}
+                tempChecks={this.state.tempChecks}
+                attendance={this.state.attendance}
+                />
+              }
+              else {
+              return <Redirect to="/" />;
+            }
+            }}
+        />
+        <Route
+            path="/dashboardListStu" render={props => {
+               if (this.isAuthenticated()){
+                return <DashboardListStu {...props}
+                agendas={this.state.agendas}
+                links={this.state.links}
+                users={this.state.users}
+                tempChecks={this.state.tempChecks}
+                attendance={this.state.attendance}/>
               }
               else {
               return <Redirect to="/" />;

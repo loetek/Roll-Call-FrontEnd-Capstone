@@ -61,7 +61,7 @@ render(){
                 <AgendaFormInst {...this.props} addAgendas={this.props.addAgendas}/>
                 </NavItem>
                 <NavItem>
-                <NavLink href="/dashboardInst">Instructor Dashboard</NavLink>
+                <NavLink href="/dashboardListInst">Instructor Dashboard</NavLink>
                 </NavItem>
 
 {/* // oAuth  */}
