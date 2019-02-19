@@ -14,8 +14,33 @@ code {
 }
 
 
-/* #root{
+#root{
 
-  background-color: darkseagreen
+  /* background: #ffd89b;
+  background: -webkit-linear-gradient(to top, #19547b, #ffd89b);
+  background: linear-gradient(to top, #19547b, #ffd89b); */
 
-} */
+}
+
+#createBtn{
+
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 100px;
+
+}
+
+.form-group-reg{
+
+  display: flex;
+  padding-top: 100px;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+ padding: 20px 150px;
+
+
+}
+
+
+/* all button styling */

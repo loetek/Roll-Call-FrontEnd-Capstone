@@ -29,8 +29,9 @@ export default class NavBarStu extends Component
       }
 render(){
     return (
-        <div>
-          <Navbar color="faded" light>
+      <React.Fragment>
+        <div className="navBarBG">
+          <Navbar color="faded" light >
             <NavbarBrand href="/" className="mr-auto">Adios!</NavbarBrand>
             <NavbarBrand href="/LPStu" className="mr-auto">Home</NavbarBrand>
             <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
@@ -46,6 +47,7 @@ render(){
             </Collapse>
           </Navbar>
         </div>
+        </React.Fragment>
       );
 }
 }

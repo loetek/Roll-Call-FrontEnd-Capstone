@@ -87,34 +87,34 @@ export default class Registration extends Component {
     render() {
         return (
             <React.Fragment>
-                <form className="LoginForm">
+            <div className="regBig">
                     <h1>Register Here</h1>
-                    <div className="form-group">
-                        <label htmlFor="firstName">First Name</label>
+                    <div className="form-group-reg">
+                        <label htmlFor="firstName">First Name: </label>
                         <input type="firstName" required
                                className="form-control"
                                onChange={this.handleFieldChange}
                                id="firstName"
                                placeholder="Please Enter your 1st Name" />
                     </div>
-                    <div className="form-group">
-                        <label htmlFor="lastName">Last Name</label>
+                    <div className="form-group-reg">
+                        <label htmlFor="lastName">Last Name: </label>
                         <input type="lastName" required
                                className="form-control"
                                onChange={this.handleFieldChange}
                                id="lastName"
                                placeholder="Please Enter your Last Name" />
                     </div>
-                    <div className="form-group">
+                    <div className="form-group-reg">
                         <label htmlFor="username">Username: </label>
-                        <input type="text" required
+                        <input type="email" required
                                className="form-control"
                                onChange={this.handleFieldChange}
                                id="username"
                                placeholder="Email is your username" />
                     </div>
-                    <div className="form-group">
-                        <label htmlFor="password">Password</label>
+                    <div className="form-group-reg">
+                        <label htmlFor="password">Password: </label>
                         <input type="password" required
                                className="form-control"
                                onChange={this.handleFieldChange}
@@ -154,8 +154,8 @@ export default class Registration extends Component {
                     <br/>
                     <br/>
 
-                    <button type="submit" onClick={this.constructNewUser} className="btn btn-primary">Submit</button>
-                </form>
+                    <button type="submit" onClick={this.constructNewUser} className="">Submit</button>
+                    </div>
             </React.Fragment>
         )
     }

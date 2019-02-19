@@ -50,7 +50,8 @@ export default class NavBarInst extends Component
 
 render(){
     return (
-        <div>
+      <React.Fragment>
+        <div className="navBarBG">
           <Navbar color="faded" light>
             <NavbarBrand href="/" className="mr-auto">Adios!</NavbarBrand>
             <NavbarBrand href="/LPInst" className="mr-auto">Home</NavbarBrand>
@@ -81,6 +82,7 @@ render(){
             </Collapse>
           </Navbar>
         </div>
+        </React.Fragment>
       );
 }
 }

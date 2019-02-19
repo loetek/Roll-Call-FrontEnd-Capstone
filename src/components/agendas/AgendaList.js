@@ -15,6 +15,7 @@ export default class AgendaList extends Component {
             agendas={this.props.agendas}
             updateAgenda={this.props.updateAgenda}
             users={this.props.users}
+            currentCohortID={this.props.currentCohortID}
             {...this.props} />
         </section>
 

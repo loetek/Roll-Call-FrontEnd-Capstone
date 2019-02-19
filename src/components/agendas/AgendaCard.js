@@ -134,31 +134,28 @@ componentDidMount() {
     //console.log(this.props.agenda.id)
     return (
 <React.Fragment>
-        <div>
-      <Row>
-      <Col sm="6">
-      <Card>
-        <CardBody className="cardBodyMain">
+        <div id="cardInst">
+      <Card color="">
+        <CardBody color="" className="cardBodyMain">
           <h3>{this.props.agenda.topic}</h3>
           <CardSubtitle>Chapter: {this.props.agenda.chapter}</CardSubtitle>
+          <CardSubtitle>Cohort: {this.props.agenda.cohortID}</CardSubtitle>
 
-          <CardText>Chapter Exercise</CardText>
+          <CardText>Chapter Exercise:</CardText>
           <CardText>{this.props.agenda.exercise}</CardText>
 
-          <CardText>Topic Difficulty: {this.props.agenda.exercise}</CardText>
+          <CardText>Topic Difficulty: {this.props.agenda.difficulty}</CardText>
+
+          <CardText>Current Announcements:</CardText>
+          <CardText>{this.props.agenda.announcements}</CardText>
+
           <CardText> Date: {this.props.agenda.date}</CardText>
-
-          <CardText>Chapter Exercise</CardText>
-          <CardText>{this.props.agenda.exercise}</CardText>
-
 
           <Button id={this.props.agenda.id} outline color="danger" onClick={()=> this.props.deleteAgenda(this.props.agenda.id)}>Delete</Button>
           {/* <Link className="nav-link" to={`/agendas/${this.props.agenda.id}/edit`}>Edit</Link> */}
           <Button id={this.props.agenda.id} outline color="primary" onClick={this.toggle}> Edit</Button>{''}
         </CardBody>
       </Card>
-      </Col>
-    </Row>
     </div>
     <div>
           <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>

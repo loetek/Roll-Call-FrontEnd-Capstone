@@ -76,6 +76,7 @@ render(){
     return(
  <React.Fragment>
  <NavBarStu {...this.props}/>
+
  <div className="chartData1"></div>
     <Bar
         data={this.state.chartData1}
