@@ -10,14 +10,14 @@ import LinksList from "./links/LinksList"
 import AgendaEditInst from './agendas/AgendaCard'
 import DashboardListInst from "./dashboard/DashboardListInst"
 import DashboardListStu from "./dashboard/DashboardListStu"
-import 'moment-timezone';
-
 
 import DataManager from "../modules/DataManager"
 import LoginManager from "../modules/LoginManager"
 import AgendaManager from "../modules/AgendaManager"
 import TempCheckManager from '../modules/TempCheckManager'
 import AttendanceManager from "../modules/AttendanceManager"
+
+import 'moment-timezone';
 import Callback from "../Callback"
 
 
@@ -70,7 +70,6 @@ export default class AppViews extends Component {
           })
 
         );
-
 
            //!! DELETE method area !!//
     deleteAgenda = id => {

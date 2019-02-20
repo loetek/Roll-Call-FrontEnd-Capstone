@@ -13,8 +13,9 @@ export default class AgendaCardStu extends Component {
   <div>
     <Row>
     <Col sm="6">
-    <Card>
+    <Card className="cardStu">
       <CardBody className="cardBodyMain">
+
         <h3>{this.props.card.topic}</h3>
         <CardSubtitle>Chapter: {this.props.card.chapter}</CardSubtitle>
         <CardText>Chapter Exercise: {this.props.card.exercise}</CardText>

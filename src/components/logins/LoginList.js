@@ -1,4 +1,4 @@
-import React, { Component } from "react"
+import React, { Component, Link } from "react"
 import {
   Container,
   Jumbotron,
@@ -9,6 +9,7 @@ import {
   Input,
 } from 'reactstrap';
 import auth0Client from "../../Auth";
+import "./Login.css"
 
 export default class Login extends Component {
 
@@ -63,7 +64,7 @@ this.setState(stateToChange)
                         sessionStorage.setItem("name", user.firstName)
                         sessionStorage.setItem("cohort", user.cohortID)
                         sessionStorage.setItem("username", user.userName)
-                      sessionStorage.setItem(
+                        sessionStorage.setItem(
                             "credentials",
                             JSON.stringify({
                                 username: this.state.userName,
@@ -101,13 +102,14 @@ this.setState(stateToChange)
  render() {
   return (
     <React.Fragment>
-    <div>
-      <Jumbotron fluid>
-        <Container fluid>
+    <div className="loginBigger">
+    <div  className="loginBig">
+
+        <Container fluid  >
           <h1 className="display-4">Welcome to Show of Hands</h1>
           <p className="lead">It's your time, waste it how you want!</p>
         </Container>
-      </Jumbotron>
+
       {/* {
       !auth0Client.isAuthenticated() &&
         <button className="btn btn-dark" onClick={auth0Client.signIn}>Sign In</button>
@@ -120,22 +122,28 @@ this.setState(stateToChange)
         </div>
       }
         </div> */}
-    </div>
-    <Form onSubmit = {this.handleLogin} className="loginForm">
+        </div>
+    <Form onSubmit = {this.handleLogin}>
+    <div className="loginForms">
     <FormGroup>
           <Label htmlFor="loginUserName">Username</Label>
           <Input onChange={this.handleFieldChange} type="email" name="username" id="username" placeholder="Use your email" />
         </FormGroup>
+        <br/>
         <FormGroup>
           <Label htmlFor="loginPassword">Password</Label>
-          <Input onChange={this.handleFieldChange} type="password" name="password" id="password" placeholder="Enter Your Password Here" />
+          <Input onChange={this.handleFieldChange} type="password" name="password" id="password" placeholder="Password" />
         </FormGroup>
-        <Button className="submitBtn" type="submit" color="secondary">Login</Button>
-        <Button className="registerButton btn btn-primary" type="button" color="secondary"
-                        onClick={()=> this.props.history.push("/login/new")}>
-                  Register
-                </Button>
+        </div>
+        <div className="loginBtns">
+        <Button className="submitBtn" type="submit" color="">  Login  </Button>
+        </div>
+        <div className="regBtns">
+        First time?  <a href="#" onClick={() => this.props.history.push("/login/new")} className="links">   Click here to sign up!</a>
+        <div/>
+    </div>
       </Form>
+      </div>
       </React.Fragment>
   );
 }

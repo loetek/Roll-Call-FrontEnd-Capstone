@@ -15,6 +15,7 @@ import {
   DropdownMenu,
   DropdownItem
 } from 'reactstrap';
+import "./LandingPage.css"
 
 
 export default class LandingPageInst extends Component {
@@ -29,19 +30,24 @@ export default class LandingPageInst extends Component {
     "date": [],
     "announcements": [],
     "QR": [],
+    currentCohortAgendas:[],
+    currentCohortID:"",
     "cohortID": null,
+
     modal: false,
     nestedModal: false,
     closeAll: false,
     dropdownOpen: false,
     user: sessionStorage.getItem("name"),
-    cohortDropDownOpen:false
+    cohortDropDownOpen:false,
+    currentCohortDropDownOpen:false
     };
 
     this.toggle = this.toggle.bind(this);
     this.toggleNested = this.toggleNested.bind(this);
     this.toggleAll = this.toggleAll.bind(this);
     this.toggleCohortDropDown = this.toggleCohortDropDown.bind(this);
+    this.toggleCurrentCohortDropDown = this.toggleCurrentCohortDropDown.bind(this);
   }
 
 
@@ -49,7 +55,8 @@ export default class LandingPageInst extends Component {
 handleFieldChange = evt => {
   const stateToChange = {}
   stateToChange[evt.target.id] = evt.target.value
-  this.setState(stateToChange)
+  this.setState(stateToChange, () => this.filterCohorts())
+
 }
 
 constructNewAgenda = e => {
@@ -62,7 +69,8 @@ constructNewAgenda = e => {
           date: this.state.date,
           announcements: this.state.announcements,
           QR: this.state.QR,
-          cohortID: Number(this.state.cohortID)
+          cohortID: Number(this.state.cohortID),
+          currentCohortID:Number(this.state.currentCohortID)
       }
       this.props.addAgendas(agenda)
       this.setState(prevState => ({
@@ -70,8 +78,41 @@ constructNewAgenda = e => {
           }));
 
   }
+
+  filterCohorts = () => {
+    return fetch(`http://localhost:5002/agendas?cohortID=${this.state.currentCohortID}`, {
+    method: "GET"
+})
+  .then(response => response.json())
+  .then(cohorts => {
+    this.setState({ currentCohortAgendas: cohorts})
+  })
+}
+
+  // filterCohorts = () => {
+  //   let thisCohort = this.props.agendas.filter(cohorts =>{
+  //     let inCohort = false
+  //     if (cohorts.cohortID === this.state.currentCohortID){
+  //         inCohort = true
+  //     }
+  //     console.log("currentCohortID", this.state.currentCohortID);
+  //     console.log("CohortID", cohorts.cohortID);
+  //     //console.log("inCohort", inCohort);
+  //     return inCohort
+  //   })
+  //   //console.log("thiscohort", thisCohort);
+
+  //   this.setState({
+  //     currentCohortAgendas:thisCohort
+  //   })
+  // }
 // Modal functions.
 
+toggleCurrentCohortDropDown() {
+  this.setState(prevState => ({
+    currentCohortDropDownOpen: !prevState.currentCohortDropDownOpen
+  }));
+}
 toggleCohortDropDown() {
   this.setState(prevState => ({
     cohortDropDownOpen: !prevState.cohortDropDownOpen
@@ -101,27 +142,47 @@ toggleAll() {
   });
 }
 
+
 // {/* terenary statement that will only supply cohorts that match the user. everything before teh question mark needs to be true or else : null */}
         render() {
-          // console.log(this.props.users)
+           console.log(this.props)
           return (
 
             <React.Fragment>
               <NavBarInst {...this.props} addAgendas={this.props.addAgendas}/>
+              <div className="LPInstBig">
+              <div  className="helloLandingTop">
+              <div>
               <h2> Hello, {this.state.user} ! </h2>
-
-              {this.props.agendas.map(agenda => (
-            agenda.cohortID ===Number(sessionStorage.getItem("cohort")) ? <section className="LandingPageInst">
+              </div>
+              {/* <container className="cohortSelectorInst"> */}
+              <div className="cohortSelectorInst">
+                    <Dropdown variant="" isOpen={this.state.currentCohortDropDownOpen} toggle={this.toggleCurrentCohortDropDown}>
+                        <DropdownToggle color=" " className="cohortToggleInst" caret>
+                        Cohort
+                        </DropdownToggle>
+                        <DropdownMenu id="dropdownMenuInst" onSubmit={this.handleFieldChange} value={this.state.cohortID}>
+                        <DropdownItem divider />
+                        <DropdownItem id="currentCohortID" onClick={this.handleFieldChange} value="28">28</DropdownItem>
+                        <DropdownItem id="currentCohortID" onClick={this.handleFieldChange} value="29">29</DropdownItem>
+                        <DropdownItem id="currentCohortID" onClick={this.handleFieldChange} value="30">30</DropdownItem>
+                        <DropdownItem id="currentCohortID" onClick={this.handleFieldChange} value="31">31</DropdownItem>
+                        <DropdownItem id="currentCohortID" onClick={this.handleFieldChange} value="32">32</DropdownItem>
+                        </DropdownMenu>
+                    </Dropdown>
+                </div>
+                </div>
+              {this.state.currentCohortAgendas.map(agenda => (
+               <section key={agenda.id} className="LandingPageInst">
                   <AgendaList key={agenda.id}
+                  currentCohortID={this.state.currentCohortID}
                   updateAgenda={this.props.updateAgenda}
                   addAgendas={this.props.addAgendas}
                   deleteAgenda={this.props.deleteAgenda}
                   agenda={agenda} {...this.props} />
-              </section>: null
+              </section>
                 ))}
-
                 <div>
-                    {/* <Button color="" onClick={this.toggle}>Create New</Button>{''} */}
 
                     <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
                       <ModalHeader toggle={this.toggle}>Let's make an agenda...</ModalHeader>
@@ -210,10 +271,11 @@ toggleAll() {
                       </ModalFooter>
                     </Modal>
                   </div>
+              <div id="createBtn">
+              <Button className="btn-8g" onClick={this.toggle}> Create New</Button>
+              </div>
 
-              <Button onClick={this.toggle}  addAgendas={this.props.addAgendas} color="primary" size="lg" block> Create New</Button>
-
-
+              </div>
 
             </React.Fragment>
           );

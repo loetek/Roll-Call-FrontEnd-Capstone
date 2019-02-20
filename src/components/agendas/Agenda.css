@@ -1,6 +1,13 @@
 .cardBodyMain{
 
     border-radius: 12px;
-    background-color:rgb(196, 196, 199);
+    background-color:transparent;
+
+}
+
+#cardInst{
+    background-color: transparent;
+    display:flex;
+    justify-content: center;
 
 }

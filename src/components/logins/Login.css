@@ -1,0 +1,78 @@
+.loginBigger{
+    background: #ffd89b;
+    background: -webkit-linear-gradient(to top, #19547b, #ffd89b);
+    background: linear-gradient(to top, #19547b, #ffd89b);
+
+}
+
+
+
+.loginBig{
+    /* background: #ffd89b;
+    background: -webkit-linear-gradient(to top, #19547b, #ffd89b);
+    background: linear-gradient(to top, #19547b, #ffd89b); */
+
+
+
+    display: flex;
+    width: 100%;  /* Or whatever */
+    height: 200px;
+    padding-top: 150px;
+    padding-left: 10em;
+    margin: auto;
+
+
+}
+
+.loginBtns{
+
+    display: flex;
+    width: 100px;  /* Or whatever */
+    margin: auto;
+    color: lightgrey;
+    padding-bottom: 15px;
+
+}
+.regBtns{
+    display: flex;
+    width: 100%;  /* Or whatever */
+    margin: auto;
+    color: lightgrey;
+    padding-bottom: 400px;
+    padding-left: 21em;
+
+}
+
+.registerBtn{
+    color:lightgrey
+}
+.submitBtn{
+    color:lightgrey;
+}
+
+.loginForms{
+
+    display: flex;
+    padding-top: 100px;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+
+}
+/* .loginHeader{
+
+    display: flex;
+    justify-content: center;
+
+} */
+
+
+.regBig{
+
+    padding-bottom: 200px
+
+}
+
+.links{
+    color:whitesmoke;
+}

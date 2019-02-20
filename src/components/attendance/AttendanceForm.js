@@ -13,6 +13,7 @@ import {
   CardText,
   CardBody,
   CardSubtitle } from 'reactstrap';
+  import "./Attendance.css"
 
 
 
@@ -54,7 +55,7 @@ export default class AttendanceForm extends Component {
         }
         //console.log("punchin", punchIn)
         this.setState(punchIn, () => this.props.addAttendance(punchIn))
-        alert(`Way to go you clockedin at ${punchIn.time} on ${punchIn.date}`)
+        alert (`Way to go you clockedin at ${punchIn.time} on ${punchIn.date}`)
         this.setState(prevState => ({
           toggle: false,
           }));
@@ -64,8 +65,10 @@ export default class AttendanceForm extends Component {
         console.log(this.state)
         return (
           <React.Fragment>
-                <Card id="timeCard">
-                <CardBody>
+            <div id="timeCard">
+                <Card color= ''>
+              <div id="innerCard">
+                <CardBody color= ''>
                 <CardText>Get your Clock in!!</CardText>
                 <CardTitle>
                 <Moment interval={1000}>
@@ -79,7 +82,9 @@ export default class AttendanceForm extends Component {
                 </CardSubtitle>
                 </CardTitle>
                 </CardBody>
+                </div>
                 </Card>
+            </div>
           </React.Fragment>
         );
       }

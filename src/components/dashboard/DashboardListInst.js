@@ -7,10 +7,10 @@ import NavBarInst from "../navbar/NavBarInst";
 export default class DashboardListInst extends Component {
     state = {
             chartData1:{
-                labels: ["run", "walk", "ride"],
+                labels: [this.props.attendance.date],
                 datasets:[
                     {
-                        data:["1:35","9:00","10:00"],
+                        data:[this.props.attendance.time],
                         backgroundColor:[
                             "red",
                             "purple",
@@ -20,7 +20,7 @@ export default class DashboardListInst extends Component {
                 ]
             },
             chartData2:{
-                labels: ["Monday", "Tuesday", "Wednesday","Thursday","Friday"],
+                labels: [this.props.attendance],
                 datasets:[
                     {
                         data: ["9:00am","10:00am","10:00am","10:10am","10:15am"],
@@ -45,34 +45,40 @@ export default class DashboardListInst extends Component {
          }
 
 
-// usersAttendance = () => {
-// return fetch(`http://localhost:5002/attendance?_sort=date&_order=desc&userID=${sessionStorage.getItem("user")}`, {
-//     method: "GET"
-// })
-//     .then(e => e.json())
-//     .then(attend => {
-//         console.log(attend)
-//     this.setState({
-//         chartData1:{
-//             labels:attend,
-//             datasets:[
-//               {
-//                   label:attend.time
+usersAttendance = () => {
+return fetch(`http://localhost:5002/attendance?_userID=${sessionStorage.getItem("user")}`, {
+    method: "GET"
+})
+    .then(e => e.json())
+    .then(attend => {
+        console.log(attend)
+        let reverseAttend = attend.reverse();
+        console.log(reverseAttend);
+    })
+}
+    // this.setState({
+    //     chartData1:{
+    //         labels:attend,
+    //         datasets:[
+    //           {
+    //               label:attend.time
 
-//               }
-//             ]
-//         }
-//     })})
-//     }
+    //           }
+    //         ]
+    //     }
+    // })})
+    // }
 
 
-// componentDidMount(){
-//     this.usersAttendance();
-// }
+componentDidMount(){
+    this.usersAttendance();
+}
 
 
 render(){
-   //  console.log(this.props.attendance)
+   console.log(this.props.attendance)
+    console.log(this.props.attendance[0])
+   console.log(this.props.attendance.date)
     return(
  <React.Fragment>
  <NavBarInst {...this.props}/>
