@@ -4,13 +4,14 @@ import NavBarInst from "../navbar/NavBarInst";
 
 
 
+
 export default class DashboardListInst extends Component {
     state = {
             chartData1:{
-                labels: [this.props.attendance.date],
+                labels: [],
                 datasets:[
                     {
-                        data:[this.props.attendance.time],
+                        data:[],
                         backgroundColor:[
                             "red",
                             "purple",
@@ -20,10 +21,10 @@ export default class DashboardListInst extends Component {
                 ]
             },
             chartData2:{
-                labels: [this.props.attendance],
+                labels: [],
                 datasets:[
                     {
-                        data: ["9:00am","10:00am","10:00am","10:10am","10:15am"],
+                        data: [],
                         options: {
                             scales: {
                                 xAxes: [{
@@ -45,6 +46,55 @@ export default class DashboardListInst extends Component {
          }
 
 
+
+ stateSetter = () =>{
+    let stuTime = [];
+    let stuDate = [];
+    return fetch(`http://localhost:5002/attendance`, {
+        method: "GET"
+    })
+    .then(e => e.json())
+    .then(attend => {
+        attend.forEach(element => {
+            console.log("element", element)
+            stuTime.push(element.time);
+            stuDate.push(element.date);
+        });
+
+console.log("time", stuTime)
+console.log("date", stuDate)
+
+
+        this.setState({
+
+            chartData2:{
+                labels: [this.stuDate],
+                datasets:[
+                    {
+                        data: [this.stuTime],
+                        options: {
+                            scales: {
+                                xAxes: [{
+                                    type: 'time',
+                                    time: {
+                                        displayFormats: {
+                                            minute: [this.stuTime]
+                                        }
+                                    }
+                                }]
+                            }
+                        }
+                    }
+
+                ]
+            }
+
+        })
+
+    })
+ }
+
+
 usersAttendance = () => {
 return fetch(`http://localhost:5002/attendance?_userID=${sessionStorage.getItem("user")}`, {
     method: "GET"
@@ -55,6 +105,7 @@ return fetch(`http://localhost:5002/attendance?_userID=${sessionStorage.getItem(
         let reverseAttend = attend.reverse();
         console.log(reverseAttend);
     })
+
 }
     // this.setState({
     //     chartData1:{
@@ -71,15 +122,21 @@ return fetch(`http://localhost:5002/attendance?_userID=${sessionStorage.getItem(
 
 
 componentDidMount(){
-    this.usersAttendance();
+    this.stateSetter();
 }
 
 
 render(){
-   console.log(this.props.attendance)
-    console.log(this.props.attendance[0])
-   console.log(this.props.attendance.date)
-    return(
+// console.log(this.props.attendance)
+// console.log(this.props.attendance.time)
+// console.log(this.props.attendance.date)
+console.log("attendance",this.props.attendance);
+   console.log("state", this.state)
+   console.log("time", this.stuTime)
+   console.log("date", this.stuDate)
+
+
+return(
  <React.Fragment>
  <NavBarInst {...this.props}/>
  <div className="chartData1"></div>
