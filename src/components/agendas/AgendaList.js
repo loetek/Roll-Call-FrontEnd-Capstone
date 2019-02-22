@@ -12,7 +12,7 @@ export default class AgendaList extends Component {
             <AgendaCard key={this.props.agendas.id}
             addAgendas={this.props.addAgendas}
             deleteAgenda={this.props.deleteAgenda}
-            agendas={this.props.agendas}
+            agenda={this.props.agenda}
             updateAgenda={this.props.updateAgenda}
             users={this.props.users}
             currentCohortID={this.props.currentCohortID}

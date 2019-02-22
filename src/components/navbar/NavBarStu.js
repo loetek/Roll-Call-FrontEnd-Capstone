@@ -31,7 +31,7 @@ render(){
     return (
       <React.Fragment>
         <div className="navBarBG">
-          <Navbar color="faded" light >
+          <Navbar style={{backgroundColor: "#44ccc7"}} light >
             <NavbarBrand href="/" className="mr-auto">Adios!</NavbarBrand>
             <NavbarBrand href="/LPStu" className="mr-auto">Home</NavbarBrand>
             <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />

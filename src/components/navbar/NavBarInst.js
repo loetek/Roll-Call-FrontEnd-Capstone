@@ -9,7 +9,7 @@ import {
     NavLink
   } from 'reactstrap';
 import "bootstrap/dist/css/bootstrap.min.css"
-import AgendaFormInst from "../agendas/AgendaFormInst"
+// import AgendaFormInst from "../agendas/AgendaFormInst"
 import auth0Client from "../../Auth";
 
 
@@ -52,14 +52,14 @@ render(){
     return (
       <React.Fragment>
         <div className="navBarBG">
-          <Navbar color="faded" light>
+          <Navbar style={{backgroundColor: "#44ccc7"}} light>
             <NavbarBrand href="/" className="mr-auto">Adios!</NavbarBrand>
             <NavbarBrand href="/LPInst" className="mr-auto">Home</NavbarBrand>
             <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
             <Collapse isOpen={!this.state.collapsed} navbar>
               <Nav navbar>
                 <NavItem>
-                <AgendaFormInst {...this.props} addAgendas={this.props.addAgendas}/>
+                {/* <AgendaFormInst {...this.props} addAgendas={this.props.addAgendas}/> */}
                 </NavItem>
                 <NavItem>
                 <NavLink href="/dashboardListInst">Instructor Dashboard</NavLink>

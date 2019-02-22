@@ -61,9 +61,9 @@ render() {
     // console.log("agendas" , this.state.agendas)
     return (
       <React.Fragment>
-
+      <div className="LPStuBig">
         <NavBarStu {...this.props} agendas={this.props.agendas}/>
-        <h2> {this.state.user}'s Agenda for Today </h2>
+        <h2 id="LPStuBigHeader"> {this.state.user}'s Agenda for Today </h2>
              <section className="LandingPageStu">
 
             <AgendaListStu key={this.props.agendas.id} agendas={this.props.agendas} singleCard={this.state.singleCard} card={this.state.card}{...this.props} />
@@ -72,10 +72,7 @@ render() {
 
             </section>
 
-        <Container id="calendarContain">
-        {/* <Calendar /> */}
-        </Container>
-
+        </div>
       </React.Fragment>
     );
   }
