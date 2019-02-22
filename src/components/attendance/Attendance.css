@@ -1,8 +1,9 @@
 #timeCard{
 
     display: flex;
-    justify-content: center;
     background-color: transparent;
+    margin-left: 50vw;
+    margin-bottom: 1vh;
 
 }
 
@@ -13,6 +14,19 @@
 
 #innerCard{
 
-    background-color: transparent;
 
+
+}
+
+#cardAttend{
+    border-radius: 12px;
+    /* box-shadow: 5px 5px 5px white; */
+   background-color: transparent;
+   color: white;
+
+}
+
+#cardBodyAttend{
+    display: flex;
+   align-content: center;
 }

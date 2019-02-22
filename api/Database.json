@@ -46,22 +46,22 @@
       "password": "pass"
     },
     {
-      "firstName": "Leah",
-      "lastName": "Hoefling",
-      "userName": "leah@leah.com",
-      "password": "pass",
-      "status": true,
-      "cohortID": 30,
-      "id": 13
-    },
-    {
       "firstName": "Lauren",
       "lastName": "Wheeler",
       "userName": "lauren@gmail.com",
       "password": "pass",
       "status": false,
       "cohortID": 28,
-      "id": 16
+      "id": 13
+    },
+    {
+      "firstName": "Jim",
+      "lastName": "Jones",
+      "userName": "jim@jim.com",
+      "password": "pass",
+      "status": false,
+      "cohortID": 30,
+      "id": 17
     }
   ],
   "agendas": [
@@ -88,17 +88,6 @@
       "cohortID": 29,
       "id": 4,
       "userId": 5
-    },
-    {
-      "topic": "Arrays",
-      "difficulty": "9",
-      "exercise": "Create and modify some arrays. ",
-      "chapter": "12",
-      "date": "2019-02-18",
-      "announcements": "Normal Announcements",
-      "QR": [],
-      "cohortID": 29,
-      "id": 5
     },
     {
       "topic": "Test",
@@ -181,6 +170,12 @@
   "cohorts": [
     {
       "id": 1,
+      "cohortID": 28,
+      "description": "Full Stack with Front End JS React and BackEnd with Python",
+      "userID": 5
+    },
+    {
+      "id": 1,
       "cohortID": 29,
       "description": "Full Stack with Front End JS React and BackEnd with C#",
       "userID": 5
@@ -196,13 +191,19 @@
       "cohortID": 31,
       "description": "Full Stack with Front End JS React and BackEnd with C#",
       "userID": 3
+    },
+    {
+      "id": 3,
+      "cohortID": 32,
+      "description": "Full Stack with Front End JS React",
+      "userID": 3
     }
   ],
   "tempChecks": [
     {
       "time": "4:05:43 PM",
       "date": "2/12/2019",
-      "feels": 1,
+      "feels": 10,
       "userID": 3,
       "cohortID": 31,
       "id": 11
@@ -218,7 +219,7 @@
     {
       "time": "9:13:02 AM",
       "date": "2/13/2019",
-      "feels": 1,
+      "feels": 9,
       "userID": 3,
       "cohortID": 31,
       "id": 13
@@ -226,7 +227,7 @@
     {
       "time": "1:46:22 PM",
       "date": "2/13/2019",
-      "feels": 1,
+      "feels": 8,
       "userID": 3,
       "cohortID": 31,
       "id": 14
@@ -236,118 +237,83 @@
       "date": "2/13/2019",
       "feels": 6,
       "userID": 13,
-      "cohortID": null,
+      "cohortID": 28,
       "id": 15
     },
     {
-      "time": "2:41:23 PM",
-      "date": "2/14/2019",
+      "time": "1:49:28 PM",
+      "date": "2/13/2019",
       "feels": 1,
-      "userID": 3,
-      "cohortID": 31,
-      "id": 18
+      "userID": 13,
+      "cohortID": 28,
+      "id": 15
     },
     {
-      "time": "1:40:22 PM",
-      "date": "2/15/2019",
-      "feels": 1,
-      "userID": 3,
-      "cohortID": 31,
-      "id": 19
+      "time": "1:49:28 PM",
+      "date": "2/13/2019",
+      "feels": 8,
+      "userID": 13,
+      "cohortID": 28,
+      "id": 15
     },
     {
-      "time": "3:47:47 PM",
-      "date": "2/15/2019",
+      "time": "1:49:28 PM",
+      "date": "2/13/2019",
       "feels": 10,
-      "userID": 3,
-      "cohortID": 31,
-      "id": 20
+      "userID": 13,
+      "cohortID": 28,
+      "id": 15
     }
   ],
   "attendance": [
     {
-      "time": "4:07:42 PM",
+      "time": "9:07",
       "date": "2/12/2019",
       "userID": 3,
       "cohortID": 31,
       "id": 12
     },
     {
-      "time": "10:40:11 AM",
+      "time": "10:40",
       "date": "2/13/2019",
       "userID": 3,
       "cohortID": 31,
       "id": 13
     },
     {
-      "time": "11:05:47 AM",
-      "date": "2/13/2019",
-      "userID": 3,
-      "cohortID": 31,
-      "id": 16
-    },
-    {
-      "time": "11:50:30 AM",
-      "date": "2/13/2019",
-      "userID": 3,
-      "cohortID": 31,
-      "id": 17
-    },
-    {
-      "time": "1:46:25 PM",
-      "date": "2/13/2019",
-      "userID": 3,
-      "cohortID": 31,
-      "id": 18
-    },
-    {
-      "time": "1:48:49 PM",
-      "date": "2/13/2019",
-      "userID": 13,
-      "cohortID": null,
-      "id": 19
-    },
-    {
-      "time": "1:45:50 PM",
+      "time": "10:45",
       "date": "2/14/2019",
       "userID": 3,
       "cohortID": 31,
       "id": 20
     },
     {
-      "time": "11:07:10 PM",
-      "date": "2/14/2019",
-      "userID": 3,
-      "cohortID": 31,
-      "id": 33
-    },
-    {
-      "time": "12:50:10 PM",
-      "date": "2/15/2019",
-      "userID": 3,
-      "cohortID": 31,
-      "id": 34
-    },
-    {
-      "time": "1:37:36 PM",
-      "date": "2/15/2019",
-      "userID": 3,
-      "cohortID": 31,
-      "id": 35
-    },
-    {
-      "time": "1:40:30 PM",
-      "date": "2/15/2019",
-      "userID": 3,
-      "cohortID": 31,
-      "id": 36
-    },
-    {
-      "time": "3:47:37 PM",
+      "time": "9:47",
       "date": "2/15/2019",
       "userID": 3,
       "cohortID": 31,
       "id": 37
+    },
+    {
+      "time": "8:10",
+      "date": "2/20/2019",
+      "userID": 3,
+      "cohortID": 31,
+      "id": 38
+    },
+    {
+      "time": "8:13",
+      "date": "2/20/2019",
+      "userID": 3,
+      "cohortID": 31,
+      "id": 39
+    },
+    {
+      "time": "3:20:43 PM",
+      "date": "2/21/2019",
+      "userID": 3,
+      "cohortID": 31,
+      "id": 40
     }
   ]
 }

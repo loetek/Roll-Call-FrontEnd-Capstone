@@ -10,10 +10,10 @@ export default class AgendaCardStu extends Component {
   render() {
     return (
 <React.Fragment>
-  <div>
-    <Row>
-    <Col sm="6">
-    <Card className="cardStu">
+  <div id="cardContainer">
+
+
+    <Card id="cardBodyStu" >
       <CardBody className="cardBodyMain">
 
         <h3>{this.props.card.topic}</h3>
@@ -24,8 +24,7 @@ export default class AgendaCardStu extends Component {
 
       </CardBody>
     </Card>
-    </Col>
-  </Row>
+
 </div>
 </React.Fragment>
 

@@ -8,8 +8,9 @@ import {
   Label,
   Input,
 } from 'reactstrap';
-import auth0Client from "../../Auth";
 import "./Login.css"
+import hall from "../assets/hall.jpg"
+import wood from "../assets/wood.jpg"
 
 export default class Login extends Component {
 
@@ -102,26 +103,20 @@ this.setState(stateToChange)
  render() {
   return (
     <React.Fragment>
-    <div className="loginBigger">
-    <div  className="loginBig">
 
-        <Container fluid  >
+
+     <header>
+    <h2 id="rollCallHeader"> ROLL CALL </h2>
+    </header>
+
+
+    <div id="loginBigger">
+    <div  className="loginBig">
+        {/* <Container fluid  >
           <h1 className="display-4">Welcome to Show of Hands</h1>
           <p className="lead">It's your time, waste it how you want!</p>
-        </Container>
+        </Container> */}
 
-      {/* {
-      !auth0Client.isAuthenticated() &&
-        <button className="btn btn-dark" onClick={auth0Client.signIn}>Sign In</button>
-      }
-      {
-        auth0Client.isAuthenticated() &&
-        <div>
-          <label className="mr-2 text-white">{auth0Client.getProfile().name}</label>
-          <button className="btn btn-dark" onClick={() => {this.signOut()}}>Sign Out</button>
-        </div>
-      }
-        </div> */}
         </div>
     <Form onSubmit = {this.handleLogin}>
     <div className="loginForms">
@@ -144,6 +139,11 @@ this.setState(stateToChange)
     </div>
       </Form>
       </div>
+      {/* <div id="rollCallPhotoWood">
+
+      <img src={wood} alt="Wood" />
+      <h3 id="rollCallFooter"> ROLL CALL </h3>
+    </div> */}
       </React.Fragment>
   );
 }

@@ -4,6 +4,7 @@ import React, { Component } from "react"
 // import Calendar from 'react-calendar'
 // import TempChecksFormStu from "../tempChecks/TempChecksFormStu"
 import Moment from 'react-moment';
+import moment from 'moment'
 import 'moment-timezone';
 import {
 
@@ -30,15 +31,6 @@ export default class AttendanceForm extends Component {
 
       }
 
-      // clearButton = (evt) => {
-
-      //   if (this.toggle){
-
-
-      //   }
-
-
-      // }
 
       clockIn = (evt) => {
 
@@ -66,10 +58,9 @@ export default class AttendanceForm extends Component {
         return (
           <React.Fragment>
             <div id="timeCard">
-                <Card color= ''>
+              <Card id="cardAttend">
               <div id="innerCard">
-                <CardBody color= ''>
-                <CardText>Get your Clock in!!</CardText>
+                <CardBody id="cardBodyAttend">
                 <CardTitle>
                 <Moment interval={1000}>
                 </Moment>
@@ -77,8 +68,9 @@ export default class AttendanceForm extends Component {
                 <br/>
                 <CardSubtitle>
                   {this.state.toggle ?
-                <Button id="clockinButton" onClick={this.clockIn} color="primary">Clock In</Button>
-                : <Button color="primary" disabled> Already Clocked </Button>}
+                <Button style={{backgroundColor: "#44ccc7"}} id="clockinButton" onClick={this.clockIn} color="primary">Clock In</Button>
+                : <Button color="primary" disabled> Already Clocked </Button>
+                  }
                 </CardSubtitle>
                 </CardTitle>
                 </CardBody>

@@ -1,0 +1,15 @@
+#tempCheckContainer{
+
+background-color: transparent;
+display:flex;
+padding:0 1.5em 0 1.5em;
+
+}
+
+#tempCheckToggle{
+
+    margin-left: 10vw;
+border-radius: 12px;
+box-shadow: 5px 5px 5px grey;
+
+}

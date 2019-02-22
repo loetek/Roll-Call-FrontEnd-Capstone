@@ -1,48 +1,11 @@
+body{
+	margin:0;
+	padding:0;
+}
 .btn-8g {
-	background: rgb(208, 233, 70);
+	background: palegoldenrod;
 	color: #999;
 	margin-bottom: 0px;
-}
-
-.btn-8g:active {
-	background: #fff;
-}
-
-.btn-8g:after,
-.btn-8g:before {
-	text-transform: uppercase;
-	width: 100%;
-	height: 100%;
-	position: absolute;
-	left: 0;
-	line-height: 70px;
-}
-
-.btn-8g:after {
-	top: -100%; /* should be -100% but there's a gap in Chrome Version 34.0.1847.131 */
-	background: #7aca7c;
-	color: #358337;
-	content: 'It worked!';
-	-webkit-transform-origin: 0% 100%;
-	-webkit-transform: rotateX(90deg);
-	-moz-transform-origin: 0% 100%;
-	-moz-transform: rotateX(90deg);
-	-ms-transform-origin: 0% 100%;
-	-ms-transform: rotateX(90deg);
-	transform-origin: 0% 100%;
-	transform: rotateX(90deg);
-}
-
-.btn-8g.btn-success3d {
-	background: #aaa;
-	-webkit-transform-origin: 50% 100%;
-	-webkit-transform: rotateX(-90deg) translateY(100%);
-	-moz-transform-origin: 50% 100%;
-	-moz-transform: rotateX(-90deg) translateY(100%);
-	-ms-transform-origin: 50% 100%;
-	-ms-transform: rotateX(-90deg) translateY(100%);
-	transform-origin: 50% 100%;
-	transform: rotateX(-90deg) translateY(100%);
 }
 
 .helloLandingTop{
@@ -52,27 +15,40 @@
 
 }
 
-.cohortSelectorInst{
-    background-color: blanchedalmond;
+.cohortSelectorInst:focus {
+
+	outline-color: transparent;
+
 }
 
 .cohortSelectorInst{
-    background-color: transparent;
-
+	background-color: transparent;
 }
 
 #dropdownMenuInst{
-    background-color: transparent;
+	background-color: lightgray;
+	opacity: .9;
 }
 
 #createBtn{
 
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-start;
 
   }
 
-  .LPInstBig{
-		background-color: lightgrey;
+.LPInstBig{
+		background-color: #ececec;
 		padding-bottom: 100%;
-  }
+ }
+
+.LPStuBig{
+		background-color: #383838;
+		padding-bottom: 100%;
+ }
+
+#LPStuBigHeader{
+	color:white;
+	display: flex;
+	justify-content: center;
+}

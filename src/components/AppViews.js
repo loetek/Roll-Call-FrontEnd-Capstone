@@ -29,6 +29,7 @@ export default class AppViews extends Component {
         links:[],
         tempChecks:[],
         attendance:[],
+        cohorts:[],
         userId: sessionStorage.getItem("user")
 
     }
@@ -174,6 +175,15 @@ componentDidMount() {
             tempChecks: r
         })
     })
+    DataManager.DataManager({
+      "dataSet" : "cohorts",
+      "fetchType" : "GET"
+      })
+      .then(r => {
+          this.setState({
+              cohorts: r
+          })
+      })
 
   }
 
@@ -301,6 +311,7 @@ componentDidMount() {
                 users={this.state.users}
                 tempChecks={this.state.tempChecks}
                 attendance={this.state.attendance}
+                cohorts={this.state.cohorts}
                 />
               }
               else {
@@ -316,7 +327,9 @@ componentDidMount() {
                 links={this.state.links}
                 users={this.state.users}
                 tempChecks={this.state.tempChecks}
-                attendance={this.state.attendance}/>
+                attendance={this.state.attendance}
+                cohorts={this.state.cohorts}
+                />
               }
               else {
               return <Redirect to="/" />;

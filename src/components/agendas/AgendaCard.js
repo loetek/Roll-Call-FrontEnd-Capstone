@@ -3,8 +3,6 @@
 import React, { Component } from "react";
 import { } from 'reactstrap';
 import {
-  Row,
-  Col,
   Button,
   Modal,
   ModalHeader,
@@ -17,7 +15,8 @@ import {
   Dropdown,
   DropdownToggle,
   DropdownMenu,
-  DropdownItem } from 'reactstrap';
+  DropdownItem ,
+  CardHeader } from 'reactstrap';
 import './Agenda.css'
 import AgendaManager from "../../modules/AgendaManager"
 
@@ -42,7 +41,7 @@ constructor(props) {
   dropdownOpen: false,
   cohortDropDownOpen:false
   };
-
+  this.toggleCohortDropDown = this.toggle.bind(this);
   this.toggle = this.toggle.bind(this);
   this.toggleNested = this.toggleNested.bind(this);
   this.toggleAll = this.toggleAll.bind(this);
@@ -134,10 +133,10 @@ componentDidMount() {
     //console.log(this.props.agenda.id)
     return (
 <React.Fragment>
-        <div id="cardInst">
-      <Card color="">
+        <div id="cardContainer">
+      <Card id="cardBodyInst" color="">
+        <CardHeader id="cardHeader  "><h3>{this.props.agenda.topic}</h3></CardHeader>
         <CardBody color="" className="cardBodyMain">
-          <h3>{this.props.agenda.topic}</h3>
           <CardSubtitle>Chapter: {this.props.agenda.chapter}</CardSubtitle>
           <CardSubtitle>Cohort: {this.props.agenda.cohortID}</CardSubtitle>
 

@@ -1,94 +1,205 @@
 import React, { Component } from "react"
 import {Doughnut, Bar, Line, HorizontalBar, Radar, Pie, Scatter, Polar, Bubble} from 'react-chartjs-2';
 import NavBarStu from "../navbar/NavBarStu";
+import moment from 'moment'
 
 
 
 export default class DashboardListStu extends Component {
     state = {
-            chartData1:{
-                labels: ["run", "walk", "ride"],
-                datasets:[
-                    {
-                        data:["1:35","9:00","10:00"],
-                        backgroundColor:[
-                            "red",
-                            "purple",
-                            "lime"
-                        ]
-                    }
-                ]
-            },
-            chartData2:{
-                labels: ["Monday", "Tuesday", "Wednesday","Thursday","Friday"],
-                datasets:[
-                    {
-                        data: ["9:00am","10:00am","10:00am","10:10am","10:15am"],
-                        options: {
-                            scales: {
-                                xAxes: [{
-                                    type: 'time',
-                                    time: {
-                                        displayFormats: {
-                                            minute: ["9:00a","10:00a"]
-                                        }
+        currentUser: '',
+        chartData1:{
+            labels: ["Scale","Monday","Tuesday","Wednesday","Thursday","Friday"],
+            datasets:[
+                {
+                    data:[0,5,6,10,9,4],
+                    backgroundColor:[
+                        "red",
+                        "purple",
+                        "lime",
+                        "turquoise",
+                        "navy",
+                        "yellow",
+                        "red",
+                        "purple",
+                        "lime",
+                        "turquoise",
+                        "navy",
+                        "yellow"
+                    ]
+                }
+            ]
+        },
+        chartData2:{
+            labels: [],
+            datasets:[
+                {
+                    data: '',
+                    options: {
+                        scales: {
+                            yAxis: [{
+                                type: 'time',
+                                distribution: 'series',
+                                time: {
+                                    displayFormats: {
+                                        minute: 'h:mm a'
                                     }
-                                }]
-                            }
+                                }
+                            }]
                         }
                     }
 
-                ]
-            }
-
+                }
+            ]
+        }
 
          }
 
-
-// usersAttendance = () => {
-// return fetch(`http://localhost:5002/attendance?_sort=date&_order=desc&userID=${sessionStorage.getItem("user")}`, {
-//     method: "GET"
-// })
-//     .then(e => e.json())
-//     .then(attend => {
-//         console.log(attend)
-//     this.setState({
-//         chartData1:{
-//             labels:attend,
-//             datasets:[
-//               {
-//                   label:attend.time
-
-//               }
-//             ]
-//         }
-//     })})
-//     }
+ attendanceSetter = (id) =>{
+            let stuTime = [];
+            let stuDate = [];
+            return fetch(`http://localhost:5002/attendance/?userID=${id}`, {
+                method: "GET"
+            })
+            .then(e => e.json())
+            .then(attend => {
+                console.log(attend)
+                attend.forEach(element => {
+                    console.log("element", element)
+                   let modified = moment(element.time, ['h:mm a']);
+                   console.log(modified);
+                    stuTime.push(modified);
+                    stuDate.push(element.date);
+                });
 
 
-// componentDidMount(){
-//     this.usersAttendance();
-// }
+        console.log("time", stuTime)
+        console.log("date", stuDate)
 
+
+                this.setState({
+
+                    chartData2:{
+                        labels: stuDate,
+                        datasets:[
+                            {
+                                type: 'line',
+                                data:stuTime.map(r=>{
+                                   return r
+                                   //convert all numbers into a decimal and then map through them.
+                                }),
+                                options: {
+                                    scales: {
+                                        xAxis: [{
+                                            type: 'time',
+                                            time: {
+                                                displayFormats: {
+                                                    minute: 'h:mm a'
+                                                }
+                                            }
+                                        }]
+                                  }
+                                }
+
+                            }
+                        ]
+                    }
+
+
+                })
+
+            })
+         }
+
+         feelsSetter = (id) =>{
+            let stuFeels = [];
+            let stuDate = [];
+            return fetch(`http://localhost:5002/tempChecks?userID=${id}`, {
+                method: "GET"
+            })
+            .then(e => e.json())
+            .then(feels => {
+                feels.forEach(element => {
+                    console.log("element", element)
+                    stuFeels.push(element.feels);
+                    stuDate.push(element.date);
+                });
+
+        console.log("time", stuFeels)
+        console.log("date", stuDate)
+
+                this.setState({
+
+                    chartData1:{
+                        labels: stuDate,
+                        datasets:[
+                            {
+                                data:stuFeels,
+                                backgroundColor:[
+                                    "red",
+                                    "purple",
+                                    "lime",
+                                    "turquoise",
+                                    "navy",
+                                    "yellow",
+                                    "red",
+                                    "purple",
+                                    "lime",
+                                    "turquoise",
+                                    "navy",
+                                    "yellow"
+                                ]
+                            }
+                        ]
+                    }
+                })
+
+            })
+         }
+
+        componentDidMount(){
+            this.attendanceSetter(sessionStorage.getItem("user"));
+            this.feelsSetter(sessionStorage.getItem("user"));
+        }
 
 render(){
-   //  console.log(this.props.attendance)
+   console.log(this.props)
     return(
  <React.Fragment>
  <NavBarStu {...this.props}/>
 
  <div className="chartData1"></div>
     <Bar
-        data={this.state.chartData1}
+    data={this.state.chartData1}
         options={{
+            title:{
+                display:true,
+                text: "Weekly Temperature Checks Breakdown",
+                fontSize:15
+            },
+            legend:{
+                display:false,
+                position:"right",
+                text: "Feels"
+            }
 
         }}
     />
 <div/>
  <div className="chartData2"></div>
     <Line
-        data={this.state.chartData2}
+    data={this.state.chartData2}
         options={{
+            title:{
+                display:true,
+                text: "Weekly Attendance Breakdown",
+                fontSize:15
+            },
+            legend:{
+                display:false,
+                position:"right",
+                text: "Feels"
+            }
 
         }}
     />

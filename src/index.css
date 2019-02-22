@@ -14,14 +14,6 @@ code {
 }
 
 
-#root{
-
-  /* background: #ffd89b;
-  background: -webkit-linear-gradient(to top, #19547b, #ffd89b);
-  background: linear-gradient(to top, #19547b, #ffd89b); */
-
-}
-
 #createBtn{
 
   display: flex;
@@ -38,8 +30,10 @@ code {
   justify-content: center;
   margin: auto;
  padding: 20px 150px;
+}
 
-
+button:focus{
+  outline:0;
 }
 
 
