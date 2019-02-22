@@ -4,18 +4,13 @@
     background-color: transparent;
     margin-left: 50vw;
     margin-bottom: 1vh;
+    justify-content: center;
 
 }
 
 #clockinButton{
     display: flex;
     justify-content: center;
-}
-
-#innerCard{
-
-
-
 }
 
 #cardAttend{

@@ -90,15 +90,63 @@
       "userId": 5
     },
     {
-      "topic": "Test",
-      "difficulty": "4",
-      "exercise": "Test",
-      "chapter": "4",
-      "date": "2019-02-18",
+      "topic": [],
+      "difficulty": null,
+      "exercise": [],
+      "chapter": null,
+      "date": [],
+      "announcements": [],
+      "QR": [],
+      "cohortID": 0,
+      "currentCohortID": 30,
+      "id": 5
+    },
+    {
+      "topic": [],
+      "difficulty": null,
+      "exercise": [],
+      "chapter": null,
+      "date": [],
+      "announcements": [],
+      "QR": [],
+      "cohortID": 0,
+      "currentCohortID": 30,
+      "id": 6
+    },
+    {
+      "topic": [],
+      "difficulty": null,
+      "exercise": [],
+      "chapter": null,
+      "date": [],
       "announcements": [],
       "QR": [],
       "cohortID": 30,
-      "id": 6
+      "currentCohortID": 30,
+      "id": 7
+    },
+    {
+      "topic": "Edit test 29 to 30",
+      "difficulty": null,
+      "exercise": [],
+      "chapter": null,
+      "date": "2019-02-21",
+      "announcements": [],
+      "QR": [],
+      "cohortID": 29,
+      "id": 8
+    },
+    {
+      "topic": "Test",
+      "difficulty": null,
+      "exercise": [],
+      "chapter": null,
+      "date": "2019-02-23",
+      "announcements": [],
+      "QR": [],
+      "cohortID": 28,
+      "currentCohortID": 30,
+      "id": 9
     }
   ],
   "links": [

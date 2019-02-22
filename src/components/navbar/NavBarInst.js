@@ -51,8 +51,8 @@ export default class NavBarInst extends Component
 render(){
     return (
       <React.Fragment>
-        <div className="navBarBG">
-          <Navbar style={{backgroundColor: "#44ccc7"}} light>
+        <div className="navBarContainer">
+          <Navbar  id="navBarActual" style={{backgroundColor: "#44ccc7"}} light>
             <NavbarBrand href="/" className="mr-auto">Adios!</NavbarBrand>
             <NavbarBrand href="/LPInst" className="mr-auto">Home</NavbarBrand>
             <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />

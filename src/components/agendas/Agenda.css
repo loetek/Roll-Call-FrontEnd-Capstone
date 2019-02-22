@@ -1,5 +1,4 @@
 #cardContainer{
-
     display: flex;
     justify-content: center;
 }
@@ -32,7 +31,19 @@
 }
 
 #cardHeader{
-
     width: 100%;
     justify-content: center;
 }
+
+/* .LandingPageContainer{
+    display: flex;
+}
+#agendaCard{
+    flex: 1;
+}
+#tempCheckCard{
+    flex: 1;
+}
+#attendanceCard{
+    flex: 1;
+} */

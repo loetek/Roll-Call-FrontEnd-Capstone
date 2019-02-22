@@ -59,7 +59,6 @@ export default class AttendanceForm extends Component {
           <React.Fragment>
             <div id="timeCard">
               <Card id="cardAttend">
-              <div id="innerCard">
                 <CardBody id="cardBodyAttend">
                 <CardTitle>
                 <Moment interval={1000}>
@@ -74,7 +73,6 @@ export default class AttendanceForm extends Component {
                 </CardSubtitle>
                 </CardTitle>
                 </CardBody>
-                </div>
                 </Card>
             </div>
           </React.Fragment>

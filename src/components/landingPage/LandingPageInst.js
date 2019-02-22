@@ -159,7 +159,7 @@ toggleAll() {
               <div className="cohortSelectorInst">
                     <Dropdown variant="" isOpen={this.state.currentCohortDropDownOpen} toggle={this.toggleCurrentCohortDropDown}>
                         <DropdownToggle color=" " className="cohortToggleInst" caret>
-                        Cohort
+                        {this.state.currentCohortID}
                         </DropdownToggle>
                         <DropdownMenu id="dropdownMenuInst" onSubmit={this.handleFieldChange} value={this.state.cohortID}>
                         <DropdownItem divider />
@@ -240,16 +240,16 @@ toggleAll() {
                      <div>
                     <Dropdown isOpen={this.state.cohortDropDownOpen} toggle={this.toggleCohortDropDown}>
                         <DropdownToggle caret>
-                        Cohort
+                        {this.state.cohortID}
                         </DropdownToggle>
                         <DropdownMenu onSubmit={this.handleFieldChange} value={this.state.cohortID}>
                         <DropdownItem header>Cohort</DropdownItem>
                         <DropdownItem divider />
-                        <DropdownItem id="cohortID" onClick={this.handleFieldChange} value="28">28</DropdownItem>
-                        <DropdownItem id="cohortID" onClick={this.handleFieldChange} value="29">29</DropdownItem>
-                        <DropdownItem id="cohortID" onClick={this.handleFieldChange} value="30">30</DropdownItem>
-                        <DropdownItem id="cohortID" onClick={this.handleFieldChange} value="31">31</DropdownItem>
-                        <DropdownItem id="cohortID" onClick={this.handleFieldChange} value="32">32</DropdownItem>
+                        <DropdownItem id="cohortID" onClick={this.handleFieldChange} value="28">Cohort 28</DropdownItem>
+                        <DropdownItem id="cohortID" onClick={this.handleFieldChange} value="29">Cohort 29</DropdownItem>
+                        <DropdownItem id="cohortID" onClick={this.handleFieldChange} value="30">Cohort 30</DropdownItem>
+                        <DropdownItem id="cohortID" onClick={this.handleFieldChange} value="31">Cohort 31</DropdownItem>
+                        <DropdownItem id="cohortID" onClick={this.handleFieldChange} value="32">Cohort 32</DropdownItem>
                         </DropdownMenu>
                     </Dropdown>
                     </div>
