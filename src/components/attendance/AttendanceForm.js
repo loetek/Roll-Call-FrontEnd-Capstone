@@ -61,7 +61,8 @@ export default class AttendanceForm extends Component {
               <Card id="cardAttend">
                 <CardBody id="cardBodyAttend">
                 <CardTitle>
-                <Moment interval={1000}>
+                <Moment interval={1000} format="hh:mm A MM/DD/YYYY">
+
                 </Moment>
                 <br/>
                 <br/>

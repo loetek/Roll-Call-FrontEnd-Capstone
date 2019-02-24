@@ -138,9 +138,9 @@ componentDidMount() {
     //console.log(this.props.agenda.id)
     return (
 <React.Fragment>
-        <div id="cardContainer">
+        <div className="scale-up-ver-bottom">
       <Card id="cardBodyInst" color="">
-        <CardHeader id="cardHeader  "><h3>{this.props.agenda.topic}</h3></CardHeader>
+        <CardHeader id="cardHeader"><h3>{this.props.agenda.topic}</h3></CardHeader>
         <CardBody color="" className="cardBodyMain">
           <CardSubtitle>Chapter: {this.props.agenda.chapter}</CardSubtitle>
           <CardSubtitle>Cohort: {this.props.agenda.cohortID}</CardSubtitle>
@@ -223,11 +223,11 @@ componentDidMount() {
               <DropdownMenu>
               <DropdownItem header>Cohort</DropdownItem>
               <DropdownItem divider />
-              <DropdownItem onClick={this.handleFieldChange} value="28">Cohort 28</DropdownItem>
-              <DropdownItem onClick={this.handleFieldChange} value="29">Cohort 29</DropdownItem>
-              <DropdownItem onClick={this.handleFieldChange} value="30">Cohort 30</DropdownItem>
-              <DropdownItem onClick={this.handleFieldChange} value="31">Cohort 31</DropdownItem>
-              <DropdownItem onClick={this.handleFieldChange} value="32">Cohort 32</DropdownItem>
+              <DropdownItem id="cohortID" onClick={this.handleFieldChange} value="28">Cohort 28</DropdownItem>
+              <DropdownItem id="cohortID" onClick={this.handleFieldChange} value="29">Cohort 29</DropdownItem>
+              <DropdownItem id="cohortID" onClick={this.handleFieldChange} value="30">Cohort 30</DropdownItem>
+              <DropdownItem id="cohortID" onClick={this.handleFieldChange} value="31">Cohort 31</DropdownItem>
+              <DropdownItem id="cohortID" onClick={this.handleFieldChange} value="32">Cohort 32</DropdownItem>
               </DropdownMenu>
           </Dropdown>
           </div>

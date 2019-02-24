@@ -8,6 +8,7 @@ import 'moment-timezone';
 import {
   Container,
   } from 'reactstrap';
+  import "./LandingPage.css"
 
 
 
@@ -62,20 +63,23 @@ render() {
     return (
       <React.Fragment>
       <div className="LPStuBig">
+      <div className="stickyNav">
         <NavBarStu {...this.props} agendas={this.props.agendas}/>
-        <h2 id="LPStuBigHeader"> {this.state.user}'s Agenda for Today </h2>
+      </div>
+        <h2 className="focus-in-expand"> {this.state.user}'s Agenda for Today </h2>
              <section className="LandingPageContainer">
             <section id="agendaCard">
             <AgendaListStu key={this.props.agendas.id} agendas={this.props.agendas} singleCard={this.state.singleCard} card={this.state.card}{...this.props} />
            </section>
+           <div className="dataCollectionBtns">
+           <section id="attendanceCard">
+            <AttendanceForm key={this.props.attendance.id} users={this.props.users} attendance={this.props.attendance} addAttendance={this.props.addAttendance}{...this.props}/>
+            </section>
             <section id="tempCheckCard">
             <TempChecksFormStu key={this.props.tempChecks.id} users={this.props.users} tempChecks={this.props.tempChecks}addTempChecks={this.props.addTempChecks}{...this.props}/>
            </section>
-            <section id="attendanceCard">
-            <AttendanceForm key={this.props.attendance.id} users={this.props.users} attendance={this.props.attendance} addAttendance={this.props.addAttendance}{...this.props}/>
+            </div>
             </section>
-            </section>
-
         </div>
       </React.Fragment>
     );

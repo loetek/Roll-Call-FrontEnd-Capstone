@@ -288,7 +288,7 @@ componentDidMount() {
               return <Redirect to="/" />;
             }
             }} */}
-        />
+        {/* /> */}
         <Route
             path="/agendas/:agendaId(\d+)/edit" render={props => {
               if(this.isAuthenticated()){
@@ -334,6 +334,23 @@ componentDidMount() {
         />
         <Route
             path="/dashboardListStu" render={props => {
+               if (this.isAuthenticated()){
+                return <DashboardListStu {...props}
+                agendas={this.state.agendas}
+                links={this.state.links}
+                users={this.state.users}
+                tempChecks={this.state.tempChecks}
+                attendance={this.state.attendance}
+                cohorts={this.state.cohorts}
+                />
+              }
+              else {
+              return <Redirect to="/" />;
+            }
+            }}
+        />
+        <Route
+            path="/profiles" render={props => {
                if (this.isAuthenticated()){
                 return <DashboardListStu {...props}
                 agendas={this.state.agendas}

@@ -54,7 +54,7 @@ render(){
         <div className="navBarContainer">
           <Navbar  id="navBarActual" style={{backgroundColor: "#44ccc7"}} light>
             <NavbarBrand href="/" className="mr-auto">Adios!</NavbarBrand>
-            <NavbarBrand href="/LPInst" className="mr-auto">Home</NavbarBrand>
+            <NavbarBrand href="/LPInst" className="mr-auto"> Home </NavbarBrand>
             <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
             <Collapse isOpen={!this.state.collapsed} navbar>
               <Nav navbar>
@@ -63,6 +63,9 @@ render(){
                 </NavItem>
                 <NavItem>
                 <NavLink href="/dashboardListInst">Instructor Dashboard</NavLink>
+                </NavItem>
+                <NavItem>
+                <NavLink href="/dashboardListInst">Profiles</NavLink>
                 </NavItem>
 
 {/* // oAuth  */}

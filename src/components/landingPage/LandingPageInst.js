@@ -149,13 +149,15 @@ toggleAll() {
           return (
 
             <React.Fragment>
+              <div className="stickyNav">
               <NavBarInst {...this.props} addAgendas={this.props.addAgendas}/>
+              </div>
               <div className="LPInstBig">
               <div  className="helloLandingTop">
               <div>
-              <h2> Hello, {this.state.user} ! </h2>
+              <h2 className="focus-in-expand" > Hello, {this.state.user} </h2>
               </div>
-              {/* <container className="cohortSelectorInst"> */}
+
               <div className="cohortSelectorInst">
                     <Dropdown variant="" isOpen={this.state.currentCohortDropDownOpen} toggle={this.toggleCurrentCohortDropDown}>
                         <DropdownToggle color=" " className="cohortToggleInst" caret>
@@ -271,10 +273,12 @@ toggleAll() {
                       </ModalFooter>
                     </Modal>
                   </div>
-              <div id="createBtn">
-              <Button className="btn-8g" onClick={this.toggle}> Create New</Button>
+              <div className="numberBG">
+                <p>{this.state.currentCohortID}</p>
               </div>
-
+              </div>
+              <div id="createBtn">
+              <Button className="btn-8g" onClick={this.toggle}> ➕ </Button>
               </div>
 
             </React.Fragment>

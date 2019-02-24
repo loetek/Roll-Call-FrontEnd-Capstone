@@ -10,7 +10,7 @@ export default class AgendaCardStu extends Component {
   render() {
     return (
 <React.Fragment>
-  <div id="cardContainer">
+  <div className="scale-up-ver-bottom">
 
 
     <Card id="cardBodyStu" >

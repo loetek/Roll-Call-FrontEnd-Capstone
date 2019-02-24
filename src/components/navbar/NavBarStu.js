@@ -38,7 +38,7 @@ render(){
             <Collapse isOpen={!this.state.collapsed} navbar>
               <Nav navbar>
                 <NavItem>
-                  <NavLink href="/linkslist">Gud links</NavLink>
+                  <NavLink href="/linkslist">Useful Links</NavLink>
                 </NavItem>
                 <NavItem>
                   <NavLink href="/dashboardListStu">Dashboard</NavLink>

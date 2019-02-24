@@ -51,7 +51,8 @@ min-height:100vh;
 header * {
     font-weight: bold;
     color:white;
-    font-size: 50px;
+    font-family: 'Permanent Marker', cursive;
+    font-size: 80px;
     letter-spacing: 0.2em;
     text-align: center;
     padding: 1em 0;
@@ -119,11 +120,12 @@ header * {
 }
 .regBtns{
     display: flex;
+    justify-content: center;
     width: 100%;
     margin: auto;
     color: lightgrey;
-    padding-bottom: 400px;
-    padding-left: 21em;
+    /* padding-bottom: 400px; */
+    /* padding-left: 21em; */
 
 }
 
@@ -137,10 +139,10 @@ header * {
 .loginForms{
 
     display: flex;
-    padding-top: 100px;
-    align-items: center;
+    flex:1;
+    padding-top: 1px;
     justify-content: center;
-    margin: auto;
+
 
 }
 /* .loginHeader{
@@ -159,4 +161,8 @@ header * {
 
 .links{
     color:whitesmoke;
+}
+
+#usernameForm{
+    margin-right: 5px;
 }
