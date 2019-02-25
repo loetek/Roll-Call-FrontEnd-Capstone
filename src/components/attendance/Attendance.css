@@ -1,32 +1,35 @@
-#timeCard{
+/* #timeCard{
 
     display: flex;
     background-color: transparent;
     margin-left: 50vw;
     margin-bottom: 1vh;
+    justify-content: center;
 
-}
+} */
 
 #clockinButton{
     display: flex;
     justify-content: center;
-}
-
-#innerCard{
-
-
-
+    border-color: transparent;
+    font-size: .75em;
+    box-shadow: 5px 5px 5px grey;
 }
 
 #cardAttend{
     border-radius: 12px;
-    /* box-shadow: 5px 5px 5px white; */
    background-color: transparent;
-   color: white;
+   color: grey;
+   border-color: transparent;
+   font-size: 1.5em;
+
+   /* border-style: solid;
+  border-width: medium;
+  border-color: pink; */
 
 }
-
+/*
 #cardBodyAttend{
     display: flex;
    align-content: center;
-}
+} */

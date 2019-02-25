@@ -1,14 +1,55 @@
-#cardContainer{
-
+.scale-up-ver-bottom {
     display: flex;
     justify-content: center;
+    -webkit-animation: scale-up-ver-bottom 0.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) 0.3s both;
+          animation: scale-up-ver-bottom 0.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) 0.3s both;
+
+          /* border-style: solid;
+  border-width: medium;
+  border-color: yellow; */
+  margin:0;
+  padding:0;
+
 }
+
+
+@-webkit-keyframes scale-up-ver-bottom{
+    0% {
+      -webkit-transform: scaleY(0.2);
+              transform: scaleY(0.2);
+      -webkit-transform-origin: 0% 100%;
+              transform-origin: 0% 100%;
+    }
+    100% {
+      -webkit-transform: scaleY(1);
+              transform: scaleY(1);
+      -webkit-transform-origin: 0% 100%;
+              transform-origin: 0% 100%;
+    }
+  }
+
+  @keyframes scale-up-ver-bottom {
+    0% {
+      -webkit-transform: scaleY(0.2);
+              transform: scaleY(0.2);
+      -webkit-transform-origin: 0% 100%;
+              transform-origin: 0% 100%;
+    }
+    100% {
+      -webkit-transform: scaleY(1);
+              transform: scaleY(1);
+      -webkit-transform-origin: 0% 100%;
+              transform-origin: 0% 100%;
+    }
+  }
+
+
 
 #cardBodyInst{
 
     border-radius: 12px;
-    box-shadow: 5px 5px 5px white;
-    background-color: transparent;
+    box-shadow: 5px 5px 5px grey;
+    background-color: gunsmoke;
     display:flex;
     justify-content: center;
     width: 70%;
@@ -16,6 +57,12 @@
     margin: 15px;
     align-items: center;
     align-content: center;
+
+    /* border-style: solid;
+  border-width: medium;
+  border-color: purple */
+
+
 }
 #cardBodyStu{
 
@@ -29,10 +76,43 @@
     margin: 15px;
     align-items: center;
     align-content: center;
+
 }
 
 #cardHeader{
-
+    display:flex;
+    flex:1;
     width: 100%;
     justify-content: center;
+    background-color: rgb(192, 189, 189);
+    border-radius: 10px;
 }
+
+/* .LandingPageContainer{
+
+    display: flex;
+}
+#agendaCard{
+    flex: 1;
+}
+#tempCheckCard{
+    flex: 1;
+}
+#attendanceCard{
+    flex: 1;
+} */
+
+.agendas{
+  /* border-style: solid;
+  border-width: medium;
+  border-color: green; */
+  margin:0;
+  padding:0;
+}
+
+
+#editModal{
+  z-index: 500000;
+  margin-top: 75px;
+}
+

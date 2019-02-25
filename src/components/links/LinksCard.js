@@ -12,7 +12,7 @@ export default class LinksCard extends Component {
       <Row>
       <Col>
       <div key={this.props.link.id} className="card">
-        <div className="card-body">
+        <div className="linksBody">
           <h5 className="card-title">
             {this.props.link.title}
           </h5>

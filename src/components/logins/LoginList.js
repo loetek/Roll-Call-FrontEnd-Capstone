@@ -96,6 +96,8 @@ this.setState(stateToChange)
         sessionStorage.removeItem("name")
         sessionStorage.removeItem("cohort")
         sessionStorage.removeItem("username")
+        sessionStorage.removeItem("currentCohort")
+
       }
     }
 
@@ -120,15 +122,19 @@ this.setState(stateToChange)
         </div>
     <Form onSubmit = {this.handleLogin}>
     <div className="loginForms">
+    <section id="usernameForm">
     <FormGroup>
           <Label htmlFor="loginUserName">Username</Label>
           <Input onChange={this.handleFieldChange} type="email" name="username" id="username" placeholder="Use your email" />
-        </FormGroup>
+    </FormGroup>
+    </section>
         <br/>
+    <section id="passwordForm">
         <FormGroup>
           <Label htmlFor="loginPassword">Password</Label>
           <Input onChange={this.handleFieldChange} type="password" name="password" id="password" placeholder="Password" />
         </FormGroup>
+    </section>
         </div>
         <div className="loginBtns">
         <Button className="submitBtn" type="submit" color="">  Login  </Button>

@@ -10,6 +10,7 @@ export default class AgendaList extends Component {
       <React.Fragment>
         <section className="agendas">
             <AgendaCard key={this.props.agendas.id}
+            filterCohorts={this.props.filterCohorts}
             addAgendas={this.props.addAgendas}
             deleteAgenda={this.props.deleteAgenda}
             agenda={this.props.agenda}

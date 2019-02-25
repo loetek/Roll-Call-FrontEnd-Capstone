@@ -30,15 +30,15 @@ export default class NavBarStu extends Component
 render(){
     return (
       <React.Fragment>
-        <div className="navBarBG">
-          <Navbar style={{backgroundColor: "#44ccc7"}} light >
+        <div className="navBarContainer">
+          <Navbar id="navBarActual" style={{backgroundColor: "#44ccc7"}} light >
             <NavbarBrand href="/" className="mr-auto">Adios!</NavbarBrand>
             <NavbarBrand href="/LPStu" className="mr-auto">Home</NavbarBrand>
             <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
             <Collapse isOpen={!this.state.collapsed} navbar>
               <Nav navbar>
                 <NavItem>
-                  <NavLink href="/linkslist">Gud links</NavLink>
+                  <NavLink href="/linkslist">Useful Links</NavLink>
                 </NavItem>
                 <NavItem>
                   <NavLink href="/dashboardListStu">Dashboard</NavLink>

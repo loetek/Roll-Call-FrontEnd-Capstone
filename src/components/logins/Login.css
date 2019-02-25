@@ -51,7 +51,7 @@ min-height:100vh;
 header * {
     font-weight: bold;
     color:white;
-    font-size: 50px;
+    font-size: 80px;
     letter-spacing: 0.2em;
     text-align: center;
     padding: 1em 0;
@@ -69,6 +69,7 @@ header * {
 }
 
 #loginBigger{
+    top:0;
     height: 100vh;
     width:100%;
     background-size: cover;
@@ -97,15 +98,12 @@ header * {
 
 .loginBig{
 
-
     display: flex;
     width: 100%;
     height: 200px;
     padding-top: 150px;
     padding-left: 10em;
     margin: auto;
-
-
 }
 
 .loginBtns{
@@ -119,11 +117,12 @@ header * {
 }
 .regBtns{
     display: flex;
+    justify-content: center;
     width: 100%;
     margin: auto;
     color: lightgrey;
-    padding-bottom: 400px;
-    padding-left: 21em;
+    /* padding-bottom: 400px; */
+    /* padding-left: 21em; */
 
 }
 
@@ -137,10 +136,10 @@ header * {
 .loginForms{
 
     display: flex;
-    padding-top: 100px;
-    align-items: center;
+    flex:1;
+    padding-top: 1px;
     justify-content: center;
-    margin: auto;
+
 
 }
 /* .loginHeader{
@@ -159,4 +158,28 @@ header * {
 
 .links{
     color:whitesmoke;
+}
+
+#usernameForm{
+    margin-right: 5px;
+}
+
+.submitNewItem{
+    border-radius: 12px;
+    margin-bottom: 5px;
+
+}
+
+.cancelNewItem{
+    border-radius: 12px;
+    margin-bottom: 5px;
+
+
+}
+
+.modalButtons{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
 }

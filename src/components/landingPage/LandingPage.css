@@ -1,11 +1,28 @@
 body{
 	margin:0;
 	padding:0;
+  font-family: "Roboto";
+
+
+  background: rgb(196,68,73);
+  background: linear-gradient(90deg, rgba(196,68,73,1) 11%, rgba(245,245,245,1) 10%);  /* fallback for old browsers */
+  /* background: #bdc3c7;
+  background: -webkit-linear-gradient(to bottom, #2c3e50, #bdc3c7);
+  background: linear-gradient(to bottom, #2c3e50, #bdc3c7);  */
 }
-.btn-8g {
-	background: palegoldenrod;
+
+  .btn-8g {
+	background: #5f2c82;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to top, #49a09d, #5f2c82);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to top, #49a09d, #5f2c82); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 	color: #999;
 	margin-bottom: 0px;
+	border-radius: 100%;
+  font-size: 25px;
+  box-shadow: 5px 5px 5px grey;
+
 }
 
 .helloLandingTop{
@@ -22,33 +39,202 @@ body{
 }
 
 .cohortSelectorInst{
+
+	margin-top: 25px;
 	background-color: transparent;
 }
 
 #dropdownMenuInst{
 	background-color: lightgray;
-	opacity: .9;
+  opacity: .9;
+  z-index: 3001;
 }
 
 #createBtn{
 
-    display: flex;
-    justify-content: flex-start;
+    width: 92%;
+    bottom: 25px;
+       right: 0;
+       position: sticky;
+       z-index: 3000;
+
+      /* border-style: solid;
+     border-width: medium;
+    border-color: chartreuse; */
+
 
   }
 
+  #addModal{
+    z-index: 500000;
+    margin-top: 75px;
+  }
+
+
 .LPInstBig{
-		background-color: #ececec;
-		padding-bottom: 100%;
+
+  /* border-style: solid;
+  border-width: medium;
+  border-color: white; */
  }
+
+ .agendaCardLPInst{
+  /* border-style: solid;
+  border-width: medium;
+  border-color: red; */
+  padding:0;
+  margin: 0;
+
+ }
+
+ .LandingPageInst{
+  /* border-style: solid;
+  border-width: medium;
+  border-color: blue; */
+  padding:0;
+  margin: 0;
+
+ }
+
+
+
+/**
+ * ----------------------------------------
+ * animation focus-in-expand
+ * ----------------------------------------
+ */
+
+.focus-in-expand {
+	-webkit-animation: focus-in-expand 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+					animation: focus-in-expand 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+          font-size: 3.75em;
+          color:grey;
+          display: flex;
+          justify-content: center;
+}
+
+
+ @-webkit-keyframes focus-in-expand {
+  0% {
+    letter-spacing: -0.5em;
+    -webkit-filter: blur(12px);
+            filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+            filter: blur(0px);
+    opacity: 1;
+  }
+}
+@keyframes focus-in-expand {
+  0% {
+    letter-spacing: -0.5em;
+    -webkit-filter: blur(12px);
+            filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+            filter: blur(0px);
+    opacity: 1;
+  }
+}
+
+/* LPSTU */
+
+
+.dataCollectionBtns{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+/*
+  border-style: solid;
+  border-width: medium;
+  border-color: white; */
+}
+
+#tempCheckCard{
+  display: flex;
+  justify-content: flex-start;
+
+  /* border-style: solid;
+  border-width: medium;
+  border-color: red; */
+}
+
+#attendanceCard{
+  display: flex;
+  justify-items: flex-start;
+
+  /* border-style: solid;
+  border-width: medium;
+  border-color: blue; */
+}
 
 .LPStuBig{
-		background-color: #383838;
-		padding-bottom: 100%;
- }
+
+  /* border-style: solid;
+  border-width: medium;
+  border-color: green; */
+}
 
 #LPStuBigHeader{
-	color:white;
-	display: flex;
-	justify-content: center;
+color:white;
+display: flex;
+justify-content: center;
+
+/* border-style: solid;
+  border-width: medium;
+  border-color: yellow */
 }
+
+.LandingPageContainer{
+
+  display: flex;
+  justify-content: space-evenly;
+
+  /* border-style: solid;
+  border-width: medium;
+  border-color: purple; */
+
+}
+
+#agendaCard{
+
+  /* border-style: solid;
+  border-width: medium;
+  border-color: coral */
+
+}
+
+.numberBG{
+  /* border-style: solid;
+  border-width: medium;
+  border-color: coral; */
+  display: flex;
+  flex-direction: column;
+  z-index: 6000;
+  height: 100%;
+  width: 3%;
+
+}
+
+.idNumbers{
+
+  /* border-style: solid;
+  border-width: medium;
+  border-color: red; */
+  color: black;
+  display: flex;
+  flex-direction: column;
+  z-index: 6001;
+  width: 100%;
+  height: 100%;
+  transform: rotate(90deg);
+  transform-origin: left top 0;
+  font-size: 8em;
+  justify-content: flex-start;
+
+}
+

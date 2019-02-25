@@ -2,47 +2,47 @@
   "users": [
     {
       "id": 1,
-      "cohortID": 29,
-      "firstName": "Millie",
-      "lastName": "BoBillie",
-      "status": false,
-      "userName": "MiBillie@me.com",
+      "cohortID": 28,
+      "firstName": "Bill",
+      "lastName": "Gates",
+      "status": true,
+      "userName": "billyG@me.com",
       "password": "pass"
     },
     {
       "id": 2,
-      "cohortID": 30,
-      "firstName": "Jimmy",
-      "lastName": "TwoTones",
-      "status": false,
-      "userName": "2Tones@me.com",
-      "password": "pass"
-    },
-    {
-      "id": 3,
       "cohortID": 31,
-      "firstName": "Frida",
-      "lastName": "Calloe",
-      "status": false,
-      "userName": "frito@me.com",
+      "firstName": "Albert",
+      "lastName": "Einstein",
+      "status": true,
+      "userName": "einstein@me.com",
       "password": "pass"
     },
     {
       "id": 4,
-      "cohortID": 31,
-      "firstName": "Ima",
-      "lastName": "Teahya",
+      "cohortID": 30,
+      "firstName": "Immanuel",
+      "lastName": "Kant",
       "status": true,
-      "userName": "teach@me.com",
+      "userName": "kant@me.com",
       "password": "pass"
     },
     {
       "id": 5,
       "cohortID": 29,
-      "firstName": "Mossy",
-      "lastName": "DaBossy",
+      "firstName": "Moss",
+      "lastName": "Mitchell",
       "status": true,
       "userName": "Moss@me.com",
+      "password": "pass"
+    },
+    {
+      "id": 5,
+      "cohortID": 32,
+      "firstName": "Frederich",
+      "lastName": "Nietzche",
+      "status": true,
+      "userName": "nietzshe@me.com",
       "password": "pass"
     },
     {
@@ -60,8 +60,170 @@
       "userName": "jim@jim.com",
       "password": "pass",
       "status": false,
-      "cohortID": 30,
+      "cohortID": 28,
       "id": 17
+    },
+    {
+      "id": 3,
+      "cohortID": 31,
+      "firstName": "Frida",
+      "lastName": "Calloe",
+      "status": false,
+      "userName": "frito@me.com",
+      "password": "pass"
+    },
+    {
+      "firstName": "Jim",
+      "lastName": "Jones",
+      "userName": "jim@jim.com",
+      "password": "pass",
+      "status": false,
+      "cohortID": 28,
+      "id": 17
+    },
+    {
+      "firstName": "Mike",
+      "lastName": "Jones",
+      "userName": "mike@me.com",
+      "password": "pass",
+      "status": false,
+      "cohortID": 28,
+      "id": 18
+    },
+    {
+      "firstName": "Jill",
+      "lastName": "Jones",
+      "userName": "jill@me.com",
+      "password": "pass",
+      "status": false,
+      "cohortID": 28,
+      "id": 19
+    },
+    {
+      "firstName": "Tom",
+      "lastName": "Jones",
+      "userName": "tom@me.com",
+      "password": "pass",
+      "status": false,
+      "cohortID": 28,
+      "id": 20
+    },
+    {
+      "firstName": "Cindy",
+      "lastName": "Jones",
+      "userName": "cindy@me.com",
+      "password": "pass",
+      "status": false,
+      "cohortID": 28,
+      "id": 21
+    },
+    {
+      "firstName": "Natasha",
+      "lastName": "Jones",
+      "userName": "natasha@me.com",
+      "password": "pass",
+      "status": false,
+      "cohortID": 28,
+      "id": 22
+    },
+    {
+      "firstName": "Fred",
+      "lastName": "Jones",
+      "userName": "fred@me.com",
+      "password": "pass",
+      "status": false,
+      "cohortID": 28,
+      "id": 23
+    },
+    {
+      "firstName": "Juan",
+      "lastName": "Jones",
+      "userName": "juan@me.com",
+      "password": "pass",
+      "status": false,
+      "cohortID": 28,
+      "id": 24
+    },
+    {
+      "firstName": "Toledo",
+      "lastName": "Jones",
+      "userName": "toldeo@me.com",
+      "password": "pass",
+      "status": false,
+      "cohortID": 28,
+      "id": 25
+    },
+    {
+      "firstName": "Elizabeth",
+      "lastName": "Jones",
+      "userName": "beth@me.com",
+      "password": "pass",
+      "status": false,
+      "cohortID": 28,
+      "id": 26
+    },
+    {
+      "firstName": "Ming",
+      "lastName": "Jones",
+      "userName": "ming@me.com",
+      "password": "pass",
+      "status": false,
+      "cohortID": 28,
+      "id": 27
+    },
+    {
+      "firstName": "Paul",
+      "lastName": "Jones",
+      "userName": "paul@me.com",
+      "password": "pass",
+      "status": false,
+      "cohortID": 28,
+      "id": 28
+    },
+    {
+      "firstName": "Ernesto",
+      "lastName": "Jones",
+      "userName": "ernesto@me.com",
+      "password": "pass",
+      "status": false,
+      "cohortID": 28,
+      "id": 29
+    },
+    {
+      "firstName": "Sebastian",
+      "lastName": "Jones",
+      "userName": "sebastian@me.com",
+      "password": "pass",
+      "status": false,
+      "cohortID": 28,
+      "id": 30
+    },
+    {
+      "firstName": "Lindsay",
+      "lastName": "Jones",
+      "userName": "lindsay@me.com",
+      "password": "pass",
+      "status": false,
+      "cohortID": 28,
+      "id": 31
+    },
+    {
+      "firstName": "Johannes",
+      "lastName": "Jones",
+      "userName": "johannes@me.com",
+      "password": "pass",
+      "status": false,
+      "cohortID": 28,
+      "id": 32
+    },
+    {
+      "firstName": "Matilda",
+      "lastName": "Jones",
+      "userName": "matilda@me.com",
+      "password": "pass",
+      "status": false,
+      "cohortID": 28,
+      "id": 33
     }
   ],
   "agendas": [
@@ -90,15 +252,98 @@
       "userId": 5
     },
     {
-      "topic": "Test",
-      "difficulty": "4",
-      "exercise": "Test",
-      "chapter": "4",
-      "date": "2019-02-18",
+      "topic": [],
+      "difficulty": null,
+      "exercise": [],
+      "chapter": null,
+      "date": [],
       "announcements": [],
       "QR": [],
-      "cohortID": 30,
+      "cohortID": 0,
+      "currentCohortID": 30,
+      "id": 5
+    },
+    {
+      "topic": [],
+      "difficulty": null,
+      "exercise": [],
+      "chapter": null,
+      "date": [],
+      "announcements": [],
+      "QR": [],
+      "cohortID": 0,
+      "currentCohortID": 30,
       "id": 6
+    },
+    {
+      "topic": "change test",
+      "difficulty": null,
+      "exercise": [],
+      "chapter": null,
+      "date": [],
+      "announcements": [],
+      "QR": [],
+      "cohortID": "29",
+      "id": 7
+    },
+    {
+      "topic": "Edit test 29 to 30",
+      "difficulty": null,
+      "exercise": [],
+      "chapter": null,
+      "date": "2019-02-21",
+      "announcements": [],
+      "QR": [],
+      "cohortID": "30",
+      "id": 8
+    },
+    {
+      "topic": "Test",
+      "difficulty": null,
+      "exercise": [],
+      "chapter": null,
+      "date": "2019-02-23",
+      "announcements": [],
+      "QR": [],
+      "cohortID": 28,
+      "currentCohortID": 30,
+      "id": 9
+    },
+    {
+      "topic": "Test",
+      "difficulty": "2",
+      "exercise": "Test",
+      "chapter": "34",
+      "date": [],
+      "announcements": "Normal",
+      "QR": [],
+      "cohortID": 0,
+      "currentCohortID": 30,
+      "id": 10
+    },
+    {
+      "topic": [],
+      "difficulty": null,
+      "exercise": [],
+      "chapter": null,
+      "date": [],
+      "announcements": [],
+      "QR": [],
+      "cohortID": 0,
+      "currentCohortID": 28,
+      "id": 15
+    },
+    {
+      "topic": [],
+      "difficulty": null,
+      "exercise": [],
+      "chapter": null,
+      "date": [],
+      "announcements": [],
+      "QR": [],
+      "cohortID": 0,
+      "currentCohortID": 29,
+      "id": 16
     }
   ],
   "links": [
@@ -172,36 +417,46 @@
       "id": 1,
       "cohortID": 28,
       "description": "Full Stack with Front End JS React and BackEnd with Python",
-      "userID": 5
-    },
-    {
-      "id": 1,
-      "cohortID": 29,
-      "description": "Full Stack with Front End JS React and BackEnd with C#",
-      "userID": 5
+      "userID": 1,
+      "start": "09-01-2018",
+      "graduate": "03-22-2019"
     },
     {
       "id": 2,
+      "cohortID": 29,
+      "description": "Full Stack with Front End JS React and BackEnd with C#",
+      "userID": 2,
+      "start": "10-29-2018",
+      "graduate": "05-22-2019"
+    },
+    {
+      "id": 3,
       "cohortID": 30,
       "description": "Full Stack with Front End JS React and BackEnd with C#",
-      "userID": 2
+      "userID": 3,
+      "start": "09-01-2018",
+      "graduate": "03-22-2019"
     },
     {
-      "id": 3,
+      "id": 4,
       "cohortID": 31,
       "description": "Full Stack with Front End JS React and BackEnd with C#",
-      "userID": 3
+      "userID": 4,
+      "start": "09-01-2018",
+      "graduate": "03-22-2019"
     },
     {
-      "id": 3,
+      "id": 5,
       "cohortID": 32,
       "description": "Full Stack with Front End JS React",
-      "userID": 3
+      "userID": 5,
+      "start": "09-01-2018",
+      "graduate": "03-22-2019"
     }
   ],
   "tempChecks": [
     {
-      "time": "4:05:43 PM",
+      "time": "4:05 PM",
       "date": "2/12/2019",
       "feels": 10,
       "userID": 3,
@@ -209,7 +464,7 @@
       "id": 11
     },
     {
-      "time": "4:07:42 PM",
+      "time": "4:07 PM",
       "date": "2/12/2019",
       "feels": 5,
       "userID": 3,
@@ -217,7 +472,7 @@
       "id": 12
     },
     {
-      "time": "9:13:02 AM",
+      "time": "9:13 AM",
       "date": "2/13/2019",
       "feels": 9,
       "userID": 3,
@@ -225,7 +480,7 @@
       "id": 13
     },
     {
-      "time": "1:46:22 PM",
+      "time": "1:46 PM",
       "date": "2/13/2019",
       "feels": 8,
       "userID": 3,
@@ -233,7 +488,7 @@
       "id": 14
     },
     {
-      "time": "1:49:28 PM",
+      "time": "1:49 PM",
       "date": "2/13/2019",
       "feels": 6,
       "userID": 13,
@@ -241,7 +496,7 @@
       "id": 15
     },
     {
-      "time": "1:49:28 PM",
+      "time": "1:49 PM",
       "date": "2/13/2019",
       "feels": 1,
       "userID": 13,
@@ -249,7 +504,7 @@
       "id": 15
     },
     {
-      "time": "1:49:28 PM",
+      "time": "1:49 PM",
       "date": "2/13/2019",
       "feels": 8,
       "userID": 13,
@@ -257,63 +512,160 @@
       "id": 15
     },
     {
-      "time": "1:49:28 PM",
+      "time": "1:49 PM",
       "date": "2/13/2019",
       "feels": 10,
       "userID": 13,
       "cohortID": 28,
       "id": 15
+    },
+    {
+      "time": "10:01 AM",
+      "date": "2/24/2019",
+      "feels": 8,
+      "userID": 3,
+      "cohortID": 31,
+      "id": 16
+    },
+    {
+      "time": "11:08 PM",
+      "date": "2/24/2019",
+      "feels": 7,
+      "userID": 3,
+      "cohortID": 31,
+      "id": 17
+    },
+    {
+      "time": "11:52:33 PM",
+      "date": "2/24/2019",
+      "feels": 9,
+      "userID": 27,
+      "cohortID": 28,
+      "id": 18
+    },
+    {
+      "time": "9:29:39 AM",
+      "date": "2/25/2019",
+      "feels": 8,
+      "userID": 3,
+      "cohortID": 31,
+      "id": 19
+    },
+    {
+      "time": "10:54:42 AM",
+      "date": "2/25/2019",
+      "feels": 8,
+      "userID": 3,
+      "cohortID": 31,
+      "id": 20
+    },
+    {
+      "time": "12:53:07 PM",
+      "date": "2/25/2019",
+      "feels": 10,
+      "userID": 3,
+      "cohortID": 31,
+      "id": 21
     }
   ],
   "attendance": [
     {
-      "time": "9:07",
+      "time": "9:07 AM",
       "date": "2/12/2019",
       "userID": 3,
       "cohortID": 31,
       "id": 12
     },
     {
-      "time": "10:40",
+      "time": "10:40 AM",
       "date": "2/13/2019",
       "userID": 3,
       "cohortID": 31,
       "id": 13
     },
     {
-      "time": "10:45",
+      "time": "10:45 AM",
       "date": "2/14/2019",
       "userID": 3,
       "cohortID": 31,
       "id": 20
     },
     {
-      "time": "9:47",
+      "time": "9:47 AM",
       "date": "2/15/2019",
       "userID": 3,
       "cohortID": 31,
       "id": 37
     },
     {
-      "time": "8:10",
+      "time": "8:10 AM",
       "date": "2/20/2019",
       "userID": 3,
       "cohortID": 31,
       "id": 38
     },
     {
-      "time": "8:13",
+      "time": "8:13 AM",
       "date": "2/20/2019",
       "userID": 3,
       "cohortID": 31,
       "id": 39
     },
     {
-      "time": "3:20:43 PM",
+      "time": "3:20 PM",
       "date": "2/21/2019",
       "userID": 3,
       "cohortID": 31,
       "id": 40
+    },
+    {
+      "time": "9:46 PM",
+      "date": "2/23/2019",
+      "userID": 3,
+      "cohortID": 31,
+      "id": 41
+    },
+    {
+      "time": "11:07 PM",
+      "date": "2/24/2019",
+      "userID": 3,
+      "cohortID": 31,
+      "id": 42
+    },
+    {
+      "time": "11:08 PM",
+      "date": "2/24/2019",
+      "userID": 3,
+      "cohortID": 31,
+      "id": 43
+    },
+    {
+      "time": "11:58 PM",
+      "date": "2/24/2019",
+      "userID": 27,
+      "cohortID": 28,
+      "id": 49
+    },
+    {
+      "time": "9:29 AM",
+      "date": "2/25/2019",
+      "userID": 3,
+      "cohortID": 31,
+      "id": 50
+    },
+    {
+      "time": "10:54 AM",
+      "date": "2/25/2019",
+      "userID": 3,
+      "cohortID": 31,
+      "id": 51
+    },
+    {
+      "time": "12:52 PM",
+      "date": "2/25/2019",
+      "userID": 3,
+      "cohortID": 31,
+      "id": 52
     }
   ]
 }

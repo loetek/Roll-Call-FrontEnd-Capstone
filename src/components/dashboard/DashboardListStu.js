@@ -166,8 +166,9 @@ render(){
    console.log(this.props)
     return(
  <React.Fragment>
+ <div className="stickyNav">
  <NavBarStu {...this.props}/>
-
+</div>
  <div className="chartData1"></div>
     <Bar
     data={this.state.chartData1}

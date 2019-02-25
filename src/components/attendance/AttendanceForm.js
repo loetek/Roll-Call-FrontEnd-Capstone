@@ -34,7 +34,7 @@ export default class AttendanceForm extends Component {
 
       clockIn = (evt) => {
 
-        let t = new Date().toLocaleTimeString();
+        let t = new Date().toLocaleTimeString().replace(/:\d{2}\s/,' ');
         let d = new Date().toLocaleDateString();
 
         let punchIn = {
@@ -59,10 +59,10 @@ export default class AttendanceForm extends Component {
           <React.Fragment>
             <div id="timeCard">
               <Card id="cardAttend">
-              <div id="innerCard">
                 <CardBody id="cardBodyAttend">
                 <CardTitle>
-                <Moment interval={1000}>
+                <Moment interval={1000} format="hh:mm A MM/DD/YYYY">
+
                 </Moment>
                 <br/>
                 <br/>
@@ -74,7 +74,6 @@ export default class AttendanceForm extends Component {
                 </CardSubtitle>
                 </CardTitle>
                 </CardBody>
-                </div>
                 </Card>
             </div>
           </React.Fragment>

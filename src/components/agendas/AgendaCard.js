@@ -41,7 +41,7 @@ constructor(props) {
   dropdownOpen: false,
   cohortDropDownOpen:false
   };
-  this.toggleCohortDropDown = this.toggle.bind(this);
+  this.toggleCohortDropDown = this.toggleCohortDropDown.bind(this);
   this.toggle = this.toggle.bind(this);
   this.toggleNested = this.toggleNested.bind(this);
   this.toggleAll = this.toggleAll.bind(this);
@@ -72,13 +72,19 @@ createEditObject = evt => {
       "cohortID": this.state.cohortID,
 
     }
-
     // console.log("stat", this.state)
     // console.log("props", this.props)
     this.props.updateAgenda(this.props.agenda.id, editedAgenda)
     this.setState(prevState => ({
       modal: !prevState.modal,
       }));
+    // this.props.filterCohort();
+    }
+
+    deleteUpdate = evt =>{
+      this.props.deleteAgenda(evt.target.id);
+      this.forceUpdate();
+      //window.location.reload(true);
     }
 
 
@@ -94,7 +100,7 @@ createEditObject = evt => {
     }
   toggleCohortDropDown() {
       this.setState(prevState => ({
-        cohortDropdownOpen: !prevState.cohortDropDownOpen
+        cohortDropDownOpen: !prevState.cohortDropDownOpen
       }));
     }
 
@@ -129,13 +135,18 @@ componentDidMount() {
     });
   }
 
+
+
   render() {
     //console.log(this.props.agenda.id)
     return (
 <React.Fragment>
-        <div id="cardContainer">
+        <div className="scale-up-ver-bottom">
+        <div className="numberBG">
+        <p className="idNumbers"> {sessionStorage.getItem("currentCohort")}</p>
+        </div>
       <Card id="cardBodyInst" color="">
-        <CardHeader id="cardHeader  "><h3>{this.props.agenda.topic}</h3></CardHeader>
+        <CardHeader id="cardHeader"><h3>{this.props.agenda.topic}</h3></CardHeader>
         <CardBody color="" className="cardBodyMain">
           <CardSubtitle>Chapter: {this.props.agenda.chapter}</CardSubtitle>
           <CardSubtitle>Cohort: {this.props.agenda.cohortID}</CardSubtitle>
@@ -150,15 +161,15 @@ componentDidMount() {
 
           <CardText> Date: {this.props.agenda.date}</CardText>
 
-          <Button id={this.props.agenda.id} outline color="danger" onClick={()=> this.props.deleteAgenda(this.props.agenda.id)}>Delete</Button>
+          <Button id={this.props.agenda.id} outline color="danger" onClick={this.deleteUpdate}>Delete</Button>
           {/* <Link className="nav-link" to={`/agendas/${this.props.agenda.id}/edit`}>Edit</Link> */}
           <Button id={this.props.agenda.id} outline color="primary" onClick={this.toggle}> Edit</Button>{''}
         </CardBody>
       </Card>
     </div>
     <div>
-          <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-            <ModalHeader toggle={this.toggle}>A little change never hurt anyone</ModalHeader>
+          <Modal id="editModal"isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
+            <ModalHeader style={{backgroundColor: "#44ccc7"}} toggle={this.toggle}>A little change never hurt anyone</ModalHeader>
             <ModalBody>
             <form className="EditAgenda">
           <h1>Edit Below</h1>
@@ -200,7 +211,7 @@ componentDidMount() {
                       className="form-control"
                       onChange={this.handleFieldChange}
                       id="date"
-                      placeholder={this.state.date} />
+                      value={this.state.date} />
           </div>
           <div className="form-group">
               <label htmlFor="announcements">Announcements</label>
@@ -211,18 +222,18 @@ componentDidMount() {
                       placeholder= {this.state.announcements} />
           </div>
           <div>
-          <Dropdown isOpen={this.state.cohortDropDownOpen} toggleDropDown={this.toggleCohortDropDown}>
+          <Dropdown isOpen={this.state.cohortDropDownOpen} toggle={this.toggleCohortDropDown}>
               <DropdownToggle caret>
-              Cohort
+              {this.state.cohortID}
               </DropdownToggle>
               <DropdownMenu>
               <DropdownItem header>Cohort</DropdownItem>
               <DropdownItem divider />
-              <DropdownItem onClick={this.handleFieldChange} value="28">28</DropdownItem>
-              <DropdownItem onClick={this.handleFieldChange} value="29">29</DropdownItem>
-              <DropdownItem onClick={this.handleFieldChange} value="30">30</DropdownItem>
-              <DropdownItem onClick={this.handleFieldChange} value="31">31</DropdownItem>
-              <DropdownItem onClick={this.handleFieldChange} value="32">32</DropdownItem>
+              <DropdownItem id="cohortID" onClick={this.handleFieldChange} value="28">Cohort 28</DropdownItem>
+              <DropdownItem id="cohortID" onClick={this.handleFieldChange} value="29">Cohort 29</DropdownItem>
+              <DropdownItem id="cohortID" onClick={this.handleFieldChange} value="30">Cohort 30</DropdownItem>
+              <DropdownItem id="cohortID" onClick={this.handleFieldChange} value="31">Cohort 31</DropdownItem>
+              <DropdownItem id="cohortID" onClick={this.handleFieldChange} value="32">Cohort 32</DropdownItem>
               </DropdownMenu>
           </Dropdown>
           </div>

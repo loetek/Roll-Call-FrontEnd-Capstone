@@ -1,0 +1,10 @@
+body{
+
+    background: rgb(196,68,73);
+    background: linear-gradient(90deg, rgba(196,68,73,1) 11%, rgba(245,245,245,1) 10%);
+
+}
+.linksBody{
+            /* border-radius: 12px;
+            box-shadow: 5px 5px 5px grey; */
+}

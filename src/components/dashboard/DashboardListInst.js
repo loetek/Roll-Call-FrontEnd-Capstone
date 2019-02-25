@@ -42,7 +42,7 @@ export default class DashboardListInst extends Component {
                         data: '',
                         options: {
                             scales: {
-                                yAxis: [{
+                                yAxes: [{
                                     type: 'time',
                                     distribution: 'series',
                                     time: {
@@ -64,6 +64,7 @@ const stateToChange = {}
 stateToChange[evt.target.id] = evt.target.value
 console.log(stateToChange);
 this.setState(stateToChange)
+//This will fire the method whenever the value from the toggle selection is chosen.
 if (evt.target.id === "feelsUserChoice"){
     this.getUserFeels();
 }else if(evt.target.id === "feelsCohortChoice")
@@ -88,20 +89,52 @@ getUserAttendance = () => {
         method: "GET"
     })
     .then(e => e.json())
-    .then (attends => {
-        attends.forEach(attend =>{
-            attendanceUserArr.push(attend.time)
-            attendanceUserDateArr.push(attend.date)
-        })
+    .then(attend => {
+        attend.forEach(element => {
+            console.log("element", element)
+           let modified = moment(element.time, ['h:mm a']);
+           console.log(modified);
+            attendanceUserArr.push(modified);
+            attendanceUserDateArr.push(element.date);
+        });
 
         console.log("attendance", attendanceUserArr)
         console.log("dateA", attendanceUserDateArr)
 
         //set state below
+        this.setState({
+
+            chartData2:{
+                labels: attendanceUserDateArr,
+                datasets:[
+                    {
+                        type: 'line',
+                        data:attendanceUserArr.map(r=>{
+                            console.log(r._i)
+                           return r
+                        }),
+                        options: {
+                            scales: {
+                                yAxes: [{
+                                    type: 'time',
+                                    time: {
+                                        displayFormats: {
+                                            minute: 'h:mm a'
+                                        }
+                                    }
+                                }]
+                          }
+                        }
+
+                    }
+                ]
+            }
+
+
+        })
+
     })
-
-
-}
+ }
 
 getCohortAttendance = () => {
     let attendanceCohortArr = [];
@@ -110,20 +143,51 @@ getCohortAttendance = () => {
         method: "GET"
     })
     .then(e => e.json())
-    .then (attends => {
-        attends.forEach(attend =>{
-            attendanceCohortArr.push(attend.time)
-            attendanceCohortDateArr.push(attend.date)
-        })
+    .then(attend => {
+        attend.forEach(element => {
+            //console.log("element", element)
+           let modified = moment(element.time, ['h:mm a']);
+           //console.log(modified);
+            attendanceCohortArr.push(modified);
+            attendanceCohortDateArr.push(element.date);
+        });
 
-        console.log("attendCohort", attendanceCohortArr)
-        console.log("dateCohortA", attendanceCohortDateArr)
+        //console.log("attendCohort", attendanceCohortArr)
+        //console.log("dateCohortA", attendanceCohortDateArr)
 
         //set state below
+        this.setState({
+
+            chartData2:{
+                labels: attendanceCohortDateArr,
+                datasets:[
+                    {
+                        type: 'line',
+                        data:attendanceCohortArr.map(r=>{
+                           return r
+                        }),
+                        options: {
+                            scales: {
+                                xAxis: [{
+                                    type: 'time',
+                                    time: {
+                                        displayFormats: {
+                                            minute: 'h:mm a'
+                                        }
+                                    }
+                                }]
+                          }
+                        }
+
+                    }
+                ]
+            }
+
+
+        })
+
     })
-
-
-}
+ }
 
 getUserFeels = () => {
     let feelsUserArr = [];
@@ -138,8 +202,8 @@ getUserFeels = () => {
             feelsUserDateArr.push(feel.date)
         })
 
-        console.log("feels", feelsUserArr)
-        console.log("date", feelsUserDateArr)
+        //console.log("feels", feelsUserArr)
+        //console.log("date", feelsUserDateArr)
 
         this.setState({
 
@@ -184,9 +248,8 @@ getCohortFeels = () => {
             feelsCohortDateArr.push(feel.date)
         })
 
-        console.log("feelsCohort", feelsCohortArr)
-        console.log("dateCohort", feelsCohortDateArr)
-
+        //console.log("feelsCohort", feelsCohortArr)
+        //console.log("dateCohort", feelsCohortDateArr)
         this.setState({
 
             chartData1:{
@@ -227,9 +290,9 @@ getCohortFeels = () => {
     .then(e => e.json())
     .then(attend => {
         attend.forEach(element => {
-            console.log("element", element)
+            //console.log("element", element)
            let modified = moment(element.time, ['h:mm a']);
-           console.log(modified);
+           //console.log(modified);
             stuTime.push(modified);
             stuDate.push(element.date);
         });
@@ -282,13 +345,13 @@ feelsSetter = () =>{
     .then(e => e.json())
     .then(feels => {
         feels.forEach(element => {
-            console.log("element", element)
+            //console.log("element", element)
             stuFeels.push(element.feels);
             stuDate.push(element.date);
         });
 
-console.log("time", stuFeels)
-console.log("date", stuDate)
+//console.log("time", stuFeels)
+//console.log("date", stuDate)
 
         this.setState({
 
@@ -333,12 +396,12 @@ render(){
 // console.log("time", this.stuTime)
 // console.log("date", this.stuDate)
 //console.log("props", this.props.users)
-
-
 return(
  <React.Fragment>
+ <div className="stickyNav">
  <NavBarInst {...this.props}/>
-
+ </div>
+<div className="chartsContainer">
  <select className="form-control"
             id="feelsUserChoice"
             value={this.state.value}
@@ -437,6 +500,7 @@ return(
         }}
     />
 <div/>
+</div>
 </React.Fragment>
     )
 }

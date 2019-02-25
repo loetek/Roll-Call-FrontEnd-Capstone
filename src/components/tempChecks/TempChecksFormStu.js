@@ -55,7 +55,7 @@ export default class TempChecksFormStu extends React.Component {
       <div id="tempCheckContainer">
       <Dropdown direction="right" isOpen={this.state.dropdownOpen} toggle={this.toggle}>
         <DropdownToggle id="tempCheckToggle" style={{backgroundColor: "#44ccc7"}}caret>
-          What's your Feels?
+        {sessionStorage.getItem("name")} how are you feeling this today?
         </DropdownToggle>
         <DropdownMenu onSubmit={this.handleFieldChange} value={this.state.tempChecks}>
           <DropdownItem header>How are you feeling today?</DropdownItem>

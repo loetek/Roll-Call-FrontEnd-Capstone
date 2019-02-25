@@ -1,5 +1,14 @@
-.navBarBG{
-    /* background: #ffd89b;
-    background: -webkit-linear-gradient(to top, #19547b, #ffd89b);
-    background: linear-gradient(to top, #19547b, #ffd89b); */
+.navBarContainer{
+ position: fixed;
+ top:0;
+ left:0;
+ z-index: 1000;
+
+}
+
+#navBarActual{
+    position: fixed;
+    top:0;
+    left:0;
+    z-index: 1000;
 }

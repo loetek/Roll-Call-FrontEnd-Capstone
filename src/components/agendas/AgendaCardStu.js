@@ -10,13 +10,13 @@ export default class AgendaCardStu extends Component {
   render() {
     return (
 <React.Fragment>
-  <div id="cardContainer">
+  <div className="scale-up-ver-bottom">
 
 
     <Card id="cardBodyStu" >
       <CardBody className="cardBodyMain">
 
-        <h3>{this.props.card.topic}</h3>
+        <h3 id="cardHeader">{this.props.card.topic}</h3>
         <CardSubtitle>Chapter: {this.props.card.chapter}</CardSubtitle>
         <CardText>Chapter Exercise: {this.props.card.exercise}</CardText>
         <CardText>Date: {this.props.card.date}</CardText>
