@@ -34,7 +34,7 @@ export default class AttendanceForm extends Component {
 
       clockIn = (evt) => {
 
-        let t = new Date().toLocaleTimeString();
+        let t = new Date().toLocaleTimeString().replace(/:\d{2}\s/,' ');
         let d = new Date().toLocaleDateString();
 
         let punchIn = {

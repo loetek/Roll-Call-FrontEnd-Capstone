@@ -31,7 +31,7 @@ export default class LandingPageInst extends Component {
     "announcements": [],
     "QR": [],
     currentCohortAgendas:[],
-    currentCohortID:"",
+    currentCohortID:sessionStorage.getItem("currentCohort"),
     "cohortID": null,
 
     modal: false,
@@ -86,27 +86,10 @@ constructNewAgenda = e => {
   .then(response => response.json())
   .then(cohorts => {
     this.setState({ currentCohortAgendas: cohorts})
+    sessionStorage.setItem("currentCohort", this.state.currentCohortID)
   })
 }
 
-  // filterCohorts = () => {
-  //   let thisCohort = this.props.agendas.filter(cohorts =>{
-  //     let inCohort = false
-  //     if (cohorts.cohortID === this.state.currentCohortID){
-  //         inCohort = true
-  //     }
-  //     console.log("currentCohortID", this.state.currentCohortID);
-  //     console.log("CohortID", cohorts.cohortID);
-  //     //console.log("inCohort", inCohort);
-  //     return inCohort
-  //   })
-  //   //console.log("thiscohort", thisCohort);
-
-  //   this.setState({
-  //     currentCohortAgendas:thisCohort
-  //   })
-  // }
-// Modal functions.
 
 toggleCurrentCohortDropDown() {
   this.setState(prevState => ({
@@ -142,8 +125,6 @@ toggleAll() {
   });
 }
 
-
-// {/* terenary statement that will only supply cohorts that match the user. everything before teh question mark needs to be true or else : null */}
         render() {
            console.log(this.props)
           return (
@@ -152,6 +133,7 @@ toggleAll() {
               <div className="stickyNav">
               <NavBarInst {...this.props} addAgendas={this.props.addAgendas}/>
               </div>
+
               <div className="LPInstBig">
               <div  className="helloLandingTop">
               <div>
@@ -174,6 +156,7 @@ toggleAll() {
                     </Dropdown>
                 </div>
                 </div>
+              <div className="agendaCardLPInst">
               {this.state.currentCohortAgendas.map(agenda => (
                <section key={agenda.id} className="LandingPageInst">
                   <AgendaList key={agenda.id}
@@ -184,10 +167,11 @@ toggleAll() {
                   agenda={agenda} {...this.props} />
               </section>
                 ))}
-                <div>
+                </div>
+                <div className="modalContainer">
 
-                    <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-                      <ModalHeader toggle={this.toggle}>Let's make an agenda...</ModalHeader>
+                    <Modal id="addModal" isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
+                      <ModalHeader style={{backgroundColor: "#44ccc7"}} toggle={this.toggle}>Let's make an agenda...</ModalHeader>
                       <ModalBody>
                       <form className="NewAgenda">
                     <h1>Start a New Agenda</h1>
@@ -273,9 +257,6 @@ toggleAll() {
                       </ModalFooter>
                     </Modal>
                   </div>
-              <div className="numberBG">
-                <p>{this.state.currentCohortID}</p>
-              </div>
               </div>
               <div id="createBtn">
               <Button className="btn-8g" onClick={this.toggle}> ➕ </Button>

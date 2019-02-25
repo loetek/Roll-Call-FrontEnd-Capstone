@@ -139,6 +139,9 @@ componentDidMount() {
     return (
 <React.Fragment>
         <div className="scale-up-ver-bottom">
+        <div className="numberBG">
+        <p className="idNumbers"> {sessionStorage.getItem("currentCohort")}</p>
+        </div>
       <Card id="cardBodyInst" color="">
         <CardHeader id="cardHeader"><h3>{this.props.agenda.topic}</h3></CardHeader>
         <CardBody color="" className="cardBodyMain">
@@ -162,8 +165,8 @@ componentDidMount() {
       </Card>
     </div>
     <div>
-          <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-            <ModalHeader toggle={this.toggle}>A little change never hurt anyone</ModalHeader>
+          <Modal id="editModal"isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
+            <ModalHeader style={{backgroundColor: "#44ccc7"}} toggle={this.toggle}>A little change never hurt anyone</ModalHeader>
             <ModalBody>
             <form className="EditAgenda">
           <h1>Edit Below</h1>

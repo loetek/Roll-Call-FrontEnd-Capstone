@@ -65,7 +65,7 @@ render(){
                 <NavLink href="/dashboardListInst">Instructor Dashboard</NavLink>
                 </NavItem>
                 <NavItem>
-                <NavLink href="/dashboardListInst">Profiles</NavLink>
+                <NavLink href="/profiles">Profiles</NavLink>
                 </NavItem>
 
 {/* // oAuth  */}

@@ -4,7 +4,8 @@ body{
   font-family: "Roboto";
 
 
-  background: whitesmoke;  /* fallback for old browsers */
+  background: rgb(196,68,73);
+  background: linear-gradient(90deg, rgba(196,68,73,1) 11%, rgba(245,245,245,1) 10%);  /* fallback for old browsers */
   /* background: #bdc3c7;
   background: -webkit-linear-gradient(to bottom, #2c3e50, #bdc3c7);
   background: linear-gradient(to bottom, #2c3e50, #bdc3c7);  */
@@ -19,7 +20,8 @@ body{
 	color: #999;
 	margin-bottom: 0px;
 	border-radius: 100%;
-	font-size: 25px;
+  font-size: 25px;
+  box-shadow: 5px 5px 5px grey;
 
 }
 
@@ -44,31 +46,54 @@ body{
 
 #dropdownMenuInst{
 	background-color: lightgray;
-	opacity: .9;
+  opacity: .9;
+  z-index: 3001;
 }
 
 #createBtn{
-/*
-    display: flex;
-    justify-content: flex-start; */
+
     width: 92%;
     bottom: 25px;
        right: 0;
        position: sticky;
        z-index: 3000;
 
-       /* border-style: solid;
-       border-width: medium;
-       border-color: chartreuse; */
+      /* border-style: solid;
+     border-width: medium;
+    border-color: chartreuse; */
 
 
   }
+
+  #addModal{
+    z-index: 500000;
+    margin-top: 75px;
+  }
+
 
 .LPInstBig{
 
   /* border-style: solid;
   border-width: medium;
   border-color: white; */
+ }
+
+ .agendaCardLPInst{
+  /* border-style: solid;
+  border-width: medium;
+  border-color: red; */
+  padding:0;
+  margin: 0;
+
+ }
+
+ .LandingPageInst{
+  /* border-style: solid;
+  border-width: medium;
+  border-color: blue; */
+  padding:0;
+  margin: 0;
+
  }
 
 
@@ -159,9 +184,9 @@ color:white;
 display: flex;
 justify-content: center;
 
-border-style: solid;
+/* border-style: solid;
   border-width: medium;
-  border-color: yellow
+  border-color: yellow */
 }
 
 .LandingPageContainer{
@@ -180,6 +205,36 @@ border-style: solid;
   /* border-style: solid;
   border-width: medium;
   border-color: coral */
+
+}
+
+.numberBG{
+  /* border-style: solid;
+  border-width: medium;
+  border-color: coral; */
+  display: flex;
+  flex-direction: column;
+  z-index: 6000;
+  height: 100%;
+  width: 3%;
+
+}
+
+.idNumbers{
+
+  /* border-style: solid;
+  border-width: medium;
+  border-color: red; */
+  color: black;
+  display: flex;
+  flex-direction: column;
+  z-index: 6001;
+  width: 100%;
+  height: 100%;
+  transform: rotate(90deg);
+  transform-origin: left top 0;
+  font-size: 8em;
+  justify-content: flex-start;
 
 }
 

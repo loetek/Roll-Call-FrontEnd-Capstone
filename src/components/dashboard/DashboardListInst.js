@@ -42,7 +42,7 @@ export default class DashboardListInst extends Component {
                         data: '',
                         options: {
                             scales: {
-                                yAxis: [{
+                                yAxes: [{
                                     type: 'time',
                                     distribution: 'series',
                                     time: {
@@ -110,11 +110,12 @@ getUserAttendance = () => {
                     {
                         type: 'line',
                         data:attendanceUserArr.map(r=>{
+                            console.log(r._i)
                            return r
                         }),
                         options: {
                             scales: {
-                                xAxis: [{
+                                yAxes: [{
                                     type: 'time',
                                     time: {
                                         displayFormats: {

@@ -3,13 +3,13 @@ import { Route, Redirect } from "react-router-dom"
 import LandingPageInst from "./landingPage/LandingPageInst"
 import LandingPageStu from "./landingPage/LandingPageStu"
 import AgendaList from "./agendas/AgendaList"
-//import AgendaDetail from "./agendas/AgendaDetail"
 import Login from './logins/LoginList'
 import Registration from "./logins/Registration"
 import LinksList from "./links/LinksList"
 import AgendaEditInst from './agendas/AgendaCard'
 import DashboardListInst from "./dashboard/DashboardListInst"
 import DashboardListStu from "./dashboard/DashboardListStu"
+import ProfileList from "./profiles/ProfileList"
 
 import DataManager from "../modules/DataManager"
 import LoginManager from "../modules/LoginManager"
@@ -352,7 +352,7 @@ componentDidMount() {
         <Route
             path="/profiles" render={props => {
                if (this.isAuthenticated()){
-                return <DashboardListStu {...props}
+                return <ProfileList{...props}
                 agendas={this.state.agendas}
                 links={this.state.links}
                 users={this.state.users}
