@@ -558,6 +558,14 @@
       "userID": 3,
       "cohortID": 31,
       "id": 20
+    },
+    {
+      "time": "12:53:07 PM",
+      "date": "2/25/2019",
+      "feels": 10,
+      "userID": 3,
+      "cohortID": 31,
+      "id": 21
     }
   ],
   "attendance": [
@@ -651,6 +659,13 @@
       "userID": 3,
       "cohortID": 31,
       "id": 51
+    },
+    {
+      "time": "12:52 PM",
+      "date": "2/25/2019",
+      "userID": 3,
+      "cohortID": 31,
+      "id": 52
     }
   ]
 }
