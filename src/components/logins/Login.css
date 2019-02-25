@@ -51,7 +51,6 @@ min-height:100vh;
 header * {
     font-weight: bold;
     color:white;
-    font-family: 'Permanent Marker', cursive;
     font-size: 80px;
     letter-spacing: 0.2em;
     text-align: center;
@@ -70,6 +69,7 @@ header * {
 }
 
 #loginBigger{
+    top:0;
     height: 100vh;
     width:100%;
     background-size: cover;
@@ -98,15 +98,12 @@ header * {
 
 .loginBig{
 
-
     display: flex;
     width: 100%;
     height: 200px;
     padding-top: 150px;
     padding-left: 10em;
     margin: auto;
-
-
 }
 
 .loginBtns{
@@ -165,4 +162,24 @@ header * {
 
 #usernameForm{
     margin-right: 5px;
+}
+
+.submitNewItem{
+    border-radius: 12px;
+    margin-bottom: 5px;
+
+}
+
+.cancelNewItem{
+    border-radius: 12px;
+    margin-bottom: 5px;
+
+
+}
+
+.modalButtons{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
 }

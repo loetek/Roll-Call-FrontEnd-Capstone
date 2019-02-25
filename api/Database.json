@@ -326,12 +326,24 @@
       "difficulty": null,
       "exercise": [],
       "chapter": null,
-      "date": "2019-02-06",
-      "announcements": "sd",
+      "date": [],
+      "announcements": [],
       "QR": [],
-      "cohortID": 32,
-      "currentCohortID": 31,
-      "id": 11
+      "cohortID": 0,
+      "currentCohortID": 28,
+      "id": 15
+    },
+    {
+      "topic": [],
+      "difficulty": null,
+      "exercise": [],
+      "chapter": null,
+      "date": [],
+      "announcements": [],
+      "QR": [],
+      "cohortID": 0,
+      "currentCohortID": 29,
+      "id": 16
     }
   ],
   "links": [
@@ -530,6 +542,22 @@
       "userID": 27,
       "cohortID": 28,
       "id": 18
+    },
+    {
+      "time": "9:29:39 AM",
+      "date": "2/25/2019",
+      "feels": 8,
+      "userID": 3,
+      "cohortID": 31,
+      "id": 19
+    },
+    {
+      "time": "10:54:42 AM",
+      "date": "2/25/2019",
+      "feels": 8,
+      "userID": 3,
+      "cohortID": 31,
+      "id": 20
     }
   ],
   "attendance": [
@@ -609,6 +637,20 @@
       "userID": 27,
       "cohortID": 28,
       "id": 49
+    },
+    {
+      "time": "9:29 AM",
+      "date": "2/25/2019",
+      "userID": 3,
+      "cohortID": 31,
+      "id": 50
+    },
+    {
+      "time": "10:54 AM",
+      "date": "2/25/2019",
+      "userID": 3,
+      "cohortID": 31,
+      "id": 51
     }
   ]
 }

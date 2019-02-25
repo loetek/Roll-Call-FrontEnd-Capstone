@@ -78,12 +78,13 @@ createEditObject = evt => {
     this.setState(prevState => ({
       modal: !prevState.modal,
       }));
+    // this.props.filterCohort();
     }
 
     deleteUpdate = evt =>{
       this.props.deleteAgenda(evt.target.id);
       this.forceUpdate();
-      window.location.reload();
+      //window.location.reload(true);
     }
 
 
@@ -133,6 +134,8 @@ componentDidMount() {
      // console.log(this.state)
     });
   }
+
+
 
   render() {
     //console.log(this.props.agenda.id)

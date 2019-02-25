@@ -61,6 +61,7 @@ handleFieldChange = evt => {
 
 constructNewAgenda = e => {
   e.preventDefault()
+  console.log("click")
       const agenda = {
           topic: this.state.topic,
           difficulty: this.state.difficulty,
@@ -76,7 +77,6 @@ constructNewAgenda = e => {
       this.setState(prevState => ({
           modal: !prevState.modal,
           }));
-
   }
 
   filterCohorts = () => {
@@ -88,6 +88,7 @@ constructNewAgenda = e => {
     this.setState({ currentCohortAgendas: cohorts})
     sessionStorage.setItem("currentCohort", this.state.currentCohortID)
   })
+
 }
 
 
@@ -125,6 +126,13 @@ toggleAll() {
   });
 }
 
+componentDidMount(){
+  this.filterCohorts();
+}
+componentWillReceiveProps(){
+  this.filterCohorts();
+}
+
         render() {
            console.log(this.props)
           return (
@@ -160,6 +168,7 @@ toggleAll() {
               {this.state.currentCohortAgendas.map(agenda => (
                <section key={agenda.id} className="LandingPageInst">
                   <AgendaList key={agenda.id}
+                  filterCohorts={this.filterCohorts}
                   currentCohortID={this.state.currentCohortID}
                   updateAgenda={this.props.updateAgenda}
                   addAgendas={this.props.addAgendas}
@@ -169,8 +178,7 @@ toggleAll() {
                 ))}
                 </div>
                 <div className="modalContainer">
-
-                    <Modal id="addModal" isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
+                     <Modal id="addModal" isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
                       <ModalHeader style={{backgroundColor: "#44ccc7"}} toggle={this.toggle}>Let's make an agenda...</ModalHeader>
                       <ModalBody>
                       <form className="NewAgenda">
@@ -241,20 +249,22 @@ toggleAll() {
                     </div>
                     </form>
                         <br />
-                        <Button color="success" onClick={this.toggleNested}>Create QR Code</Button>
-                        <Modal isOpen={this.state.nestedModal} toggle={this.toggleNested} onClosed={this.state.closeAll ? this.toggle : undefined}>
+                        {/* <Button color="success" onClick={this.toggleNested}>Create QR Code</Button> */}
+                        {/* <Modal isOpen={this.state.nestedModal} toggle={this.toggleNested} onClosed={this.state.closeAll ? this.toggle : undefined}>
                           <ModalHeader>QR CODE Title with Date</ModalHeader>
                           <ModalBody>Picture HERE</ModalBody>
                           <ModalFooter>
                             <Button color="primary" onClick={this.toggleNested}>SAVE QR</Button>{' '}
                             <Button color="secondary" onClick={this.toggleAll}>DELETE</Button>
                           </ModalFooter>
-                        </Modal>
+                        </Modal> */}
                       </ModalBody>
-                      <ModalFooter>
-                      <Button type="submit" onClick={this.constructNewAgenda} className="btn btn-primary">Submit</Button>{' '}
-                    <Button color="secondary" onClick={this.toggle}>Cancel</Button>
-                      </ModalFooter>
+                      {/* <ModalFooter> */}
+                      <section className="modalButtons">
+                      <Button type="submit" onClick={this.constructNewAgenda} className="submitNewItem">Submit</Button>{' '}
+                    <Button color="secondary" onClick={this.toggle} className="cancelNewItem">Cancel</Button>
+                      {/* </ModalFooter> */}
+                      </section>
                     </Modal>
                   </div>
               </div>

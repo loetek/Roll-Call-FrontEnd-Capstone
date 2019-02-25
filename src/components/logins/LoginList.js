@@ -96,6 +96,8 @@ this.setState(stateToChange)
         sessionStorage.removeItem("name")
         sessionStorage.removeItem("cohort")
         sessionStorage.removeItem("username")
+        sessionStorage.removeItem("currentCohort")
+
       }
     }
 
