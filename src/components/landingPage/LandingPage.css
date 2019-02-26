@@ -40,7 +40,7 @@ body{
 
 .cohortSelectorInst{
 
-	margin-top: 25px;
+  margin-top: 25px;
 	background-color: transparent;
 }
 
@@ -225,7 +225,8 @@ justify-content: center;
   /* border-style: solid;
   border-width: medium;
   border-color: red; */
-  color: black;
+  color: whitesmoke;
+  font-weight: bolder;
   display: flex;
   flex-direction: column;
   z-index: 6001;

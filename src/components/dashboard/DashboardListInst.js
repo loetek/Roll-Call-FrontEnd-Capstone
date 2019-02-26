@@ -60,25 +60,30 @@ export default class DashboardListInst extends Component {
          }
 
 handleFieldChange = (evt) => {
+this.setState({feelsUserChoice:'',feelsCohortChoice:'',attendanceUserChoice:'',attendanceCohortChoice:''}, ()=> null)
 const stateToChange = {}
 stateToChange[evt.target.id] = evt.target.value
 console.log(stateToChange);
-this.setState(stateToChange)
-//This will fire the method whenever the value from the toggle selection is chosen.
-if (evt.target.id === "feelsUserChoice"){
-    this.getUserFeels();
-}else if(evt.target.id === "feelsCohortChoice")
-{
-    this.getCohortFeels();
-}else if(evt.target.id === "attendanceUserChoice")
-{
-    this.getUserAttendance();
-}else if(evt.target.id === "attendanceCohortChoice")
-{
-    this.getCohortAttendance();
-}else(
-    alert("Houston we have a problem!!")
-)
+this.setState({[evt.target.id]: evt.target.value}, ()=> this.setChoice())
+
+}
+
+setChoice () {
+
+    if (this.state.feelsUserChoice !== ""){
+            this.getUserFeels();
+        }else if(this.state.feelsCohortChoice !== "")
+        {
+            this.getCohortFeels();
+        }else if(this.state.attendanceUserChoice !== "")
+        {
+            this.getUserAttendance();
+        }else if(this.state.attendanceCohortChoice !== "")
+        {
+            this.getCohortAttendance();
+        }else(
+            alert("Houston we have a problem!!")
+        )
 }
 
 
@@ -113,6 +118,7 @@ getUserAttendance = () => {
                             console.log(r._i)
                            return r
                         }),
+                        backgroundColor:["lightblue"],
                         options: {
                             scales: {
                                 yAxes: [{
@@ -166,6 +172,7 @@ getCohortAttendance = () => {
                         data:attendanceCohortArr.map(r=>{
                            return r
                         }),
+                        backgroundColor:["pink"],
                         options: {
                             scales: {
                                 xAxis: [{
@@ -192,18 +199,20 @@ getCohortAttendance = () => {
 getUserFeels = () => {
     let feelsUserArr = [];
     let feelsUserDateArr = [];
-    return fetch(`http://localhost:5002/tempChecks?userID=${this.state.feelsUserChoice}`,{
+    console.log(this.state.feelsUserChoice)
+    fetch(`http://localhost:5002/tempChecks?userID=${this.state.feelsUserChoice}`,{
         method: "GET"
     })
     .then(e => e.json())
     .then (feels => {
         feels.forEach(feel =>{
+            console.log(feel);
             feelsUserArr.push(feel.feels)
             feelsUserDateArr.push(feel.date)
         })
 
-        //console.log("feels", feelsUserArr)
-        //console.log("date", feelsUserDateArr)
+        console.log("feels", feelsUserArr)
+        console.log("date", feelsUserDateArr)
 
         this.setState({
 
@@ -213,7 +222,24 @@ getUserFeels = () => {
                     {
                         data:feelsUserArr,
                         backgroundColor:[
+                            "purple",
+                            "lime",
+                            "turquoise",
+                            "navy",
+                            "yellow",
                             "red",
+                            "purple",
+                            "lime",
+                            "turquoise",
+                            "navy",
+                            "yellow",
+                            "red","yellow",
+                            "red",
+                            "purple",
+                            "lime",
+                            "turquoise",
+                            "navy",
+                            "white",
                             "purple",
                             "lime",
                             "turquoise",
@@ -229,7 +255,7 @@ getUserFeels = () => {
                     }
                 ]
             }
-        })
+        }, () => null)
     })
 
 
@@ -258,7 +284,7 @@ getCohortFeels = () => {
                     {
                         data:feelsCohortArr,
                         backgroundColor:[
-                            "red",
+                            "gold",
                             "purple",
                             "lime",
                             "turquoise",
@@ -269,12 +295,29 @@ getCohortFeels = () => {
                             "lime",
                             "turquoise",
                             "navy",
-                            "yellow"
+                            "yellow",
+                            "purple",
+                            "lime",
+                            "turquoise",
+                            "navy",
+                            "yellow",
+                            "red",
+                            "purple",
+                            "lime",
+                            "turquoise",
+                            "navy",
+                            "yellow",
+                            "red","yellow",
+                            "red",
+                            "purple",
+                            "lime",
+                            "turquoise",
+                            "navy",
                         ]
                     }
                 ]
             }
-        })
+        }, () => null)
 
     })
 
@@ -313,6 +356,7 @@ console.log("date", stuDate)
                            return r
                            //convert all numbers into a decimal and then map through them.
                         }),
+                        backgroundColor:["lightgreen"],
                         options: {
                             scales: {
                                 xAxis: [{
@@ -361,7 +405,6 @@ feelsSetter = () =>{
                     {
                         data:stuFeels,
                         backgroundColor:[
-                            "red",
                             "purple",
                             "lime",
                             "turquoise",
@@ -372,7 +415,55 @@ feelsSetter = () =>{
                             "lime",
                             "turquoise",
                             "navy",
-                            "yellow"
+                            "yellow",
+                            "red",
+                            "yellow",
+                            "red",
+                            "purple",
+                            "lime",
+                            "turquoise",
+                            "navy",
+                            "gold",
+                            "purple",
+                            "lime",
+                            "turquoise",
+                            "navy",
+                            "yellow",
+                            "red",
+                            "purple",
+                            "lime",
+                            "turquoise",
+                            "navy",
+                            "yellow",
+                            "purple",
+                            "lime",
+                            "turquoise",
+                            "navy",
+                            "yellow",
+                            "red",
+                            "purple",
+                            "lime",
+                            "turquoise",
+                            "navy",
+                            "yellow",
+                            "red","yellow",
+                            "red",
+                            "purple",
+                            "lime",
+                            "turquoise",
+                            "navy",
+                            "lime",
+                            "turquoise",
+                            "navy",
+                            "yellow",
+                            "red",
+                            "yellow",
+                            "red",
+                            "purple",
+                            "lime",
+                            "turquoise",
+                            "navy",
+
                         ]
                     }
                 ]
@@ -388,6 +479,10 @@ componentDidMount(){
     this.feelsSetter();
 }
 
+// componentWillReceiveProps(){
+//     this.getCohortFeels();
+// }
+
 
 render(){
 
@@ -395,23 +490,22 @@ render(){
 //console.log("state", this.state)
 // console.log("time", this.stuTime)
 // console.log("date", this.stuDate)
-//console.log("props", this.props.users)
+console.log("props", this.props.users)
 return(
  <React.Fragment>
  <div className="stickyNav">
  <NavBarInst {...this.props}/>
  </div>
-<div className="chartsContainer">
+
  <select className="form-control"
             id="feelsUserChoice"
-            value={this.state.value}
             onChange={this.handleFieldChange}>
 
             <option> Select a Candidate </option>
         {
             this.props.users.map(user => {
                 return (
-                    <option key={user.id} id="feelsUserChoice" value={user.id}>
+                    <option key={`feels-${user.id}`} id="feelsUserChoice" value={user.id}>
                         {user.firstName} {user.lastName}
                     </option>
                 )
@@ -426,7 +520,7 @@ return(
         {
             this.props.cohorts.map(cohort => {
                 return (
-                    <option key={cohort.cohortID} id="feelsCohortChoice" value={cohort.cohortID}>
+                    <option key={`feelsCo-${cohort.id}`} id="feelsCohortChoice" value={cohort.cohortID}>
                         {cohort.cohortID}
                     </option>
                 )
@@ -460,7 +554,7 @@ return(
         {
             this.props.users.map(user => {
                 return (
-                    <option key={user.id} id="attendanceUserChoice" value={user.id}>
+                    <option key={`attendance-${user.id}`} id="attendanceUserChoice" value={user.id}>
                         {user.firstName} {user.lastName}
                     </option>
                 )
@@ -475,7 +569,7 @@ return(
         {
             this.props.cohorts.map(cohort => {
                 return (
-                    <option key={cohort.cohortID} id="attendanceCohortChoice" value={cohort.cohortID}>
+                    <option key={`attendanceCo-${cohort.id}`} id="attendanceCohortChoice" value={cohort.cohortID}>
                         {cohort.cohortID}
                     </option>
                 )
@@ -500,7 +594,7 @@ return(
         }}
     />
 <div/>
-</div>
+
 </React.Fragment>
     )
 }

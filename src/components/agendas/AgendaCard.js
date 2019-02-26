@@ -249,10 +249,10 @@ componentDidMount() {
                 </ModalFooter>
               </Modal>
             </ModalBody>
-            <ModalFooter>
             <Button type="submit" onClick={this.createEditObject} className="btn btn-primary">Submit</Button>{' '}
           <Button color="secondary" onClick={this.toggle}>Cancel</Button>
-            </ModalFooter>
+
+
           </Modal>
         </div>
   </React.Fragment>

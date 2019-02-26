@@ -5,6 +5,15 @@ body{
 
 }
 .linksBody{
-            /* border-radius: 12px;
-            box-shadow: 5px 5px 5px grey; */
+            border-radius: 12px;
+            box-shadow: 5px 5px 5px grey;
+            margin: 10px;
+            border-color: darkgrey;
 }
+/*
+.linkslist{
+    border-radius: 12px;
+    box-shadow: 5px 5px 5px grey;
+    margin: 5px;
+
+} */
