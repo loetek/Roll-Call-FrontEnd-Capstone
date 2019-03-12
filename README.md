@@ -14,4 +14,4 @@ Charts.js
 Moment.js
 
 
-![image](https://user-images.githubusercontent.com/3199884/54217502-beaa9680-44b9-11e9-84e1-294f8f7bfcb3.png)
+![](2019-03-05 13.05.09.gif)
