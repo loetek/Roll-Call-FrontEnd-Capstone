@@ -14,4 +14,4 @@ Charts.js
 Moment.js
 
 
-![gif](2019-03-05 13.05.09.gif)
+![image](2019-03-05 13.05.09.gif)
