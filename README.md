@@ -14,4 +14,4 @@ Moment.js
 
 ![image](https://user-images.githubusercontent.com/3199884/54216519-ccf7b300-44b7-11e9-983f-414622b76f27.png)
 
-<img width="789" alt="screen shot 2019-02-04 at 10 17 09 am" src="https://user-images.githubusercontent.com/3199884/52254759-e1eb9000-28d4-11e9-8f29-383cf5384707.png">
+![image](https://user-images.githubusercontent.com/3199884/54217221-33310580-44b9-11e9-99c5-c02061df357f.png)
