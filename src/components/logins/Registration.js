@@ -1,4 +1,3 @@
-
 import React, { Component } from "react"
 import {
     Dropdown,
@@ -6,6 +5,7 @@ import {
     DropdownMenu,
     DropdownItem,
   } from 'reactstrap';
+import "./Login.css"
 
 
 export default class Registration extends Component {
@@ -88,7 +88,8 @@ export default class Registration extends Component {
         return (
             <React.Fragment>
             <div className="regBig">
-                    <h1>Register Here</h1>
+                    <h1 id="regHeader">Register Here</h1>
+                    <div className = "regFormContainer">
                     <div className="form-group-reg">
                         <label htmlFor="firstName">First Name: </label>
                         <input type="firstName" required
@@ -121,7 +122,8 @@ export default class Registration extends Component {
                                id="password"
                                placeholder="Password" />
                     </div>
-                    <div>
+                    </div>
+                    {/* <div>
                     <Dropdown isOpen={this.state.statusDropdownOpen} toggle={this.statusToggle}>
                         <DropdownToggle caret>
                         Are you an instructor?
@@ -132,10 +134,10 @@ export default class Registration extends Component {
                         <DropdownItem id="status" onClick={this.handleFieldChange} value= "false">False</DropdownItem>
                         </DropdownMenu>
                     </Dropdown>
-                    </div>
+                    </div> */}
                     <br/>
                     <br/>
-                    <div>
+                    <div className="regButtons">
                     <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
                         <DropdownToggle caret>
                         Cohort
@@ -150,11 +152,12 @@ export default class Registration extends Component {
                         <DropdownItem id="cohortID" onClick={this.handleFieldChange} value="32">32</DropdownItem>
                         </DropdownMenu>
                     </Dropdown>
-                    </div>
+
                     <br/>
                     <br/>
 
                     <button type="submit" onClick={this.constructNewUser} className="">Submit</button>
+                    </div>
                     </div>
             </React.Fragment>
         )

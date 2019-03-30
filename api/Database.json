@@ -152,6 +152,15 @@
       "status": false,
       "cohortID": 28,
       "id": 33
+    },
+    {
+      "firstName": "Test",
+      "lastName": "test",
+      "userName": "test@me.com",
+      "password": "test",
+      "status": false,
+      "cohortID": 30,
+      "id": 70
     }
   ],
   "agendas": [
@@ -424,10 +433,6 @@
       "cohortID": 29,
       "id": 15
     },
-
-
-
-
     {
       "time": "1:49 PM",
       "date": "2/20/2019",
@@ -468,9 +473,6 @@
       "cohortID": 30,
       "id": 20
     },
-
-
-
     {
       "time": "11:52:33 PM",
       "date": "2/24/2019",
@@ -798,6 +800,46 @@
       "userID": 20,
       "cohortID": 31,
       "id": 61
+    },
+    {
+      "time": "8:51:39 AM",
+      "date": "2/26/2019",
+      "feels": 7,
+      "userID": 3,
+      "cohortID": 29,
+      "id": 62
+    },
+    {
+      "time": "9:28:08 AM",
+      "date": "2/26/2019",
+      "feels": 4,
+      "userID": 3,
+      "cohortID": 29,
+      "id": 63
+    },
+    {
+      "time": "11:40:51 AM",
+      "date": "2/27/2019",
+      "feels": 10,
+      "userID": 3,
+      "cohortID": 29,
+      "id": 64
+    },
+    {
+      "time": "2:25:59 PM",
+      "date": "3/5/2019",
+      "feels": 10,
+      "userID": 3,
+      "cohortID": 29,
+      "id": 65
+    },
+    {
+      "time": "4:25:38 PM",
+      "date": "3/5/2019",
+      "feels": 10,
+      "userID": 3,
+      "cohortID": 29,
+      "id": 66
     }
   ],
   "attendance": [
@@ -836,13 +878,6 @@
       "cohortID": 29,
       "id": 38
     },
-
-
-
-
-
-
-
     {
       "time": "8:13 AM",
       "date": "2/20/2019",
@@ -853,7 +888,7 @@
     {
       "time": "3:20 PM",
       "date": "2/21/2019",
-      "userID":51,
+      "userID": 51,
       "cohortID": 30,
       "id": 40
     },
@@ -878,10 +913,6 @@
       "cohortID": 30,
       "id": 43
     },
-
-
-
-
     {
       "time": "11:58 PM",
       "date": "2/24/2019",
@@ -931,9 +962,6 @@
       "cohortID": 29,
       "id": 55
     },
-
-
-
     {
       "time": "11:58 PM",
       "date": "2/24/2019",
@@ -983,10 +1011,6 @@
       "cohortID": 28,
       "id": 62
     },
-
-
-
-
     {
       "time": "12:52 PM",
       "date": "2/25/2019",
@@ -1063,7 +1087,41 @@
       "userID": 21,
       "cohortID": 29,
       "id": 73
+    },
+    {
+      "time": "8:51 AM",
+      "date": "2/26/2019",
+      "userID": 3,
+      "cohortID": 29,
+      "id": 74
+    },
+    {
+      "time": "9:27 AM",
+      "date": "2/26/2019",
+      "userID": 3,
+      "cohortID": 29,
+      "id": 75
+    },
+    {
+      "time": "11:40 AM",
+      "date": "2/27/2019",
+      "userID": 3,
+      "cohortID": 29,
+      "id": 76
+    },
+    {
+      "time": "2:25 PM",
+      "date": "3/5/2019",
+      "userID": 3,
+      "cohortID": 29,
+      "id": 77
+    },
+    {
+      "time": "4:25 PM",
+      "date": "3/5/2019",
+      "userID": 3,
+      "cohortID": 29,
+      "id": 78
     }
-
   ]
 }
