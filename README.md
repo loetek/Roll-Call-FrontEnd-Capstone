@@ -62,7 +62,7 @@ For possible usage and future deployment contact jdwheeler0@gmail.com.
 
 ## Authors
 
-* **Justin Wheeler** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+* **Justin Wheeler** - 
 
 
 ## Acknowledgments
@@ -71,8 +71,3 @@ For possible usage and future deployment contact jdwheeler0@gmail.com.
 * Leah Hoefling
 * Emily Lemmon
 * Cohort 29
-
-
-
-
-
