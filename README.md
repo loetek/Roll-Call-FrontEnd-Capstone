@@ -15,37 +15,30 @@ MVP achieved on 8th. Final MVP Approval Feb 11th.
 
 I wrote this app because in my life I have been in both situations. As a student I hated to ask for the daily agenda or to ask the instructor to repeat themselves. And as a manager/instructor I found that there is an incredible amount of time wasted on reptetive tasks like these.
 
-
-## Getting Started
-
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
-
-### Prerequisites
-
-What things you need to install the software and how to install them
-
-```
-Give examples
-```
-
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running
+1. Clone repository
+2. Cd src
+3. Npm install
+4. From root directory cd public
+5. Run json server on port 5002
+6. Open localhost: 3000 in the browser of your choice
+7. Feel free to register for an account and test as a student. See additional instructions for testing as instructor.
 
-Say what the step will be
+### Testing
 
-```
-Give the example
-```
+Since the purpose of the app is for instructors and students design decsisions were made to keep those users serperated. Thus it being a two sided application. So on the registration page you will not be able to login as an instructor. In roder to test instructor side of application feel free to use the creditionals below. 
 
-And repeat
+#### Instructor
+Username: moss@me.com
+Password: pass
 
-```
-until finished
-```
+#### Student
+In case of errors with registration try login.
+Username: jd@me.com
+Password: pass
 
-End with an example of getting some data out of the system or using it for a little demo
-
+If you come across any testing problems feel free to reach out anytime to jdwheeler0@gmail.com.
 
 ## Deployment
 
