@@ -3,7 +3,7 @@
 
 # Project Title
 
-Roll Call
+### Roll Call
 
 ## General Information
 
@@ -15,7 +15,7 @@ MVP achieved on 8th. Final MVP Approval Feb 11th.
 
 I wrote this app because in my life I have been in both situations. As a student I hated to ask for the daily agenda or to ask the instructor to repeat themselves. And as a manager/instructor I found that there is an incredible amount of time wasted on reptetive tasks like these.
 
-### Installing
+## Installing
 
 1. Clone repository
 2. Cd src
