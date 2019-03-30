@@ -9,8 +9,7 @@ import {
   Input,
 } from 'reactstrap';
 import "./Login.css"
-import hall from "../assets/hall.jpg"
-import wood from "../assets/wood.jpg"
+
 
 export default class Login extends Component {
 

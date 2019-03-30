@@ -40,7 +40,7 @@ body{
 
 .cohortSelectorInst{
 
-	margin-top: 25px;
+  margin-top: 25px;
 	background-color: transparent;
 }
 
@@ -108,7 +108,7 @@ body{
 	-webkit-animation: focus-in-expand 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 					animation: focus-in-expand 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
           font-size: 3.75em;
-          color:grey;
+          color: black;
           display: flex;
           justify-content: center;
 }
@@ -225,7 +225,8 @@ justify-content: center;
   /* border-style: solid;
   border-width: medium;
   border-color: red; */
-  color: black;
+  color: whitesmoke;
+  font-weight: bolder;
   display: flex;
   flex-direction: column;
   z-index: 6001;

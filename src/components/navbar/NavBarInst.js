@@ -53,7 +53,7 @@ render(){
       <React.Fragment>
         <div className="navBarContainer">
           <Navbar  id="navBarActual" style={{backgroundColor: "#44ccc7"}} light>
-            <NavbarBrand href="/" className="mr-auto">Adios!</NavbarBrand>
+            <NavbarBrand href="/" className="mr-auto">Logout</NavbarBrand>
             <NavbarBrand href="/LPInst" className="mr-auto"> Home </NavbarBrand>
             <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
             <Collapse isOpen={!this.state.collapsed} navbar>
@@ -64,9 +64,9 @@ render(){
                 <NavItem>
                 <NavLink href="/dashboardListInst">Instructor Dashboard</NavLink>
                 </NavItem>
-                <NavItem>
+                {/* <NavItem>
                 <NavLink href="/profiles">Profiles</NavLink>
-                </NavItem>
+                </NavItem> */}
 
 {/* // oAuth  */}
 

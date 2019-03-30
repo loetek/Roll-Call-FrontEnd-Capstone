@@ -183,3 +183,26 @@ header * {
     flex-direction: column;
 
 }
+
+
+
+
+
+/* REGISTRATION PAGE */
+
+#regHeader{
+
+    margin-top: 100px;
+    margin-left: 30%;
+
+}
+
+.regFormContainer{
+
+    margin-left: 10%;
+}
+
+.regButtons{
+
+    margin-left: 20%;
+}

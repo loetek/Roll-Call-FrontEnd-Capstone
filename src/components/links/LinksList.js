@@ -2,6 +2,7 @@
 import React, { Component } from "react";
 import LinksCard from "./LinksCard"
 import NavBarStu from "../navbar/NavBarStu"
+import './Links.css'
 
 export default class LinksList extends Component {
   render() {

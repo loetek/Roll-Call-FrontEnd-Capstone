@@ -30,6 +30,9 @@ export default class ProfileCard extends Component {
     {   //get the total number of students, checkins, tempchecks, agenda items for a each cohort.
         let attendTimes = [];
         let totAttend = [];
+        let toAttend2 = this.props.attendance.filter(attend => attend.cohortID === this.props.cohort.cohortID)
+
+        // .length;
 
         let totTemp = [];
         let tempCks =[];
@@ -41,18 +44,20 @@ export default class ProfileCard extends Component {
         let stuName = [];
 
 
-    fetch(`http://localhost:5002/attendance?cohortID=31`,{
+    fetch(`http://localhost:5002/attendance?cohortID=${this.props.cohort.cohortID}`,{
     method: "GET"
     })
     .then(e => e.json())
     .then (attends => {
         attends.forEach(attend =>{
             attendTimes.push(attend.time)
-            totAttend = attendTimes.length;
+            totAttend = attendTimes.length +1;
         })
-        console.log("totalA", totAttend);
-        console.log("attends", attendTimes);
+        console.log("totalA - Fetch", totAttend);
+        console.log("attends - Fetch", attendTimes);
     })
+
+    console.log("totalA - Not Fetch", toAttend2)
     fetch(`http://localhost:5002/tempChecks?cohortID=31`,{
     method: "GET"
     })
@@ -123,6 +128,24 @@ export default class ProfileCard extends Component {
 
     }
 
+    // getInstructor = () =>
+    // {
+    //   fetch(`http://localhost:5002/users?cohortID=31`,{
+    //     method: "GET"
+    //     })
+    //     .then(e => e.json())
+    //     .then (agendas => {
+    //         agendas.forEach(agenda =>{
+    //             agendaDiff.push(agenda.difficulty)
+    //             totAgenda = agendaDiff.length;
+    //         })
+    //         // console.log("totalAgenda", totAgenda);
+    //         // console.log("diff", agendaDiff);
+    //     })
+
+
+    // }
+
 
 
     componentDidMount()
@@ -143,13 +166,13 @@ export default class ProfileCard extends Component {
     <React.Fragment>
 
     <div>
-      <Card key={this.props.cohort.id} className="">
-        {/* <CardImg top width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180" alt="Card image cap" /> */}
+      <Card key={this.props.cohort.id} id={this.props.cohort.cohortID} className="">
+
         <CardBody className="profileCardBody" >
           <CardTitle>Cohort {this.props.cohort.cohortID} </CardTitle>
           <CardSubtitle> {this.props.cohort.description} </CardSubtitle>
           <CardText>Instructor: </CardText>
-          <CardText>: </CardText>
+          <CardText>Attendance: {} </CardText>
         </CardBody>
       </Card>
     </div>
