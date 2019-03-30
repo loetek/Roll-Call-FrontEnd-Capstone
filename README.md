@@ -27,7 +27,7 @@ I wrote this app because in my life I have been in both situations. As a student
 
 ### Testing
 
-Since the purpose of the app is for instructors and students design decsisions were made to keep those users serperated. Thus it being a two sided application. So on the registration page you will not be able to login as an instructor. In roder to test instructor side of application feel free to use the creditionals below. 
+Since the purpose of the app is for instructors and students design decisions were made to keep those users separated. Thus it is a two-sided application. So on the registration page, you will not be able to log in as an instructor. In order to test the instructor side of the application feel free to use the credentials below.
 
 #### Instructor
 Username: moss@me.com
