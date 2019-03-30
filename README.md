@@ -53,12 +53,12 @@ For possible usage and future deployment contact jdwheeler0@gmail.com.
 
 ## Built With
 
-* [React.js] - The JS Library used.
-* [jQuery] - For some additional jQuery flexibility.
+* React.js - The JS Library used.
+* jQuery - For some additional jQuery flexibility.
 * [ReactStrap](https://reactstrap.github.io/) - Styling
 * [NPM](https://www.npmjs.com/) - Used for loading dependencies and some additional tools.
-* [Chart.js] (https://www.chartjs.org/) - Used for all charts used in the dashboards.
-* [Moment.js] (http://momentjs.com/) - Used for all time related formatting.
+* [Chart.js](https://www.chartjs.org/) - Used for all charts used in the dashboards.
+* [Moment.js](http://momentjs.com/) - Used for all time related formatting.
 
 ## Authors
 
