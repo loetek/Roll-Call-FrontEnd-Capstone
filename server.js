@@ -1,4 +1,4 @@
-const dbPath = './API/datatbase.json';
+const dbPath = './API/Datatbase.json';
 const dbRoutes = Object.keys(require(dbPath)).map(r => '/' + r);
 const jsonServer = require('json-server');
 const server = jsonServer.create();
