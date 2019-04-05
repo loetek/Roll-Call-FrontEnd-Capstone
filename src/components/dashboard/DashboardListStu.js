@@ -1,9 +1,11 @@
 import React, { Component } from "react"
-import {Doughnut, Bar, Line, HorizontalBar, Radar, Pie, Scatter, Polar, Bubble} from 'react-chartjs-2';
+import {Bar, Line} from 'react-chartjs-2';
 import NavBarStu from "../navbar/NavBarStu";
 import moment from 'moment'
 
-
+let remoteURL =  process.env.NODE_ENV === 'production'
+? ""
+: "http://localhost:5002/";
 
 export default class DashboardListStu extends Component {
     state = {
@@ -58,7 +60,7 @@ export default class DashboardListStu extends Component {
  attendanceSetter = (id) =>{
             let stuTime = [];
             let stuDate = [];
-            return fetch(`http://localhost:5002/attendance/?userID=${id}`, {
+            return fetch(`${remoteURL}/attendance/?userID=${id}`, {
                 method: "GET"
             })
             .then(e => e.json())
@@ -114,7 +116,7 @@ export default class DashboardListStu extends Component {
          feelsSetter = (id) =>{
             let stuFeels = [];
             let stuDate = [];
-            return fetch(`http://localhost:5002/tempChecks?userID=${id}`, {
+            return fetch(`${remoteURL}/tempChecks?userID=${id}`, {
                 method: "GET"
             })
             .then(e => e.json())

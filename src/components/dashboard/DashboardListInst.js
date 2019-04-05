@@ -4,7 +4,9 @@ import NavBarInst from "../navbar/NavBarInst";
 import moment from 'moment'
 
 
-
+let remoteURL =  process.env.NODE_ENV === 'production'
+? ""
+: "http://localhost:5002/";
 
 export default class DashboardListInst extends Component {
     state = {
@@ -90,7 +92,7 @@ setChoice () {
 getUserAttendance = () => {
     let attendanceUserArr = [];
     let attendanceUserDateArr = [];
-    return fetch(`http://localhost:5002/attendance?userID=${this.state.attendanceUserChoice}`,{
+    return fetch(`${remoteURL}/attendance?userID=${this.state.attendanceUserChoice}`,{
         method: "GET"
     })
     .then(e => e.json())
@@ -145,7 +147,7 @@ getUserAttendance = () => {
 getCohortAttendance = () => {
     let attendanceCohortArr = [];
     let attendanceCohortDateArr = [];
-    return fetch(`http://localhost:5002/attendance?cohortID=${this.state.attendanceCohortChoice}`,{
+    return fetch(`${remoteURL}/attendance?cohortID=${this.state.attendanceCohortChoice}`,{
         method: "GET"
     })
     .then(e => e.json())
@@ -200,7 +202,7 @@ getUserFeels = () => {
     let feelsUserArr = [];
     let feelsUserDateArr = [];
     console.log(this.state.feelsUserChoice)
-    fetch(`http://localhost:5002/tempChecks?userID=${this.state.feelsUserChoice}`,{
+    fetch(`${remoteURL}/tempChecks?userID=${this.state.feelsUserChoice}`,{
         method: "GET"
     })
     .then(e => e.json())
@@ -264,7 +266,7 @@ getUserFeels = () => {
 getCohortFeels = () => {
     let feelsCohortArr = [];
     let feelsCohortDateArr = [];
-    return fetch(`http://localhost:5002/tempChecks?cohortID=${this.state.feelsCohortChoice}`,{
+    return fetch(`${remoteURL}/tempChecks?cohortID=${this.state.feelsCohortChoice}`,{
         method: "GET"
     })
     .then(e => e.json())
@@ -327,7 +329,7 @@ getCohortFeels = () => {
  attendanceSetter = () =>{
     let stuTime = [];
     let stuDate = [];
-    return fetch(`http://localhost:5002/attendance`, {
+    return fetch(`${remoteURL}/attendance`, {
         method: "GET"
     })
     .then(e => e.json())
@@ -383,7 +385,7 @@ console.log("date", stuDate)
 feelsSetter = () =>{
     let stuFeels = [];
     let stuDate = [];
-    return fetch(`http://localhost:5002/tempChecks`, {
+    return fetch(`${remoteURL}/tempChecks`, {
         method: "GET"
     })
     .then(e => e.json())
