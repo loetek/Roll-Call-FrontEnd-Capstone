@@ -162,7 +162,7 @@ componentDidMount() {
           <CardText> Date: {this.props.agenda.date}</CardText>
 
           <Button id={this.props.agenda.id} style={{backgroundColor: "#c44449"}} onClick={this.deleteUpdate}>Delete</Button>
-          {/* <Link className="nav-link" to={`/agendas/${this.props.agenda.id}/edit`}>Edit</Link> */}
+
           <Button id={this.props.agenda.id} style={{backgroundColor: "#44ccc7"}} onClick={this.toggle}> Edit</Button>{''}
         </CardBody>
       </Card>

@@ -20,6 +20,10 @@ import AttendanceManager from "../modules/AttendanceManager"
 import 'moment-timezone';
 import Callback from "../Callback"
 
+let remoteURL =  process.env.NODE_ENV === 'production'
+? ""
+: "http://localhost:5002/";
+
 
 export default class AppViews extends Component {
     isAuthenticated = () => sessionStorage.getItem("user") !== null
@@ -33,6 +37,10 @@ export default class AppViews extends Component {
         userId: sessionStorage.getItem("user")
 
     }
+
+
+
+
     //!! ADD method area !!//
     addUser = newUser =>
     LoginManager.post(newUser)
@@ -74,11 +82,11 @@ export default class AppViews extends Component {
 
            //!! DELETE method area !!//
     deleteAgenda = id => {
-        return fetch(`http://localhost:5002/agendas/${id}`, {
+        return fetch(`${remoteURL}/agendas/${id}`, {
           method: "DELETE"
         })
           .then(response => response.json())
-          .then(() => fetch(`http://localhost:5002/agendas`))
+          .then(() => fetch(`${remoteURL}/agendas`))
           .then(response => response.json())
           .then(agendas =>
             this.setState({
@@ -91,7 +99,7 @@ export default class AppViews extends Component {
 
           //!! SORT method area !!//
     sortLinks = () => {
-      return fetch(`http://localhost:5002/links?_sort=dateAdded&_order=desc`, {
+      return fetch(`${remoteURL}/links?_sort=dateAdded&_order=desc`, {
         method: "GET"
       })
       .then(response => response.json())
@@ -103,7 +111,7 @@ export default class AppViews extends Component {
       };
 
     sortAgendas = () => {
-      return fetch(`http://localhost:5002/agendas?_sort=date&_order=desc`, {
+      return fetch(`h${remoteURL}/agendas?_sort=date&_order=desc`, {
         method: "GET"
       })
       .then(response => response.json())
@@ -115,7 +123,7 @@ export default class AppViews extends Component {
       };
 
     sortAttendance = () => {
-      return fetch(`http://localhost:5002/attendance?_sort=date&_order=desc`, {
+      return fetch(`${remoteURL}/attendance?_sort=date&_order=desc`, {
         method: "GET"
       })
       .then(response => response.json())
@@ -127,7 +135,7 @@ export default class AppViews extends Component {
       };
 
       sortTempChecks = () => {
-        return fetch(`http://localhost:5002/tempChecks?_sort=date&_order=desc`, {
+        return fetch(`${remoteURL}/tempChecks?_sort=date&_order=desc`, {
           method: "GET"
         })
         .then(response => response.json())
