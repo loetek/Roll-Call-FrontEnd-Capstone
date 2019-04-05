@@ -1,4 +1,6 @@
-const remoteURL = "http://localhost:5002";
+const remoteURL =  process.env.NODE_ENV === 'production'
+? ""
+: "http://localhost:5002/";
 
 export default {
   get(id,category) {

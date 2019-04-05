@@ -161,6 +161,15 @@
       "status": false,
       "cohortID": 30,
       "id": 70
+    },
+    {
+      "firstName": "Dejan",
+      "lastName": "Dejan",
+      "userName": "dejan@me.com",
+      "password": "pass",
+      "status": false,
+      "cohortID": 28,
+      "id": 71
     }
   ],
   "agendas": [
@@ -258,18 +267,6 @@
       "cohortID": 31,
       "currentCohortID": 31,
       "id": 11
-    },
-    {
-      "topic": "NOT HERE YET!",
-      "difficulty": "2",
-      "exercise": "Coming Soon",
-      "chapter": "4",
-      "date": "2019-02-26",
-      "announcements": "NADA",
-      "QR": [],
-      "cohortID": 32,
-      "currentCohortID": 32,
-      "id": 12
     },
     {
       "topic": "C# Magic",
@@ -840,6 +837,22 @@
       "userID": 3,
       "cohortID": 29,
       "id": 66
+    },
+    {
+      "time": "5:27:43 PM",
+      "date": "4/1/2019",
+      "feels": 5,
+      "userID": 3,
+      "cohortID": 29,
+      "id": 67
+    },
+    {
+      "time": "5:34:36 PM",
+      "date": "4/1/2019",
+      "feels": 9,
+      "userID": 71,
+      "cohortID": 28,
+      "id": 68
     }
   ],
   "attendance": [
@@ -1122,6 +1135,27 @@
       "userID": 3,
       "cohortID": 29,
       "id": 78
+    },
+    {
+      "time": "5:27 PM",
+      "date": "4/1/2019",
+      "userID": 3,
+      "cohortID": 29,
+      "id": 79
+    },
+    {
+      "time": "5:34 PM",
+      "date": "4/1/2019",
+      "userID": 71,
+      "cohortID": 28,
+      "id": 80
+    },
+    {
+      "time": "5:34 PM",
+      "date": "4/1/2019",
+      "userID": 71,
+      "cohortID": 28,
+      "id": 81
     }
   ]
 }
