@@ -4,9 +4,6 @@
     -webkit-animation: scale-up-ver-bottom 0.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) 0.3s both;
           animation: scale-up-ver-bottom 0.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) 0.3s both;
 
-          /* border-style: solid;
-  border-width: medium;
-  border-color: yellow; */
   margin:0;
   padding:0;
 
@@ -88,19 +85,6 @@
     border-radius: 10px;
 }
 
-/* .LandingPageContainer{
-
-    display: flex;
-}
-#agendaCard{
-    flex: 1;
-}
-#tempCheckCard{
-    flex: 1;
-}
-#attendanceCard{
-    flex: 1;
-} */
 
 .agendas{
   /* border-style: solid;
