@@ -10,7 +10,9 @@ import {
   } from 'reactstrap';
   import "./LandingPage.css"
 
-
+  let remoteURL =  process.env.NODE_ENV === 'production'
+? ""
+: "http://localhost:5002/";
 
 export default class LandingPageStu extends Component {
 
@@ -41,7 +43,7 @@ export default class LandingPageStu extends Component {
    }
 // called the sortAgendas method in here due to async problems. it is also called in appviews.
    sortAgendas = () => {
-    return fetch(`http://localhost:5002/agendas?_sort=date&_order=desc&cohortID=${sessionStorage.getItem("cohort")}`, {
+    return fetch(`${remoteURL}/agendas?_sort=date&_order=desc&cohortID=${sessionStorage.getItem("cohort")}`, {
       method: "GET"
     })
       .then(e => e.json())

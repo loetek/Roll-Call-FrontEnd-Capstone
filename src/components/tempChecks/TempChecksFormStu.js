@@ -38,7 +38,7 @@ export default class TempChecksFormStu extends React.Component {
     }
     console.log(tempCheck)
     this.props.addTempChecks(tempCheck)
-    alert("Congatulations you are very self aware!!")
+    alert("Congratulations you are very self aware!!")
 
 
       }
@@ -62,7 +62,7 @@ export default class TempChecksFormStu extends React.Component {
           <DropdownItem onClick={this.handleFieldChange} value="1">1 - I am feeling very very poor.</DropdownItem>
           <DropdownItem onClick={this.handleFieldChange} value="2">2 - Maybe not the worst.</DropdownItem>
           <DropdownItem onClick={this.handleFieldChange} value="3">3 - There are a couple things going right.</DropdownItem>
-          <DropdownItem onClick={this.handleFieldChange} value="4">4 - But everthing is still so hard.</DropdownItem>
+          <DropdownItem onClick={this.handleFieldChange} value="4">4 - But everything is still so hard.</DropdownItem>
           <DropdownItem onClick={this.handleFieldChange} value="5">5 - I am feeling neutral not that good or bad.</DropdownItem>
           <DropdownItem onClick={this.handleFieldChange} value="6">6 - Maybe it's not so bad.</DropdownItem>
           <DropdownItem onClick={this.handleFieldChange} value="7">7 - I think I may be getting this.</DropdownItem>

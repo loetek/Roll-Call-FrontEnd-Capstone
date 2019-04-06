@@ -3,6 +3,9 @@ import { Card, CardImg, CardText, CardBody,
     CardTitle, CardSubtitle } from 'reactstrap';
 
 
+let remoteURL =  process.env.NODE_ENV === 'production'
+? ""
+: "http://localhost:5002/";
 
 
 export default class ProfileCard extends Component {
@@ -44,7 +47,7 @@ export default class ProfileCard extends Component {
         let stuName = [];
 
 
-    fetch(`http://localhost:5002/attendance?cohortID=${this.props.cohort.cohortID}`,{
+    fetch(`${remoteURL}/attendance?cohortID=${this.props.cohort.cohortID}`,{
     method: "GET"
     })
     .then(e => e.json())
@@ -58,7 +61,7 @@ export default class ProfileCard extends Component {
     })
 
     console.log("totalA - Not Fetch", toAttend2)
-    fetch(`http://localhost:5002/tempChecks?cohortID=31`,{
+    fetch(`${remoteURL}/tempChecks?cohortID=31`,{
     method: "GET"
     })
     .then(e => e.json())
@@ -70,7 +73,7 @@ export default class ProfileCard extends Component {
         // console.log("totalT", totTemp);
         // console.log("tChks", tempCks);
     })
-    fetch(`http://localhost:5002/agendas?cohortID=31`,{
+    fetch(`${remoteURL}/agendas?cohortID=31`,{
     method: "GET"
     })
     .then(e => e.json())
@@ -82,7 +85,7 @@ export default class ProfileCard extends Component {
         // console.log("totalAgenda", totAgenda);
         // console.log("diff", agendaDiff);
     })
-    fetch(`http://localhost:5002/users?cohortID=28&status=false`,{
+    fetch(`${remoteURL}/users?cohortID=28&status=false`,{
     method: "GET"
     })
     .then(e => e.json())

@@ -17,6 +17,10 @@ import {
 } from 'reactstrap';
 import "./LandingPage.css"
 
+let remoteURL =  process.env.NODE_ENV === 'production'
+? ""
+: "http://localhost:5002/";
+
 
 export default class LandingPageInst extends Component {
 
@@ -80,7 +84,7 @@ constructNewAgenda = e => {
   }
 
   filterCohorts = () => {
-    return fetch(`http://localhost:5002/agendas?cohortID=${this.state.currentCohortID}`, {
+    return fetch(`${remoteURL}/agendas?cohortID=${this.state.currentCohortID}`, {
     method: "GET"
 })
   .then(response => response.json())
