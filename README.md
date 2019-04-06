@@ -15,9 +15,6 @@ MVP achieved on 8th. Final MVP Approval Feb 11th.
 
 I wrote this app because in my life I have been in both situations. As a student I hated to ask for the daily agenda or to ask the instructor to repeat themselves. And as a manager/instructor I found that there is an incredible amount of time wasted on reptetive tasks like these.
 
-## Hosted 
-
-App is currently live at https://rollcall-19.herokuapp.com/ feel free to test using the login instructions below. Any feedback will be greatly appreciated for V2.0 please email me at jdwheeler0@gmail.com.
 
 ## Installing
 
@@ -46,7 +43,18 @@ If you come across any testing problems feel free to reach out anytime to jdwhee
 
 ## Deployment
 
-For possible usage and future deployment contact jdwheeler0@gmail.com.
+App is currently live at https://rollcall-19.herokuapp.com/ feel free to test using the login instructions below. Any feedback will be greatly appreciated for V2.0 please email me at jdwheeler0@gmail.com.
+
+## Updates
+ April 5th, 2019 - App has been deployed on Heroku and beggining to work on new feature schedule.  
+ 
+ 
+ ### New Features
+ 
+ * Planning to add a section that brings the data collected togehter into a larger overview. 
+ * Suggestion to add profile section where photos and profile data can be edited.
+ * Implement Auth 0.
+ * 
 
 ## Built With
 
