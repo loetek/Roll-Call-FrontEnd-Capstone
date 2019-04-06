@@ -96,7 +96,7 @@ export default class Registration extends Component {
                                className="form-control"
                                onChange={this.handleFieldChange}
                                id="firstName"
-                               placeholder="Please Enter your 1st Name" />
+                               placeholder="Please Enter your First Name" />
                     </div>
                     <div className="form-group-reg">
                         <label htmlFor="lastName">Last Name: </label>
@@ -123,6 +123,8 @@ export default class Registration extends Component {
                                placeholder="Password" />
                     </div>
                     </div>
+
+                {/* This section is for the registering as a student or teacher. Removed for design security. */}
                     {/* <div>
                     <Dropdown isOpen={this.state.statusDropdownOpen} toggle={this.statusToggle}>
                         <DropdownToggle caret>
@@ -135,6 +137,7 @@ export default class Registration extends Component {
                         </DropdownMenu>
                     </Dropdown>
                     </div> */}
+
                     <br/>
                     <br/>
                     <div className="regButtons">
@@ -152,10 +155,8 @@ export default class Registration extends Component {
                         <DropdownItem id="cohortID" onClick={this.handleFieldChange} value="32">32</DropdownItem>
                         </DropdownMenu>
                     </Dropdown>
-
                     <br/>
                     <br/>
-
                     <button type="submit" onClick={this.constructNewUser} className="">Submit</button>
                     </div>
                     </div>

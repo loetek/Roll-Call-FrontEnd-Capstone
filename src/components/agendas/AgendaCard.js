@@ -72,8 +72,7 @@ createEditObject = evt => {
       "cohortID": this.state.cohortID,
 
     }
-    // console.log("stat", this.state)
-    // console.log("props", this.props)
+
     this.props.updateAgenda(this.props.agenda.id, editedAgenda)
     this.setState(prevState => ({
       modal: !prevState.modal,
@@ -239,15 +238,15 @@ componentDidMount() {
           </div>
           </form>
               <br />
-              <Button color="success" onClick={this.toggleNested}>Create QR Code</Button>
+              {/* <Button color="success" onClick={this.toggleNested}>Create QR Code</Button>
               <Modal isOpen={this.state.nestedModal} toggle={this.toggleNested} onClosed={this.state.closeAll ? this.toggle : undefined}>
                 <ModalHeader>QR CODE Title with Date</ModalHeader>
-                <ModalBody>Fuck</ModalBody>
+                <ModalBody>Test</ModalBody>
                 <ModalFooter>
                   <Button color="primary" onClick={this.toggleNested}>SAVE QR</Button>{' '}
                   <Button color="secondary" onClick={this.toggleAll}>DELETE</Button>
                 </ModalFooter>
-              </Modal>
+              </Modal> */}
             </ModalBody>
             <Button type="submit" onClick={this.createEditObject} className="btn btn-primary">Submit</Button>{' '}
           <Button color="secondary" onClick={this.toggle}>Cancel</Button>
