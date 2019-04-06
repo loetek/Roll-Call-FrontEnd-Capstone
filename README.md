@@ -15,6 +15,10 @@ MVP achieved on 8th. Final MVP Approval Feb 11th.
 
 I wrote this app because in my life I have been in both situations. As a student I hated to ask for the daily agenda or to ask the instructor to repeat themselves. And as a manager/instructor I found that there is an incredible amount of time wasted on reptetive tasks like these.
 
+## Hosted 
+
+App is currently live at https://rollcall-19.herokuapp.com/ feel free to test using the login instructions below. Any feedback will be greatly appreciated for V2.0 please email me at jdwheeler0@gmail.com.
+
 ## Installing
 
 1. Clone repository
