@@ -14,7 +14,7 @@
     "react-calendar": "^2.18.1",
     "react-chartjs-2": "^2.7.4",
     "react-moment": "^0.8.4",
-    "react-router-dom": "^4.3.1",
+    "react-router-dom": "^7.5.2",
     "react-tiny-fab": "^2.0.0",
     "reactstrap": "^7.1.0",
      "react": "^16.8.3",
